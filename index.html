@@ -699,15 +699,15 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
         <tr><td>drwxr-xr-x</td><td class="f dir">sciagawki/</td><td>jedna strona na narzędzie</td></tr>
         <tr><td>drwxr-xr-x</td><td class="f dir">prompty/</td><td>gotowe prompty do skopiowania</td></tr>
                 <tr><td>-rw-r--r--</td><td class="f">ai-act-zasady-dla-zespolu.pdf</td><td class="soon">wkrótce</td></tr>
-        <tr><td>-rw-r--r--</td><td class="f">sciagawka-copilot-m365.pdf</td><td>do pobrania poniżej</td></tr>
+        <tr><td>-rw-r--r--</td><td class="f">sciagawka-copilot-m365.pdf</td><td>28 promptów · do pobrania poniżej</td></tr>
         <tr><td>drwx------</td><td class="f dir">nagrania/</td><td>dostęp dla uczestników</td></tr>
       </table>
     </div>
     <div class="lead-box">
       <div>
         <span class="tag">za darmo</span>
-        <h3>Ściągawka: 20 promptów do Copilota w Microsoft 365</h3>
-        <p>Outlook, Teams, Word, Excel i PowerPoint. Dwie strony A4 do wydrukowania i powieszenia przy biurku.</p>
+        <h3>Ściągawka: 28 promptów do Copilota w Microsoft 365</h3>
+        <p>9 stron A4: gotowe prompty do Outlooka, Teams, Worda, Excela i PowerPointa, wzór na dobry prompt, prompty naprawcze i checklista przed wysłaniem.</p>
       </div>
       <form id="lm-form" novalidate>
         <label for="lm-mail">twój e-mail</label>
@@ -838,7 +838,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
     if(mail.indexOf('@') < 1){ lmNote.textContent = 'Podaj poprawny adres e-mail.'; return; }
     if(!document.getElementById('lm-ok').checked){ lmNote.textContent = 'Zaznacz zgodę, żebym mógł wysłać materiał.'; return; }
     var link = function(){ lmNote.innerHTML = 'Gotowe. <a href="' + PDF_URL + '">Pobierz ściągawkę (PDF)</a>'; };
-    send({subject:'Ściągawka Copilot M365: nowy zapis', email:mail}, link, link);
+    send({subject:'Biblioteka 28 promptów: nowy zapis', email:mail}, link, link);
   });
 })();
 </script>
