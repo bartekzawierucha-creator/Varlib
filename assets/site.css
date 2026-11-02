@@ -609,3 +609,58 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px}
 /* v22: portret z wyciętym tłem */
 .portrait{-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);filter:drop-shadow(0 0 32px rgba(0,229,255,.12))}
 @media (max-width:520px){.portrait{background:var(--panel);-webkit-mask-image:none;mask-image:none;filter:none}}
+
+/* ---- v24: biblioteka uczestnika ---- */
+.gate{display:flex;flex-direction:column;gap:10px;width:min(520px,100%);margin-top:8px}
+.gate[hidden]{display:none}
+.gate label{font-family:var(--mono);font-size:14px;color:var(--mist)}
+.gate-row{display:flex;gap:10px}
+.gate input{flex:1;min-width:0;min-height:48px;padding:0 16px;font:inherit;font-size:17px;color:var(--paper);background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.gate input:focus{outline:2px solid var(--cyan);outline-offset:1px}
+.gate-msg{min-height:1.4em;font-size:15px;color:var(--amber)}
+.lib-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.lib-nav a{font-family:var(--mono);font-size:14px;color:var(--mist);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.lib-nav a:hover{color:var(--paper);border-color:var(--cyan)}
+.lib-sec{padding:40px 0;border-top:1px solid var(--line)}
+.lib-sec h2{margin-bottom:20px}
+.lib-lead{color:var(--mist);max-width:62ch;margin:0 0 20px}
+.lib-dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.dl{display:flex;flex-direction:column;gap:6px;text-align:left;font:inherit;color:var(--paper);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;text-decoration:none;cursor:pointer}
+.dl:hover{border-color:var(--cyan)}
+.dl .ext{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cyan)}
+.dl b{font-size:18px}
+.dl i{font-style:normal;color:var(--mist);font-size:15px}
+.lib-prompts{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+.pc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pc-h{display:flex;align-items:center;gap:12px}
+.pc-h .no{font-family:var(--mono);color:var(--cyan);font-size:14px}
+.pc-h h3{font-size:19px;flex:1}
+.cp{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--void);background:var(--cyan);border:0;border-radius:6px;padding:0 14px;min-height:40px;cursor:pointer;white-space:nowrap}
+.pc-d{color:var(--mist);font-size:15px}
+.pc pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:14px;line-height:1.6;color:var(--paper);background:var(--void);border:1px solid var(--line);border-radius:8px;padding:14px}
+.wk{list-style:none;margin:0;padding:0;max-width:760px}
+.wk li{border-top:1px solid var(--line)}
+.wk label{display:grid;grid-template-columns:28px 90px 1fr;gap:12px;align-items:baseline;padding:16px 0;cursor:pointer}
+.wk input{width:20px;height:20px;accent-color:var(--cyan);transform:translateY(3px)}
+.wk .d{font-family:var(--mono);font-size:14px;color:var(--cyan)}
+.wk input:checked ~ .t{color:var(--mist);text-decoration:line-through}
+.sf{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.sfc{border:1px solid var(--line);border-top:4px solid;border-radius:12px;padding:20px}
+.sfc h3{font-family:var(--mono);font-size:18px;margin-bottom:10px}
+.sfc ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.sfc.ok{border-top-color:var(--cyan)}.sfc.ok h3{color:var(--cyan)}
+.sfc.mid{border-top-color:var(--amber)}.sfc.mid h3{color:var(--amber)}
+.sfc.no{border-top-color:#FF6B6B}.sfc.no h3{color:#FF6B6B}
+.lib-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tl{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:12px;padding:20px;color:var(--paper);text-decoration:none}
+a.tl:hover{border-color:var(--cyan)}
+.tl i{font-style:normal;color:var(--mist);font-size:15px}
+.lib-q p{color:var(--mist);margin-bottom:20px}
+@media (max-width:760px){
+  .lib-prompts{grid-template-columns:1fr}
+  .sf,.lib-tools{grid-template-columns:1fr}
+  .wk label{grid-template-columns:28px 1fr}.wk .t{grid-column:2}
+  .gate-row{flex-direction:column}
+}
+[hidden]{display:none!important}
+.wk label,.wk .t{font-family:var(--sans)}
