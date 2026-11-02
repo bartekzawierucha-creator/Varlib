@@ -605,3 +605,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px}
   .term{left:-14%;bottom:-12%;width:min(320px,74%);font-size:12px;line-height:1.6}
   .term .body{min-height:112px;padding:12px 14px}
 }
+.fit{grid-template-columns:1fr}
+/* v22: portret z wyciętym tłem */
+.portrait{-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);filter:drop-shadow(0 0 32px rgba(0,229,255,.12))}
+@media (max-width:520px){.portrait{background:var(--panel);-webkit-mask-image:none;mask-image:none;filter:none}}
