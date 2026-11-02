@@ -553,7 +553,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
         <span class="tag">warsztat · 3–4 h</span>
         <h3>Na dobry start</h3>
         <p class="amount">od 2 400 zł<small>brutto za grupę · online lub u Was</small></p>
-        <ul><li>jeden temat, np. prompty albo AI Act</li><li>do 12 osób (online do 30)</li><li>ściągawka PDF dla uczestników</li></ul>
+        <ul><li>jeden temat, np. prompty albo AI Act</li><li>do 12 osób (online do 30)</li><li>biblioteka 28 promptów (PDF) dla uczestników</li></ul>
         <a class="btn btn-ghost" href="#kontakt">Zapytaj o termin</a>
       </div>
       <div class="tier hl">
@@ -699,7 +699,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
         <tr><td>drwxr-xr-x</td><td class="f dir">sciagawki/</td><td>jedna strona na narzędzie</td></tr>
         <tr><td>drwxr-xr-x</td><td class="f dir">prompty/</td><td>gotowe prompty do skopiowania</td></tr>
                 <tr><td>-rw-r--r--</td><td class="f">ai-act-zasady-dla-zespolu.pdf</td><td class="soon">wkrótce</td></tr>
-        <tr><td>-rw-r--r--</td><td class="f">sciagawka-copilot-m365.pdf</td><td>28 promptów · do pobrania poniżej</td></tr>
+        <tr><td>-rw-r--r--</td><td class="f"><a href="#lm-form">sciagawka-copilot-m365.pdf</a></td><td>28 promptów · do pobrania poniżej</td></tr>
         <tr><td>drwx------</td><td class="f dir">nagrania/</td><td>dostęp dla uczestników</td></tr>
       </table>
     </div>
@@ -804,7 +804,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
   /* KONFIGURACJA: uzupełnij przed publikacją */
   var EMAIL = 'bartekzawierucha@gmail.com';
   var WEB3FORMS_KEY = 'f45a3dce-6672-4992-bc56-ac978ea58abd';            /* klucz z web3forms.com; puste = otwiera program pocztowy */
-  var PDF_URL = 'sciagawka-copilot-m365.pdf';
+  var PDF_URL = 'sciagawka-copilot-m365.pdf?v=28';
 
   function send(data, onOk, onFail){
     if(!WEB3FORMS_KEY){ onFail(); return; }
