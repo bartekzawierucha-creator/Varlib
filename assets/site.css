@@ -582,3 +582,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px}
   .course.feat.half ul{columns:1}
   .course.feat.half h3{font-size:32px}
 }
+.basic-b{background:var(--amber);color:var(--void)}
+.course.basic{background:linear-gradient(180deg,rgba(255,181,71,.05),transparent 60%),var(--void)}
+.course.basic .chip.price{border-color:var(--amber);color:var(--amber)}
