@@ -585,3 +585,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px}
 .basic-b{background:var(--amber);color:var(--void)}
 .course.basic{background:linear-gradient(180deg,rgba(255,181,71,.05),transparent 60%),var(--void)}
 .course.basic .chip.price{border-color:var(--amber);color:var(--amber)}
+/* pasek narzędzi */
+.tools-band{border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(18,26,41,.6),rgba(11,17,30,0))}
+.tools2{display:flex;align-items:center;gap:20px;padding-top:22px;padding-bottom:22px}
+.tools2 .tl{font-family:var(--mono);font-size:13px;color:var(--mist);white-space:nowrap;flex:none}
+.tools2 .tl::after{content:" →";color:var(--slate)}
+.tools2 ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tools2 li{font-family:var(--mono);font-size:14px;color:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 14px;line-height:1.2;white-space:nowrap}
+.tools2 li.hi{border-color:var(--cyan);color:var(--cyan);background:rgba(0,229,255,.06)}
+@media (max-width:760px){
+  .tools2{flex-direction:column;align-items:flex-start;gap:10px;padding-top:16px;padding-bottom:18px}
+  .tools2 .tl::after{content:""}
+  .tools2 li{font-size:13px;padding:6px 12px}
+}
