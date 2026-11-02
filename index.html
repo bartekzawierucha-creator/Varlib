@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>/var/lib/ZAWIERUCHA/ — szkolenia AI</title>
+<meta name="description" content="Praktyczne szkolenia z AI dla firm: Copilot w Microsoft 365, prompt engineering, automatyzacja i bezpieczna praca z AI. Prowadzi Bartłomiej Zawierucha.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20972%201120%22%20width%3D%22972%22%20height%3D%221120%22%3E%3Crect%20width%3D%22972%22%20height%3D%221120%22%20fill%3D%22%230B111E%22/%3E%3Cpath%20transform%3D%22translate%2860.0%2060.0%29%20scale%281.0000%29%22%20fill%3D%22%2300E5FF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M342.1%20999.7%20C341.4%20999.0%20342.0%20997.6%20344.9%20993.6%20C353.4%20982.0%20363.8%20965.7%20370.1%20954.2%20C373.1%20948.7%20380.5%20933.6%20381.4%20931.1%20C381.6%20930.4%20382.8%20927.7%20383.9%20925.1%20C388.0%20915.8%20395.9%20895.8%20398.6%20887.9%20C401.7%20878.6%20403.4%20874.8%20404.5%20874.0%20C405.7%20873.2%20408.6%20872.9%20424.0%20871.7%20C430.4%20871.2%20437.7%20870.5%20440.2%20870.3%20C444.4%20869.8%20444.9%20869.9%20445.7%20870.6%20C446.8%20871.6%20446.8%20872.5%20444.9%20879.3%20C444.0%20882.6%20442.9%20887.0%20442.3%20889.0%20C441.7%20891.1%20440.7%20894.6%20440.1%20896.8%20C438.9%20900.9%20438.5%20902.2%20434.3%20915.1%20C433.0%20919.0%20431.8%20922.8%20431.7%20923.4%20C431.3%20925.0%20431.7%20926.0%20432.8%20926.0%20C435.1%20926.0%20476.6%20897.0%20491.1%20885.2%20C497.3%20880.2%20503.2%20874.9%20514.7%20864.3%20C530.7%20849.4%20539.7%20843.0%20550.1%20838.7%20C551.4%20838.3%20554.1%20837.1%20556.1%20836.2%20C558.2%20835.3%20562.6%20833.5%20566.0%20832.1%20C573.8%20829.0%20586.8%20822.3%20590.9%20819.5%20C593.5%20817.7%20602.5%20813.2%20603.3%20813.4%20C605.3%20813.8%20603.7%20816.8%20595.3%20828.9%20C592.6%20832.7%20588.3%20838.9%20585.8%20842.6%20C572.9%20861.4%20564.2%20871.7%20545.3%20890.6%20C526.5%20909.4%20517.9%20917.1%20506.2%20925.6%20C486.6%20939.8%20475.4%20947.5%20463.4%20954.7%20C450.7%20962.3%20436.3%20970.0%20428.3%20973.5%20C426.4%20974.3%20422.5%20976.0%20419.6%20977.3%20C401.5%20985.1%20377.1%20992.6%20355.3%20996.9%20C353.1%20997.3%20349.6%20998.2%20347.6%20998.9%20C343.9%201000.0%20342.6%201000.2%20342.1%20999.7%20Z%20M346.0%20838.6%20C323.6%20837.8%20296.0%20834.4%20280.5%20830.4%20C277.3%20829.6%20276.7%20829.1%20276.7%20827.5%20C276.7%20826.1%20279.0%20823.9%20290.7%20813.6%20C294.4%20810.3%20299.7%20805.6%20302.4%20803.1%20C308.0%20797.9%20311.1%20796.1%20313.6%20796.5%20C324.7%20798.3%20340.7%20799.0%20367.6%20799.0%20C399.0%20799.0%20404.0%20798.6%20404.2%20796.0%20C404.3%20795.6%20404.3%20793.1%20404.2%20790.6%20C404.1%20783.9%20404.9%20775.3%20405.7%20773.7%20C406.1%20772.9%20407.2%20771.9%20408.2%20771.4%20C410.9%20770.0%20436.2%20765.7%20438.4%20766.2%20C439.9%20766.6%20440.5%20768.3%20442.0%20775.7%20C443.3%20782.2%20444.8%20786.7%20446.4%20788.4%20C447.4%20789.5%20449.5%20789.4%20455.5%20788.1%20C469.3%20785.1%20473.1%20784.3%20473.7%20784.1%20C474.1%20783.9%20476.1%20783.4%20478.2%20783.0%20C487.5%20781.0%20505.5%20775.9%20515.6%20772.4%20C539.5%20764.3%20553.7%20758.0%20573.8%20746.8%20C605.7%20728.9%20625.9%20713.4%20658.2%20682.0%20C668.0%20672.5%20670.0%20670.9%20691.8%20654.4%20C723.2%20630.8%20729.1%20626.4%20733.7%20623.2%20C736.2%20621.5%20740.6%20618.4%20743.5%20616.2%20C753.3%20608.9%20753.2%20609.6%20739.7%20636.8%20C735.5%20645.2%20728.9%20656.9%20725.1%20662.4%20C709.2%20686.0%20695.4%20702.7%20678.5%20718.8%20C667.3%20729.5%20649.1%20744.5%20634.3%20755.2%20C626.5%20760.9%20607.8%20773.3%20600.9%20777.5%20C589.4%20784.5%20558.1%20799.5%20542.3%20805.6%20C528.4%20811.0%20503.6%20818.9%20491.8%20821.7%20C477.5%20825.0%20452.8%20829.8%20442.6%20831.1%20C440.6%20831.4%20437.4%20831.9%20435.5%20832.3%20C432.3%20832.9%20423.1%20834.1%20410.2%20835.7%20C385.2%20838.9%20370.7%20839.5%20346.0%20838.6%20Z%20M344.0%20740.8%20C332.8%20740.5%20319.6%20739.7%20313.9%20739.1%20C302.3%20737.9%20292.4%20736.6%20290.4%20736.2%20C289.3%20736.0%20285.9%20735.3%20282.7%20734.8%20C252.9%20730.1%20224.9%20720.9%20196.9%20707.0%20C178.8%20697.9%20166.3%20690.7%20158.5%20684.8%20C154.0%20681.5%20143.0%20672.5%20140.5%20670.1%20C138.5%20668.2%20138.0%20666.5%20139.3%20666.0%20C139.7%20665.9%20144.6%20665.8%20150.3%20665.8%20C162.2%20665.8%20170.8%20665.3%20180.0%20664.0%20C189.4%20662.7%20196.8%20662.1%20199.0%20662.3%20C200.3%20662.5%20202.3%20663.3%20204.9%20664.9%20C211.7%20669.0%20213.7%20670.1%20220.7%20673.3%20C233.5%20679.1%20242.2%20682.4%20256.2%20686.9%20C275.1%20692.8%20299.8%20697.7%20321.5%20699.7%20C329.7%20700.5%20366.6%20700.5%20373.7%20699.7%20C394.1%20697.5%20423.4%20690.9%20439.2%20685.0%20C440.4%20684.5%20442.9%20683.6%20444.7%20682.9%20C464.2%20675.8%20490.2%20661.3%20509.7%20646.7%20C525.4%20635.0%20538.0%20622.3%20551.2%20604.7%20C560.5%20592.4%20570.7%20574.2%20576.7%20559.3%20C584.4%20540.0%20587.3%20529.6%20590.4%20510.4%20C593.5%20491.2%20593.8%20488.0%20593.8%20475.5%20C593.8%20459.7%20592.4%20450.6%20585.7%20422.9%20C581.7%20406.0%20577.0%20395.3%20566.2%20378.1%20C556.8%20363.3%20548.0%20351.9%20538.6%20342.5%20C530.7%20334.6%20524.7%20329.7%20514.9%20323.1%20C503.0%20315.1%20498.2%20312.6%20489.1%20309.5%20C483.7%20307.7%20482.3%20306.7%20483.4%20305.6%20C484.3%20304.8%20509.0%20304.3%20524.1%20304.8%20C536.5%20305.3%20552.3%20306.5%20560.4%20307.7%20C562.8%20308.1%20566.9%20308.7%20569.5%20309.1%20C583.3%20311.0%20603.5%20316.5%20617.9%20322.3%20C630.1%20327.2%20646.9%20336.3%20664.3%20347.7%20C684.4%20360.9%20703.2%20379.0%20718.9%20400.2%20C723.0%20405.8%20731.3%20418.3%20733.9%20422.6%20C741.2%20435.3%20744.6%20441.8%20750.2%20453.8%20C751.2%20455.8%20752.3%20456.5%20753.5%20455.9%20C754.7%20455.3%20754.8%20454.7%20756.0%20446.3%20C758.4%20429.5%20758.9%20410.9%20757.4%20401.1%20C753.9%20377.9%20747.1%20360.1%20734.7%20341.6%20C727.6%20330.9%20712.6%20314.9%20702.5%20307.1%20C692.6%20299.5%20679.6%20291.2%20669.5%20286.1%20C659.4%20281.1%20644.8%20274.9%20636.0%20271.8%20C628.0%20269.0%20614.4%20265.1%20609.7%20264.3%20C608.3%20264.0%20606.5%20263.6%20605.5%20263.4%20C604.6%20263.1%20600.3%20262.3%20595.9%20261.5%20C591.6%20260.8%20586.1%20259.9%20583.8%20259.4%20C580.3%20258.8%20576.5%20258.7%20561.5%20258.7%20C550.1%20258.7%20541.5%20258.9%20538.1%20259.3%20C525.7%20260.6%20506.0%20263.7%20499.7%20265.3%20C498.2%20265.7%20495.6%20266.3%20493.8%20266.7%20C482.1%20269.1%20460.4%20276.1%20446.9%20281.8%20C436.2%20286.4%20434.4%20287.2%20428.5%20290.2%20C420.5%20294.2%20404.9%20303.0%20395.1%20309.0%20C389.1%20312.7%20376.3%20322.2%20369.8%20327.8%20C367.2%20330.1%20364.7%20332.1%20364.2%20332.4%20C362.8%20333.1%20361.9%20332.6%20361.9%20330.9%20C361.9%20329.5%20364.7%20321.4%20366.3%20318.2%20C366.7%20317.3%20367.3%20315.8%20367.6%20314.8%20C368.5%20312.1%20375.7%20297.3%20378.6%20292.4%20C388.7%20275.2%20401.1%20261.5%20414.6%20252.6%20C418.5%20250.0%20428.5%20244.8%20433.4%20242.7%20C434.8%20242.1%20438.0%20240.8%20440.3%20239.8%20C450.4%20235.3%20468.9%20229.0%20479.9%20226.1%20C495.1%20222.3%20511.7%20219.4%20525.6%20218.4%20C529.1%20218.1%20534.3%20217.7%20537.2%20217.4%20C544.2%20216.7%20568.9%20216.7%20576.6%20217.4%20C599.5%20219.5%20615.5%20222.0%20630.8%20225.9%20C635.6%20227.1%20647.9%20231.0%20656.7%20234.1%20C675.7%20240.8%20702.4%20255.6%20719.5%20268.9%20C729.5%20276.7%20747.1%20293.5%20756.7%20304.4%20C781.4%20332.3%20794.9%20361.0%20798.3%20392.7%20C800.1%20409.2%20800.3%20428.0%20798.8%20440.7%20C797.0%20455.5%20789.6%20478.7%20778.6%20503.8%20C771.8%20519.4%20769.0%20524.4%20757.0%20542.3%20C741.0%20566.3%20716.8%20592.8%20692.5%20613.0%20C687.1%20617.5%20683.2%20620.3%20673.1%20626.8%20C663.7%20633.0%20661.6%20634.3%20645.6%20644.0%20C622.5%20658.0%20603.7%20667.9%20575.8%20680.5%20C570.2%20683.0%20559.6%20687.9%20552.1%20691.5%20C537.0%20698.7%20536.7%20698.9%20527.6%20702.9%20C520.6%20706.0%20513.0%20709.1%20507.1%20711.2%20C500.4%20713.7%20481.2%20720.0%20475.5%20721.7%20C472.4%20722.6%20468.0%20723.9%20465.7%20724.6%20C442.2%20731.7%20403.2%20738.6%20377.9%20740.2%20C370.0%20740.7%20350.9%20741.0%20344.0%20740.8%20Z%20M324.0%20631.2%20C319.2%20631.0%20303.3%20629.6%20303.0%20629.4%20C302.8%20629.3%20299.5%20628.8%20295.6%20628.3%20C291.7%20627.8%20286.0%20626.9%20283.0%20626.3%20C279.9%20625.8%20276.6%20625.2%20275.6%20625.0%20C269.8%20624.1%20256.0%20620.8%20242.2%20617.0%20C231.0%20613.9%20212.3%20607.1%20202.1%20602.3%20C200.4%20601.5%20197.0%20599.9%20194.5%20598.7%20C174.2%20589.2%20142.7%20569.5%20124.4%20555.0%20C83.1%20522.1%2049.4%20479.2%2028.6%20433.1%20C23.3%20421.4%2016.8%20404.3%2014.0%20394.6%20C9.3%20378.4%206.9%20368.4%202.2%20344.6%20C-0.8%20329.6%20-0.7%20329.5%207.6%20335.0%20C11.9%20337.8%2028.8%20346.5%2039.5%20351.4%20C44.7%20353.8%2046.5%20355.0%2047.5%20357.0%20C48.1%20358.2%2049.6%20364.3%2053.2%20380.6%20C54.9%20387.9%2057.2%20396.2%2058.9%20401.3%20C60.0%20404.4%2063.6%20413.3%2064.2%20414.4%20C64.4%20414.8%2065.4%20416.8%2066.3%20418.9%20C71.6%20430.6%2083.8%20450.7%2094.7%20465.5%20C108.9%20484.9%20124.4%20501.8%20140.4%20515.6%20C161.6%20533.7%20190.8%20552.3%20215.5%20563.1%20C224.0%20566.9%20225.1%20567.3%20235.5%20571.0%20C258.9%20579.2%20280.5%20585.0%20301.0%20588.6%20C340.6%20595.6%20386.8%20592.4%20419.3%20580.4%20C433.6%20575.1%20451.0%20567.1%20462.5%20560.4%20C478.7%20551.1%20497.4%20538.2%20506.2%20530.4%20C518.8%20519.0%20532.9%20503.6%20540.9%20492.4%20C543.6%20488.5%20548.6%20480.3%20550.3%20476.8%20C552.5%20472.5%20554.8%20470.7%20555.6%20472.6%20C555.8%20473.3%20554.9%20487.2%20553.9%20499.1%20C552.9%20510.7%20550.2%20525.1%20547.4%20534.3%20C545.7%20539.6%20540.8%20552.2%20538.9%20555.9%20C537.0%20559.6%20534.2%20562.5%20529.2%20566.2%20C527.2%20567.6%20523.4%20570.4%20520.7%20572.4%20C505.9%20583.4%20484.4%20596.3%20464.9%20606.0%20C441.4%20617.6%20404.9%20627.3%20372.5%20630.4%20C365.6%20631.0%20332.8%20631.6%20324.0%20631.2%20Z%20M595.4%20624.1%20C597.2%20623.3%20600.8%20621.8%20603.4%20620.8%20C619.3%20614.5%20636.2%20604.2%20660.2%20586.2%20C681.0%20570.7%20692.0%20559.4%20711.5%20533.7%20C721.7%20520.2%20722.2%20519.1%20721.7%20512.5%20C720.8%20500.3%20716.6%20484.6%20709.6%20466.8%20C704.7%20454.4%20699.1%20443.8%20691.4%20432.1%20C677.4%20410.8%20655.0%20390.1%20632.1%20377.4%20C618.4%20369.7%20609.7%20366.6%20609.3%20369.0%20C609.2%20369.4%20610.7%20372.0%20612.6%20374.8%20C617.8%20382.4%20620.9%20389.6%20625.0%20403.7%20C629.9%20420.5%20633.6%20441.5%20634.6%20458.8%20C635.5%20474.2%20635.0%20499.2%20633.5%20511.1%20C633.1%20514.0%20632.6%20518.1%20632.4%20520.4%20C630.9%20533.4%20624.1%20556.2%20615.9%20575.3%20C612.0%20584.4%20604.0%20600.4%20600.3%20606.7%20C597.0%20612.2%20591.7%20620.1%20590.9%20620.5%20C590.0%20621.1%20588.2%20624.8%20588.4%20625.5%20C588.8%20626.5%20591.1%20626.0%20595.4%20624.1%20Z%20M325.0%20531.8%20C313.8%20531.1%20296.4%20529.0%20289.0%20527.4%20C282.5%20526.0%20270.4%20523.0%20266.7%20521.9%20C265.2%20521.4%20261.9%20520.4%20259.4%20519.6%20C253.9%20518.0%20245.4%20514.9%20240.9%20513.0%20C239.1%20512.3%20235.2%20510.7%20232.2%20509.4%20C215.4%20502.4%20194.7%20490.6%20174.0%20476.3%20C158.3%20465.4%20145.9%20454.5%20133.1%20440.5%20C116.2%20422.0%20103.6%20401.5%2093.5%20376.3%20C84.4%20353.7%2080.4%20336.2%2077.3%20305.7%20C76.3%20296.2%2075.9%20270.8%2076.6%20262.3%20C78.3%20241.1%2084.8%20213.4%2092.0%20196.7%20C94.3%20191.2%20107.8%20164.4%20111.2%20158.4%20C118.5%20145.5%20127.5%20133.2%20137.1%20122.8%20C143.4%20116.0%20153.5%20106.0%20159.5%20100.7%20C173.6%2088.2%20193.9%2073.0%20207.4%2064.9%20C213.5%2061.3%20234.4%2050.8%20235.5%2050.8%20C235.9%2050.8%20236.4%2051.3%20236.7%2051.9%20C237.1%2052.7%20236.9%2053.8%20236.0%2057.1%20C233.2%2066.6%20230.8%2077.2%20228.8%2088.9%20C226.7%20101.8%20225.5%20104.3%20220.6%20107.1%20C217.2%20109.0%20213.8%20110.9%20211.2%20112.3%20C200.1%20118.4%20176.1%20141.3%20161.0%20160.2%20C143.4%20182.3%20130.6%20207.6%20123.7%20233.7%20C121.8%20240.7%20119.5%20252.8%20119.0%20258.2%20C116.4%20285.3%20116.4%20302.4%20119.0%20322.9%20C120.1%20331.2%20124.5%20346.2%20129.3%20358.2%20C134.5%20371.0%20146.0%20391.3%20153.5%20400.8%20C167.8%20419.0%20179.9%20431.1%20194.6%20442.0%20C200.4%20446.2%20210.1%20452.6%20217.5%20457.0%20C227.1%20462.7%20248.8%20473.3%20251.0%20473.3%20C253.5%20473.3%20253.0%20471.9%20248.8%20467.2%20C239.6%20457.1%20225.5%20431.4%20216.6%20408.6%20C215.6%20406.1%20214.4%20403.0%20213.9%20401.7%20C211.4%20395.4%20207.2%20380.4%20205.7%20373.0%20C201.3%20350.4%20200.8%20344.9%20200.8%20318.0%20C200.8%20297.5%20201.2%20287.9%20202.5%20278.5%20C206.9%20248.2%20209.5%20237.7%20218.4%20213.8%20C222.3%20203.3%20223.6%20200.4%20230.4%20186.5%20C238.5%20170.0%20242.0%20164.2%20256.2%20144.2%20C270.1%20124.4%20274.7%20118.7%20290.6%20102.1%20C310.8%2080.8%20319.7%2073.5%20347.1%2055.2%20C361.9%2045.3%20369.3%2041.2%20386.6%2033.0%20C401.8%2025.7%20414.7%2021.1%20438.5%2014.3%20C460.5%208.0%20484.5%203.3%20503.6%201.6%20C509.6%201.0%20529.8%200.3%20546.6%200.0%20C548.0%200.0%20549.5%200.9%20549.5%201.8%20C549.5%202.3%20546.5%206.5%20543.7%2010.0%20C540.3%2014.1%20531.8%2026.1%20527.5%2032.5%20C523.7%2038.4%20520.9%2041.2%20518.4%2041.8%20C517.5%2042.1%20513.0%2042.4%20508.5%2042.5%20C495.4%2042.9%20482.0%2045.5%20451.0%2053.7%20C430.1%2059.2%20416.8%2064.0%20400.6%2072.0%20C388.5%2078.0%20382.3%2081.6%20371.0%2089.2%20C350.9%20102.6%20332.2%20118.3%20316.0%20135.3%20C305.0%20146.7%20292.9%20162.2%20285.8%20173.6%20C277.6%20187.0%20266.8%20207.0%20263.2%20215.5%20C262.6%20216.9%20261.5%20219.6%20260.7%20221.5%20C257.3%20229.6%20251.6%20246.0%20249.6%20253.6%20C247.3%20262.1%20244.9%20274.9%20243.7%20285.7%20C242.8%20293.5%20242.7%20296.4%20242.7%20314.6%20C242.6%20333.3%20242.7%20335.5%20243.7%20342.0%20C247.0%20366.0%20250.6%20379.9%20258.6%20400.0%20C267.0%20421.1%20270.8%20428.9%20277.2%20438.3%20C286.6%20452.0%20302.0%20469.1%20314.4%20479.5%20C327.2%20490.2%20337.0%20496.8%20353.7%20505.8%20C375.8%20517.8%20384.9%20521.7%20398.0%20524.9%20C404.5%20526.5%20406.0%20527.0%20406.0%20527.6%20C406.0%20528.9%20399.8%20530.0%20386.4%20531.0%20C363.6%20532.6%20341.9%20532.9%20325.0%20531.8%20Z%20M297.1%20396.9%20C296.7%20396.4%20296.1%20394.3%20295.7%20392.4%20C295.3%20390.4%20294.6%20387.5%20294.1%20385.9%20C293.6%20384.3%20292.1%20378.5%20290.8%20373.0%20C284.6%20348.0%20282.9%20336.7%20282.8%20322.2%20C282.8%20314.0%20282.9%20312.4%20284.0%20306.8%20C287.9%20287.0%20297.5%20265.6%20311.9%20244.4%20C315.6%20239.0%20326.0%20224.8%20329.0%20221.0%20C345.9%20200.1%20368.9%20179.3%20392.4%20163.9%20C402.3%20157.4%20417.8%20147.8%20424.2%20144.1%20C428.9%20141.5%20442.2%20134.9%20448.4%20132.1%20C462.7%20125.7%20479.8%20119.8%20493.0%20116.9%20C495.7%20116.3%20498.0%20115.8%20498.2%20115.6%20C498.7%20115.3%20510.3%20113.3%20518.9%20112.1%20C523.1%20111.4%20528.8%20110.6%20531.6%20110.1%20C551.2%20106.8%20566.3%20106.6%20605.1%20109.0%20C622.0%20110.0%20636.8%20112.2%20656.6%20116.5%20C674.2%20120.4%20699.8%20130.0%20716.8%20139.2%20C744.6%20154.2%20787.7%20187.9%20807.6%20210.3%20C824.3%20229.0%20839.6%20250.8%20850.0%20270.6%20C854.0%20278.4%20853.5%20279.0%20844.8%20276.8%20C834.4%20274.2%20829.1%20273.2%20818.9%20271.8%20C813.2%20271.1%20807.9%20270.4%20807.1%20270.2%20C806.1%20270.1%20804.8%20269.3%20803.4%20267.9%20C801.3%20265.9%20800.0%20264.5%20793.1%20255.9%20C773.8%20231.9%20753.4%20213.0%20728.4%20196.2%20C716.5%20188.2%20706.5%20182.3%20692.6%20175.2%20C672.4%20164.9%20644.5%20155.7%20620.6%20151.5%20C597.9%20147.5%20560.7%20147.4%20534.0%20151.3%20C509.8%20154.8%20489.3%20160.5%20467.6%20169.6%20C459.3%20173.2%20439.7%20182.8%20430.3%20188.1%20C407.2%20200.8%20388.2%20215.6%20373.1%20232.6%20C359.7%20247.5%20352.0%20258.3%20341.6%20276.3%20C339.8%20279.3%20337.3%20283.6%20336.1%20285.8%20C332.9%20291.3%20328.7%20299.2%20327.4%20302.4%20C326.8%20303.8%20325.3%20307.4%20324.0%20310.4%20C319.5%20320.9%20311.8%20342.5%20308.2%20354.9%20C305.4%20364.6%20301.8%20382.1%20300.8%20390.8%20C300.2%20396.2%20299.7%20398.0%20298.5%20398.0%20C298.1%20398.0%20297.4%20397.5%20297.1%20396.9%20Z%22/%3E%3C/svg%3E%0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pracuj szybciej z AI · szkolenia Bartłomieja Zawieruchi">
+<meta property="og:description" content="Szkolenia z Copilota w Microsoft 365, Claude, ChatGPT, automatyzacji, vibecodingu i AI Act dla firm.">
+<meta property="og:image" content="https://bartekzawierucha-creator.github.io/Varlib/og.png">
+<meta property="og:url" content="https://bartekzawierucha-creator.github.io/Varlib/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+/* Jeden świat marki: granat + cyjan, strona jako system plików (/szkolenia, /o-mnie, /var/lib). Ciemny motyw na stałe. */
+:root{
+  --void:#0B111E; --panel:#121A29; --line:#24324A; --slate:#4A5D6E;
+  --mist:#8FA3B8; --paper:#F5F7FA; --cyan:#00E5FF; --amber:#FFB547;
+  --sans:'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+  --mono:'JetBrains Mono', Consolas, 'Courier New', monospace;
+  --wrap:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--paper);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--cyan)}
+img,svg{max-width:100%}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+
+/* nav */
+header.top{position:sticky;top:0;z-index:10;background:rgba(11,17,30,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--paper)}
+.brand .sym{width:30px;height:36px;color:var(--paper)}
+.brand .wm{height:20px;width:auto}
+.wm .p1{fill:var(--mist)} .wm .p2{fill:var(--paper)}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{font-family:var(--mono);font-size:14px;color:var(--mist);text-decoration:none}
+.nav ul a:hover{color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:15px;font-weight:700;padding:14px 22px;border-radius:8px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn-primary{background:var(--cyan);color:var(--void)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:var(--slate);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--paper)}
+.nav .btn{padding:10px 16px;font-size:14px}
+.btn{white-space:nowrap}
+@media (max-width:860px){.nav ul{display:none}}
+@media (max-width:420px){.brand .wm{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:88px 0 96px;border-bottom:1px solid var(--line)}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.prompt{font-family:var(--mono);font-size:15px;color:var(--cyan);margin-bottom:24px}
+.prompt span{color:var(--mist)}
+.hero h1{font-size:clamp(52px,7.6vw,104px);font-weight:700;letter-spacing:-.03em;line-height:.98}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.lead{font-size:21px;color:var(--mist);max-width:34ch;margin:28px 0 36px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.vortex{position:relative;aspect-ratio:1/1.05;display:grid;place-items:center}
+.vortex .big{width:78%;color:var(--cyan);opacity:.9;animation:spin 60s linear infinite;transform-origin:50% 45%}
+.vortex::before{content:"";position:absolute;inset:8%;border:1px dashed var(--line);border-radius:50%}
+@keyframes spin{to{transform:rotate(-360deg)}}
+@media (prefers-reduced-motion:reduce){.vortex .big{animation:none}.btn{transition:none}html{scroll-behavior:auto}}
+.term{position:absolute;left:-12%;bottom:2%;width:min(380px,92%);background:var(--panel);border:1px solid var(--line);border-radius:10px;font-family:var(--mono);font-size:13px;line-height:1.7;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.term .bar{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.term .bar i{width:9px;height:9px;border-radius:50%;background:var(--slate)}
+.term .body{padding:14px 16px;color:var(--mist)}
+.term .in{color:var(--paper)} .term .ok{color:var(--cyan)}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--cyan);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+@media (max-width:900px){.hero .grid{grid-template-columns:1fr}.vortex{max-width:420px;margin:0 auto}.term{left:0}}
+
+.tools{display:flex;flex-wrap:wrap;gap:10px 28px;padding:28px 0;font-family:var(--mono);font-size:14px;color:var(--mist);border-bottom:1px solid var(--line)}
+.tools b{color:var(--paper);font-weight:400}
+
+/* sections */
+section.s{padding:104px 0;border-bottom:1px solid var(--line)}
+.path{font-family:var(--mono);font-size:14px;color:var(--cyan);margin-bottom:16px;display:block}
+.s h2{font-size:clamp(36px,4.6vw,56px);font-weight:700;letter-spacing:-.02em;max-width:20ch}
+.s .intro{color:var(--mist);max-width:60ch;margin-top:18px}
+.head{margin-bottom:56px}
+
+.courses{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.course{background:var(--void);padding:36px;display:flex;flex-direction:column;gap:14px;transition:background .2s}
+.course:hover{background:var(--panel)}
+.course .id{font-family:var(--mono);font-size:13px;color:var(--mist)}
+.course h3{font-size:28px;font-weight:600}
+.course p{color:var(--mist)}
+.course ul{margin:4px 0 0;padding-left:20px;color:var(--paper);font-size:16px}
+.meta{margin-top:auto;padding-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:12px;padding:5px 10px;border:1px solid var(--slate);border-radius:6px;color:var(--mist)}
+@media (max-width:760px){.courses{grid-template-columns:1fr}}
+
+
+.chip.price{border-color:var(--cyan);color:var(--cyan)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tier{border:1px solid var(--line);border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:16px;background:var(--void)}
+.tier.hl{border-color:var(--cyan);background:var(--panel)}
+.tier .tag{font-family:var(--mono);font-size:13px;color:var(--mist)}
+.tier.hl .tag{color:var(--cyan)}
+.tier h3{font-size:24px;font-weight:600}
+.amount{font-family:var(--mono);font-size:36px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.amount small{display:block;font-size:13px;font-weight:400;color:var(--mist);margin-top:6px}
+.tier ul{margin:0;padding-left:20px;color:var(--mist);font-size:16px;display:flex;flex-direction:column;gap:6px}
+.tier .btn{margin-top:auto;justify-content:center}
+.ptable{margin-top:48px;border:1px solid var(--line);border-radius:12px;overflow-x:auto}
+.ptable table{width:100%;min-width:640px;border-collapse:collapse}
+.ptable th{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--mist);text-align:left;padding:16px 22px;border-bottom:1px solid var(--line)}
+.ptable td{padding:16px 22px;border-bottom:1px solid var(--line);font-size:16px}
+.ptable tr:last-child td{border-bottom:0}
+.ptable td.n{font-family:var(--mono);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ptable th.n{text-align:right}
+.pnote{margin-top:20px;font-size:14px;color:var(--mist);max-width:80ch}
+@media (max-width:900px){.tiers{grid-template-columns:1fr}}
+
+.paths{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.pth{border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.pth h3{font-size:20px;font-weight:600}
+.pth p{color:var(--mist);font-size:15px;flex:1}
+.pth .mods{font-family:var(--mono);font-size:14px;color:var(--cyan)}
+@media (max-width:1000px){.paths{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.paths{grid-template-columns:1fr}}
+.sizes{margin-top:72px}
+.sizes-head{margin-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.sizes-head h3{font-size:32px;font-weight:700}
+.sizes-head p{color:var(--mist);max-width:65ch}
+.size-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.size{background:var(--void);padding:28px;display:flex;flex-direction:column;gap:14px}
+.size.hl{background:var(--panel)}
+.size .tag{font-family:var(--mono);font-size:13px;color:var(--mist)}
+.size.hl .tag{color:var(--cyan)}
+.size .amount{font-size:30px}
+.size ul{margin:0;padding-left:18px;color:var(--mist);font-size:15px;display:flex;flex-direction:column;gap:6px}
+@media (max-width:1000px){.size-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.size-grid{grid-template-columns:1fr}}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.q{margin:0;border-top:2px solid var(--slate);padding-top:22px;display:flex;flex-direction:column;gap:16px}
+.q blockquote{margin:0;font-size:19px;line-height:1.5}
+.q figcaption{font-family:var(--mono);font-size:13px;color:var(--mist)}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+.pilot{margin-top:56px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--cyan);border-radius:12px;padding:32px}
+.pilot .tag,.lead-box .tag{font-family:var(--mono);font-size:13px;color:var(--cyan)}
+.pilot h3,.lead-box h3{font-size:26px;font-weight:600;margin:8px 0}
+.pilot p,.lead-box p{color:var(--mist);max-width:60ch}
+.lead-box{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:32px}
+.lm-row{display:flex;gap:10px;margin-top:8px}
+.lm-row input{flex:1;min-width:0}
+#lm-form{display:flex;flex-direction:column;gap:8px}
+@media (max-width:860px){.lead-box{grid-template-columns:1fr}}
+@media (max-width:460px){.lm-row{flex-direction:column}}
+.check{display:flex;gap:10px;align-items:flex-start;font-family:var(--sans);font-size:14px;color:var(--mist);line-height:1.5}
+.check input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--cyan)}
+.legal{max-width:75ch;display:flex;flex-direction:column;gap:16px;color:var(--mist);font-size:16px}
+.legal b{color:var(--paper)}
+footer a{color:var(--mist)}
+
+/* ---- motion & interactions ---- */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:20;pointer-events:none}
+.progress span{display:block;height:100%;width:100%;background:var(--cyan);transform-origin:0 50%;transform:scaleX(0)}
+.nav ul a.on{color:var(--cyan)}
+.term .bar{align-items:center}
+.term .app{margin-left:auto;font-size:11px;color:var(--mist)}
+.term .body{min-height:132px}
+.term .in .typed{color:var(--paper)}
+.course,.pth,.size,.tier{position:relative;isolation:isolate}
+.course::before,.pth::before,.tier::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;opacity:0;transition:opacity .25s;
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(0,229,255,.10),transparent 60%)}
+.course:hover::before,.pth:hover::before,.tier:hover::before{opacity:1}
+.pth{transition:border-color .2s,transform .2s}
+.pth:hover{border-color:var(--slate);transform:translateY(-3px)}
+.hero h1 .w{display:inline-block;animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 .w:nth-child(2){animation-delay:.08s}.hero h1 .w:nth-child(3){animation-delay:.16s}.hero h1 .w:nth-child(4){animation-delay:.24s}
+@keyframes rise{from{transform:translateY(18px);opacity:.001}to{transform:none;opacity:1}}
+.vortex .big{animation:none}
+.calc{display:grid;grid-template-columns:1.4fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:48px}
+.calc-in,.calc-out{background:var(--void);padding:32px;display:flex;flex-direction:column;gap:18px}
+.calc-out{background:var(--panel);justify-content:center}
+.calc h3{font-size:28px;font-weight:700}
+fieldset{border:0;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+legend{font-family:var(--mono);font-size:13px;color:var(--mist);margin-bottom:10px}
+.opt{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:15px;color:var(--paper);transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--slate)}
+.opt:has(input:checked){border-color:var(--cyan);background:rgba(0,229,255,.06)}
+.opt input{accent-color:var(--cyan);width:16px;height:16px;flex:none}
+.opt i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--mist);margin-left:6px}
+.calc-people{display:flex;flex-direction:column;gap:10px}
+.calc-people b{color:var(--cyan);font-family:var(--mono)}
+input[type=range]{padding:0;border:0;background:none;accent-color:var(--cyan);height:28px}
+.calc-out .tag{font-family:var(--mono);font-size:13px;color:var(--cyan)}
+.calc-out .amount{font-size:52px;transition:color .2s}
+.calc-sub{font-family:var(--mono);font-size:14px;color:var(--mist)}
+.calc-hint{font-size:15px;color:var(--amber);min-height:1.5em}
+.calc-note{font-size:13px;color:var(--mist)}
+@media (max-width:900px){.calc{grid-template-columns:1fr}fieldset{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .hero h1 .w{animation:none}.pth,.pth:hover{transition:none;transform:none}
+  .course::before,.pth::before,.tier::before{display:none}
+}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:st}
+.step{border-top:2px solid var(--slate);padding-top:22px;display:flex;flex-direction:column;gap:10px}
+.step:first-child{border-color:var(--cyan)}
+.step .n{font-family:var(--mono);font-size:14px;color:var(--cyan)}
+.step h3{font-size:22px;font-weight:600}
+.step p{color:var(--mist);font-size:16px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.photo{aspect-ratio:4/5;background:var(--panel);border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--slate);font-family:var(--mono);font-size:14px;text-align:center;padding:24px}
+.photo svg{width:40%;color:var(--line);margin-bottom:12px}
+.about .txt{display:flex;flex-direction:column;gap:20px}
+.about .txt p{color:var(--mist);max-width:60ch}
+.about .txt p strong{color:var(--paper);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:12px}
+.stat{background:var(--void);padding:22px}
+.stat b{display:block;font-family:var(--mono);font-size:30px;color:var(--paper);font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--mist)}
+@media (max-width:860px){.about{grid-template-columns:1fr}.photo{max-width:360px}}
+
+.ls{background:var(--panel);border:1px solid var(--line);border-radius:12px;font-family:var(--mono);font-size:15px;overflow-x:auto}
+.ls .cmd{padding:16px 22px;border-bottom:1px solid var(--line);color:var(--paper)}
+.ls .cmd span{color:var(--cyan)}
+.ls table{border-collapse:collapse;width:100%;min-width:620px}
+.ls td{padding:12px 22px;border-bottom:1px solid var(--line);color:var(--mist);white-space:nowrap}
+.ls tr:last-child td{border-bottom:0}
+.ls td.f{color:var(--paper);width:100%;white-space:normal}
+.ls td.f.dir{color:var(--cyan)}
+.soon{color:var(--amber)}
+
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--line);max-width:860px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 40px 24px 0;font-size:20px;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:20px;font-family:var(--mono);font-size:24px;color:var(--cyan)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--mist);padding:0 0 24px;max-width:65ch}
+
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+.contact .side{display:flex;flex-direction:column;gap:22px}
+.contact .side p{color:var(--mist)}
+.direct{font-family:var(--mono);font-size:16px;display:flex;flex-direction:column;gap:8px}
+.direct span{color:var(--mist)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+label{font-family:var(--mono);font-size:13px;color:var(--mist)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--paper);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:13px 14px;width:100%}
+textarea{min-height:140px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan)}
+.form-note{grid-column:1/-1;font-family:var(--mono);font-size:14px;color:var(--cyan);min-height:1.4em}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+footer{padding:48px 0}
+footer .row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer .wm{height:22px}
+footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span id="prog"></span></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#start" aria-label="/var/lib/ZAWIERUCHA/ — strona główna">
+      <svg class="sym" viewBox="0 0 852 1000" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M342.1 999.7 C341.4 999.0 342.0 997.6 344.9 993.6 C353.4 982.0 363.8 965.7 370.1 954.2 C373.1 948.7 380.5 933.6 381.4 931.1 C381.6 930.4 382.8 927.7 383.9 925.1 C388.0 915.8 395.9 895.8 398.6 887.9 C401.7 878.6 403.4 874.8 404.5 874.0 C405.7 873.2 408.6 872.9 424.0 871.7 C430.4 871.2 437.7 870.5 440.2 870.3 C444.4 869.8 444.9 869.9 445.7 870.6 C446.8 871.6 446.8 872.5 444.9 879.3 C444.0 882.6 442.9 887.0 442.3 889.0 C441.7 891.1 440.7 894.6 440.1 896.8 C438.9 900.9 438.5 902.2 434.3 915.1 C433.0 919.0 431.8 922.8 431.7 923.4 C431.3 925.0 431.7 926.0 432.8 926.0 C435.1 926.0 476.6 897.0 491.1 885.2 C497.3 880.2 503.2 874.9 514.7 864.3 C530.7 849.4 539.7 843.0 550.1 838.7 C551.4 838.3 554.1 837.1 556.1 836.2 C558.2 835.3 562.6 833.5 566.0 832.1 C573.8 829.0 586.8 822.3 590.9 819.5 C593.5 817.7 602.5 813.2 603.3 813.4 C605.3 813.8 603.7 816.8 595.3 828.9 C592.6 832.7 588.3 838.9 585.8 842.6 C572.9 861.4 564.2 871.7 545.3 890.6 C526.5 909.4 517.9 917.1 506.2 925.6 C486.6 939.8 475.4 947.5 463.4 954.7 C450.7 962.3 436.3 970.0 428.3 973.5 C426.4 974.3 422.5 976.0 419.6 977.3 C401.5 985.1 377.1 992.6 355.3 996.9 C353.1 997.3 349.6 998.2 347.6 998.9 C343.9 1000.0 342.6 1000.2 342.1 999.7 Z M346.0 838.6 C323.6 837.8 296.0 834.4 280.5 830.4 C277.3 829.6 276.7 829.1 276.7 827.5 C276.7 826.1 279.0 823.9 290.7 813.6 C294.4 810.3 299.7 805.6 302.4 803.1 C308.0 797.9 311.1 796.1 313.6 796.5 C324.7 798.3 340.7 799.0 367.6 799.0 C399.0 799.0 404.0 798.6 404.2 796.0 C404.3 795.6 404.3 793.1 404.2 790.6 C404.1 783.9 404.9 775.3 405.7 773.7 C406.1 772.9 407.2 771.9 408.2 771.4 C410.9 770.0 436.2 765.7 438.4 766.2 C439.9 766.6 440.5 768.3 442.0 775.7 C443.3 782.2 444.8 786.7 446.4 788.4 C447.4 789.5 449.5 789.4 455.5 788.1 C469.3 785.1 473.1 784.3 473.7 784.1 C474.1 783.9 476.1 783.4 478.2 783.0 C487.5 781.0 505.5 775.9 515.6 772.4 C539.5 764.3 553.7 758.0 573.8 746.8 C605.7 728.9 625.9 713.4 658.2 682.0 C668.0 672.5 670.0 670.9 691.8 654.4 C723.2 630.8 729.1 626.4 733.7 623.2 C736.2 621.5 740.6 618.4 743.5 616.2 C753.3 608.9 753.2 609.6 739.7 636.8 C735.5 645.2 728.9 656.9 725.1 662.4 C709.2 686.0 695.4 702.7 678.5 718.8 C667.3 729.5 649.1 744.5 634.3 755.2 C626.5 760.9 607.8 773.3 600.9 777.5 C589.4 784.5 558.1 799.5 542.3 805.6 C528.4 811.0 503.6 818.9 491.8 821.7 C477.5 825.0 452.8 829.8 442.6 831.1 C440.6 831.4 437.4 831.9 435.5 832.3 C432.3 832.9 423.1 834.1 410.2 835.7 C385.2 838.9 370.7 839.5 346.0 838.6 Z M344.0 740.8 C332.8 740.5 319.6 739.7 313.9 739.1 C302.3 737.9 292.4 736.6 290.4 736.2 C289.3 736.0 285.9 735.3 282.7 734.8 C252.9 730.1 224.9 720.9 196.9 707.0 C178.8 697.9 166.3 690.7 158.5 684.8 C154.0 681.5 143.0 672.5 140.5 670.1 C138.5 668.2 138.0 666.5 139.3 666.0 C139.7 665.9 144.6 665.8 150.3 665.8 C162.2 665.8 170.8 665.3 180.0 664.0 C189.4 662.7 196.8 662.1 199.0 662.3 C200.3 662.5 202.3 663.3 204.9 664.9 C211.7 669.0 213.7 670.1 220.7 673.3 C233.5 679.1 242.2 682.4 256.2 686.9 C275.1 692.8 299.8 697.7 321.5 699.7 C329.7 700.5 366.6 700.5 373.7 699.7 C394.1 697.5 423.4 690.9 439.2 685.0 C440.4 684.5 442.9 683.6 444.7 682.9 C464.2 675.8 490.2 661.3 509.7 646.7 C525.4 635.0 538.0 622.3 551.2 604.7 C560.5 592.4 570.7 574.2 576.7 559.3 C584.4 540.0 587.3 529.6 590.4 510.4 C593.5 491.2 593.8 488.0 593.8 475.5 C593.8 459.7 592.4 450.6 585.7 422.9 C581.7 406.0 577.0 395.3 566.2 378.1 C556.8 363.3 548.0 351.9 538.6 342.5 C530.7 334.6 524.7 329.7 514.9 323.1 C503.0 315.1 498.2 312.6 489.1 309.5 C483.7 307.7 482.3 306.7 483.4 305.6 C484.3 304.8 509.0 304.3 524.1 304.8 C536.5 305.3 552.3 306.5 560.4 307.7 C562.8 308.1 566.9 308.7 569.5 309.1 C583.3 311.0 603.5 316.5 617.9 322.3 C630.1 327.2 646.9 336.3 664.3 347.7 C684.4 360.9 703.2 379.0 718.9 400.2 C723.0 405.8 731.3 418.3 733.9 422.6 C741.2 435.3 744.6 441.8 750.2 453.8 C751.2 455.8 752.3 456.5 753.5 455.9 C754.7 455.3 754.8 454.7 756.0 446.3 C758.4 429.5 758.9 410.9 757.4 401.1 C753.9 377.9 747.1 360.1 734.7 341.6 C727.6 330.9 712.6 314.9 702.5 307.1 C692.6 299.5 679.6 291.2 669.5 286.1 C659.4 281.1 644.8 274.9 636.0 271.8 C628.0 269.0 614.4 265.1 609.7 264.3 C608.3 264.0 606.5 263.6 605.5 263.4 C604.6 263.1 600.3 262.3 595.9 261.5 C591.6 260.8 586.1 259.9 583.8 259.4 C580.3 258.8 576.5 258.7 561.5 258.7 C550.1 258.7 541.5 258.9 538.1 259.3 C525.7 260.6 506.0 263.7 499.7 265.3 C498.2 265.7 495.6 266.3 493.8 266.7 C482.1 269.1 460.4 276.1 446.9 281.8 C436.2 286.4 434.4 287.2 428.5 290.2 C420.5 294.2 404.9 303.0 395.1 309.0 C389.1 312.7 376.3 322.2 369.8 327.8 C367.2 330.1 364.7 332.1 364.2 332.4 C362.8 333.1 361.9 332.6 361.9 330.9 C361.9 329.5 364.7 321.4 366.3 318.2 C366.7 317.3 367.3 315.8 367.6 314.8 C368.5 312.1 375.7 297.3 378.6 292.4 C388.7 275.2 401.1 261.5 414.6 252.6 C418.5 250.0 428.5 244.8 433.4 242.7 C434.8 242.1 438.0 240.8 440.3 239.8 C450.4 235.3 468.9 229.0 479.9 226.1 C495.1 222.3 511.7 219.4 525.6 218.4 C529.1 218.1 534.3 217.7 537.2 217.4 C544.2 216.7 568.9 216.7 576.6 217.4 C599.5 219.5 615.5 222.0 630.8 225.9 C635.6 227.1 647.9 231.0 656.7 234.1 C675.7 240.8 702.4 255.6 719.5 268.9 C729.5 276.7 747.1 293.5 756.7 304.4 C781.4 332.3 794.9 361.0 798.3 392.7 C800.1 409.2 800.3 428.0 798.8 440.7 C797.0 455.5 789.6 478.7 778.6 503.8 C771.8 519.4 769.0 524.4 757.0 542.3 C741.0 566.3 716.8 592.8 692.5 613.0 C687.1 617.5 683.2 620.3 673.1 626.8 C663.7 633.0 661.6 634.3 645.6 644.0 C622.5 658.0 603.7 667.9 575.8 680.5 C570.2 683.0 559.6 687.9 552.1 691.5 C537.0 698.7 536.7 698.9 527.6 702.9 C520.6 706.0 513.0 709.1 507.1 711.2 C500.4 713.7 481.2 720.0 475.5 721.7 C472.4 722.6 468.0 723.9 465.7 724.6 C442.2 731.7 403.2 738.6 377.9 740.2 C370.0 740.7 350.9 741.0 344.0 740.8 Z M324.0 631.2 C319.2 631.0 303.3 629.6 303.0 629.4 C302.8 629.3 299.5 628.8 295.6 628.3 C291.7 627.8 286.0 626.9 283.0 626.3 C279.9 625.8 276.6 625.2 275.6 625.0 C269.8 624.1 256.0 620.8 242.2 617.0 C231.0 613.9 212.3 607.1 202.1 602.3 C200.4 601.5 197.0 599.9 194.5 598.7 C174.2 589.2 142.7 569.5 124.4 555.0 C83.1 522.1 49.4 479.2 28.6 433.1 C23.3 421.4 16.8 404.3 14.0 394.6 C9.3 378.4 6.9 368.4 2.2 344.6 C-0.8 329.6 -0.7 329.5 7.6 335.0 C11.9 337.8 28.8 346.5 39.5 351.4 C44.7 353.8 46.5 355.0 47.5 357.0 C48.1 358.2 49.6 364.3 53.2 380.6 C54.9 387.9 57.2 396.2 58.9 401.3 C60.0 404.4 63.6 413.3 64.2 414.4 C64.4 414.8 65.4 416.8 66.3 418.9 C71.6 430.6 83.8 450.7 94.7 465.5 C108.9 484.9 124.4 501.8 140.4 515.6 C161.6 533.7 190.8 552.3 215.5 563.1 C224.0 566.9 225.1 567.3 235.5 571.0 C258.9 579.2 280.5 585.0 301.0 588.6 C340.6 595.6 386.8 592.4 419.3 580.4 C433.6 575.1 451.0 567.1 462.5 560.4 C478.7 551.1 497.4 538.2 506.2 530.4 C518.8 519.0 532.9 503.6 540.9 492.4 C543.6 488.5 548.6 480.3 550.3 476.8 C552.5 472.5 554.8 470.7 555.6 472.6 C555.8 473.3 554.9 487.2 553.9 499.1 C552.9 510.7 550.2 525.1 547.4 534.3 C545.7 539.6 540.8 552.2 538.9 555.9 C537.0 559.6 534.2 562.5 529.2 566.2 C527.2 567.6 523.4 570.4 520.7 572.4 C505.9 583.4 484.4 596.3 464.9 606.0 C441.4 617.6 404.9 627.3 372.5 630.4 C365.6 631.0 332.8 631.6 324.0 631.2 Z M595.4 624.1 C597.2 623.3 600.8 621.8 603.4 620.8 C619.3 614.5 636.2 604.2 660.2 586.2 C681.0 570.7 692.0 559.4 711.5 533.7 C721.7 520.2 722.2 519.1 721.7 512.5 C720.8 500.3 716.6 484.6 709.6 466.8 C704.7 454.4 699.1 443.8 691.4 432.1 C677.4 410.8 655.0 390.1 632.1 377.4 C618.4 369.7 609.7 366.6 609.3 369.0 C609.2 369.4 610.7 372.0 612.6 374.8 C617.8 382.4 620.9 389.6 625.0 403.7 C629.9 420.5 633.6 441.5 634.6 458.8 C635.5 474.2 635.0 499.2 633.5 511.1 C633.1 514.0 632.6 518.1 632.4 520.4 C630.9 533.4 624.1 556.2 615.9 575.3 C612.0 584.4 604.0 600.4 600.3 606.7 C597.0 612.2 591.7 620.1 590.9 620.5 C590.0 621.1 588.2 624.8 588.4 625.5 C588.8 626.5 591.1 626.0 595.4 624.1 Z M325.0 531.8 C313.8 531.1 296.4 529.0 289.0 527.4 C282.5 526.0 270.4 523.0 266.7 521.9 C265.2 521.4 261.9 520.4 259.4 519.6 C253.9 518.0 245.4 514.9 240.9 513.0 C239.1 512.3 235.2 510.7 232.2 509.4 C215.4 502.4 194.7 490.6 174.0 476.3 C158.3 465.4 145.9 454.5 133.1 440.5 C116.2 422.0 103.6 401.5 93.5 376.3 C84.4 353.7 80.4 336.2 77.3 305.7 C76.3 296.2 75.9 270.8 76.6 262.3 C78.3 241.1 84.8 213.4 92.0 196.7 C94.3 191.2 107.8 164.4 111.2 158.4 C118.5 145.5 127.5 133.2 137.1 122.8 C143.4 116.0 153.5 106.0 159.5 100.7 C173.6 88.2 193.9 73.0 207.4 64.9 C213.5 61.3 234.4 50.8 235.5 50.8 C235.9 50.8 236.4 51.3 236.7 51.9 C237.1 52.7 236.9 53.8 236.0 57.1 C233.2 66.6 230.8 77.2 228.8 88.9 C226.7 101.8 225.5 104.3 220.6 107.1 C217.2 109.0 213.8 110.9 211.2 112.3 C200.1 118.4 176.1 141.3 161.0 160.2 C143.4 182.3 130.6 207.6 123.7 233.7 C121.8 240.7 119.5 252.8 119.0 258.2 C116.4 285.3 116.4 302.4 119.0 322.9 C120.1 331.2 124.5 346.2 129.3 358.2 C134.5 371.0 146.0 391.3 153.5 400.8 C167.8 419.0 179.9 431.1 194.6 442.0 C200.4 446.2 210.1 452.6 217.5 457.0 C227.1 462.7 248.8 473.3 251.0 473.3 C253.5 473.3 253.0 471.9 248.8 467.2 C239.6 457.1 225.5 431.4 216.6 408.6 C215.6 406.1 214.4 403.0 213.9 401.7 C211.4 395.4 207.2 380.4 205.7 373.0 C201.3 350.4 200.8 344.9 200.8 318.0 C200.8 297.5 201.2 287.9 202.5 278.5 C206.9 248.2 209.5 237.7 218.4 213.8 C222.3 203.3 223.6 200.4 230.4 186.5 C238.5 170.0 242.0 164.2 256.2 144.2 C270.1 124.4 274.7 118.7 290.6 102.1 C310.8 80.8 319.7 73.5 347.1 55.2 C361.9 45.3 369.3 41.2 386.6 33.0 C401.8 25.7 414.7 21.1 438.5 14.3 C460.5 8.0 484.5 3.3 503.6 1.6 C509.6 1.0 529.8 0.3 546.6 0.0 C548.0 0.0 549.5 0.9 549.5 1.8 C549.5 2.3 546.5 6.5 543.7 10.0 C540.3 14.1 531.8 26.1 527.5 32.5 C523.7 38.4 520.9 41.2 518.4 41.8 C517.5 42.1 513.0 42.4 508.5 42.5 C495.4 42.9 482.0 45.5 451.0 53.7 C430.1 59.2 416.8 64.0 400.6 72.0 C388.5 78.0 382.3 81.6 371.0 89.2 C350.9 102.6 332.2 118.3 316.0 135.3 C305.0 146.7 292.9 162.2 285.8 173.6 C277.6 187.0 266.8 207.0 263.2 215.5 C262.6 216.9 261.5 219.6 260.7 221.5 C257.3 229.6 251.6 246.0 249.6 253.6 C247.3 262.1 244.9 274.9 243.7 285.7 C242.8 293.5 242.7 296.4 242.7 314.6 C242.6 333.3 242.7 335.5 243.7 342.0 C247.0 366.0 250.6 379.9 258.6 400.0 C267.0 421.1 270.8 428.9 277.2 438.3 C286.6 452.0 302.0 469.1 314.4 479.5 C327.2 490.2 337.0 496.8 353.7 505.8 C375.8 517.8 384.9 521.7 398.0 524.9 C404.5 526.5 406.0 527.0 406.0 527.6 C406.0 528.9 399.8 530.0 386.4 531.0 C363.6 532.6 341.9 532.9 325.0 531.8 Z M297.1 396.9 C296.7 396.4 296.1 394.3 295.7 392.4 C295.3 390.4 294.6 387.5 294.1 385.9 C293.6 384.3 292.1 378.5 290.8 373.0 C284.6 348.0 282.9 336.7 282.8 322.2 C282.8 314.0 282.9 312.4 284.0 306.8 C287.9 287.0 297.5 265.6 311.9 244.4 C315.6 239.0 326.0 224.8 329.0 221.0 C345.9 200.1 368.9 179.3 392.4 163.9 C402.3 157.4 417.8 147.8 424.2 144.1 C428.9 141.5 442.2 134.9 448.4 132.1 C462.7 125.7 479.8 119.8 493.0 116.9 C495.7 116.3 498.0 115.8 498.2 115.6 C498.7 115.3 510.3 113.3 518.9 112.1 C523.1 111.4 528.8 110.6 531.6 110.1 C551.2 106.8 566.3 106.6 605.1 109.0 C622.0 110.0 636.8 112.2 656.6 116.5 C674.2 120.4 699.8 130.0 716.8 139.2 C744.6 154.2 787.7 187.9 807.6 210.3 C824.3 229.0 839.6 250.8 850.0 270.6 C854.0 278.4 853.5 279.0 844.8 276.8 C834.4 274.2 829.1 273.2 818.9 271.8 C813.2 271.1 807.9 270.4 807.1 270.2 C806.1 270.1 804.8 269.3 803.4 267.9 C801.3 265.9 800.0 264.5 793.1 255.9 C773.8 231.9 753.4 213.0 728.4 196.2 C716.5 188.2 706.5 182.3 692.6 175.2 C672.4 164.9 644.5 155.7 620.6 151.5 C597.9 147.5 560.7 147.4 534.0 151.3 C509.8 154.8 489.3 160.5 467.6 169.6 C459.3 173.2 439.7 182.8 430.3 188.1 C407.2 200.8 388.2 215.6 373.1 232.6 C359.7 247.5 352.0 258.3 341.6 276.3 C339.8 279.3 337.3 283.6 336.1 285.8 C332.9 291.3 328.7 299.2 327.4 302.4 C326.8 303.8 325.3 307.4 324.0 310.4 C319.5 320.9 311.8 342.5 308.2 354.9 C305.4 364.6 301.8 382.1 300.8 390.8 C300.2 396.2 299.7 398.0 298.5 398.0 C298.1 398.0 297.4 397.5 297.1 396.9 Z"/></svg>
+      <svg class="wm" viewBox="0 0 1760 220" aria-hidden="true"><path class="p1" d="M50.5 165.4 100.2 33.79999999999998H113.5L63.8 165.4Z M157.46 150.0 131.70000000000002 72.99999999999999H144.58L161.66000000000003 124.8Q163.20000000000002 129.42 164.46000000000004 133.69Q165.72000000000003 137.96 166.28000000000003 140.34Q166.98000000000002 137.96 168.24 133.69Q169.50000000000003 129.42 170.90000000000003 124.8L187.56000000000003 72.99999999999999H200.3L174.54000000000002 150.0Z M243.28000000000003 151.4Q231.10000000000002 151.4 224.10000000000002 145.17000000000002Q217.10000000000002 138.94 217.10000000000002 128.3Q217.10000000000002 117.52 224.10000000000002 111.35999999999999Q231.10000000000002 105.19999999999999 243.00000000000003 105.19999999999999H266.8V97.5Q266.8 90.35999999999999 262.53000000000003 86.50999999999999Q258.26000000000005 82.66 250.42000000000002 82.66Q243.56000000000003 82.66 238.94000000000003 85.53Q234.32000000000002 88.39999999999999 233.62000000000003 93.3H221.02000000000004Q222.28000000000003 83.36 230.40000000000003 77.47999999999999Q238.52000000000004 71.6 250.70000000000005 71.6Q264.00000000000006 71.6 271.70000000000005 78.46Q279.40000000000003 85.32 279.40000000000003 97.08V150.0H267.08000000000004V135.3H266.94000000000005Q266.24 142.16 260.64000000000004 146.5Q254.06000000000003 151.4 243.28000000000003 151.4ZM246.36000000000004 141.46Q255.32000000000005 141.46 261.06000000000006 136.98000000000002Q266.8 132.5 266.8 125.5V114.58H243.28000000000003Q236.98000000000002 114.58 233.34000000000003 118.08Q229.70000000000005 121.58 229.70000000000005 127.6Q229.70000000000005 134.04 234.11000000000004 137.75Q238.52000000000004 141.46 246.36000000000004 141.46Z M307.5400000000001 150.0V72.99999999999999H319.86000000000007V86.72Q321.26000000000005 81.39999999999999 324.20000000000005 77.89999999999999Q329.52000000000004 71.6 340.1600000000001 71.6Q352.34000000000003 71.6 359.55000000000007 79.22999999999999Q366.76000000000005 86.85999999999999 366.76000000000005 99.88V104.5H354.1600000000001V101.0Q354.1600000000001 91.89999999999999 349.75000000000006 87.07Q345.34000000000003 82.24 337.2200000000001 82.24Q329.24000000000007 82.24 324.69000000000005 87.13999999999999Q320.14000000000004 92.03999999999999 320.14000000000004 101.0V150.0Z M386.50000000000006 165.4 436.20000000000005 33.79999999999998H449.50000000000006L399.80000000000007 165.4Z M512.5000000000001 150.0Q505.7800000000001 150.0 500.74000000000007 147.34Q495.70000000000005 144.68 492.9000000000001 139.78Q490.1000000000001 134.88 490.1000000000001 128.3V59.27999999999999H464.20000000000005V47.8H502.70000000000005V128.3Q502.70000000000005 133.06 505.36 135.79000000000002Q508.02000000000004 138.52 512.5000000000001 138.52H537.0000000000001V150.0Z M555.9000000000001 150.0V138.52H583.2000000000002V84.47999999999999H559.4000000000001V72.99999999999999H595.8000000000001V138.52H621.7000000000002V150.0ZM588.1000000000001 59.139999999999986Q583.4800000000001 59.139999999999986 580.8200000000002 56.75999999999999Q578.1600000000001 54.379999999999995 578.1600000000001 50.31999999999999Q578.1600000000001 46.11999999999999 580.8200000000002 43.66999999999999Q583.4800000000001 41.219999999999985 588.1000000000001 41.219999999999985Q592.7200000000001 41.219999999999985 595.3800000000001 43.66999999999999Q598.0400000000002 46.11999999999999 598.0400000000002 50.31999999999999Q598.0400000000002 54.379999999999995 595.3800000000001 56.75999999999999Q592.7200000000001 59.139999999999986 588.1000000000001 59.139999999999986Z M674.4800000000001 151.4Q664.9600000000002 151.4 659.2200000000001 146.22Q654.4600000000002 142.02 653.6200000000001 135.3H653.4800000000001V150.0H640.8800000000001V47.8H653.4800000000001V70.19999999999999L653.2000000000002 87.69999999999999H653.6200000000001Q654.4600000000002 81.11999999999999 659.3600000000001 76.77999999999999Q665.1000000000001 71.6 674.4800000000001 71.6Q686.1000000000001 71.6 693.1000000000001 79.3Q700.1000000000001 87.0 700.1000000000001 100.3V122.84Q700.1000000000001 136.0 693.1000000000001 143.7Q686.1000000000001 151.4 674.4800000000001 151.4ZM670.2800000000001 140.48Q678.2600000000001 140.48 682.8800000000001 135.72Q687.5000000000001 130.96 687.5000000000001 122.0V101.0Q687.5000000000001 92.03999999999999 682.8800000000001 87.28Q678.2600000000001 82.52 670.2800000000001 82.52Q662.5800000000002 82.52 658.0300000000002 87.41999999999999Q653.4800000000001 92.32 653.4800000000001 101.0V122.0Q653.4800000000001 130.68 658.0300000000002 135.57999999999998Q662.5800000000002 140.48 670.2800000000001 140.48Z M722.5000000000001 165.4 772.2000000000002 33.79999999999998H785.5000000000001L735.8000000000001 165.4Z"/><path class="p2" d="M807.0600000000001 150.0V133.34L848.0800000000002 64.03999999999999H808.0400000000001V47.8H867.4000000000001V64.46L826.2400000000001 133.76H868.9400000000002V150.0Z M884.9000000000001 150.0 910.6600000000001 47.8H933.2000000000002L959.1000000000001 150.0H941.1800000000001L935.5800000000002 125.22H908.4200000000001L902.8200000000002 150.0ZM911.6400000000001 110.94H932.3600000000001L926.2000000000002 83.5Q924.6600000000001 76.63999999999999 923.5400000000001 71.10999999999999Q922.4200000000001 65.58 922.0000000000001 63.05999999999999Q921.5800000000002 65.58 920.5300000000002 71.10999999999999Q919.4800000000001 76.63999999999999 917.8000000000001 83.36Z M976.7400000000001 150.0 966.2400000000001 47.8H981.3600000000001L987.5200000000001 119.19999999999999Q987.8000000000001 121.58 988.0100000000001 125.00999999999999Q988.2200000000001 128.44 988.4300000000001 131.94Q988.6400000000001 135.44 988.6400000000001 138.1Q988.9200000000001 135.44 989.2 131.94Q989.4800000000001 128.44 989.8300000000002 125.00999999999999Q990.1800000000001 121.58 990.4600000000002 119.19999999999999L998.8600000000001 47.8H1013.5600000000002L1021.4000000000001 119.19999999999999Q1021.8200000000002 121.58 1022.1700000000001 125.00999999999999Q1022.5200000000001 128.44 1022.94 131.94Q1023.3600000000001 135.44 1023.6400000000001 138.1Q1023.7800000000001 135.44 1023.9200000000001 131.94Q1024.0600000000002 128.44 1024.27 125.00999999999999Q1024.48 121.58 1024.7600000000002 119.19999999999999L1030.7800000000002 47.8H1045.7600000000002L1034.7 150.0H1015.3800000000001L1007.8200000000002 78.32Q1007.5400000000001 75.66 1007.19 72.09Q1006.8400000000001 68.52 1006.5600000000002 64.94999999999999Q1006.2800000000001 61.379999999999995 1006.1400000000001 58.859999999999985Q1006.0000000000001 61.379999999999995 1005.6500000000001 64.94999999999999Q1005.3000000000001 68.52 1005.0200000000001 72.09Q1004.7400000000001 75.66 1004.4600000000002 78.32L996.2000000000002 150.0Z M1060.6000000000001 150.0V134.6H1081.1800000000003V63.19999999999999H1060.6000000000001V47.8H1119.4000000000003V63.19999999999999H1098.8200000000002V134.6H1119.4000000000003V150.0Z M1144.3200000000002 150.0V47.8H1205.6400000000003V63.05999999999999H1161.5400000000002V89.66H1200.7400000000002V104.78H1161.5400000000002V134.74H1205.6400000000003V150.0Z M1226.6400000000003 150.0V47.8H1258.9800000000002Q1269.2000000000003 47.8 1276.6900000000003 51.57999999999999Q1284.1800000000003 55.359999999999985 1288.38 62.14999999999999Q1292.5800000000002 68.94 1292.5800000000002 78.17999999999999Q1292.5800000000002 88.25999999999999 1287.4700000000003 95.96Q1282.3600000000001 103.66 1273.6800000000003 106.88L1293.9800000000002 150.0H1274.3800000000003L1256.6000000000001 109.4H1244.1400000000003V150.0ZM1244.1400000000003 94.0H1258.9800000000002Q1266.4000000000003 94.0 1270.6000000000004 89.94Q1274.8000000000002 85.88 1274.8000000000002 78.74Q1274.8000000000002 71.46 1270.6000000000004 67.32999999999998Q1266.4000000000003 63.19999999999999 1258.9800000000002 63.19999999999999H1244.1400000000003Z M1342.0000000000002 151.4Q1327.0200000000002 151.4 1318.5500000000002 143.21Q1310.0800000000002 135.02 1310.0800000000002 120.88V47.8H1327.7200000000003V120.74Q1327.7200000000003 128.02 1331.3600000000001 132.07999999999998Q1335.0000000000002 136.14 1342.0000000000002 136.14Q1348.8600000000001 136.14 1352.5700000000002 132.07999999999998Q1356.2800000000002 128.02 1356.2800000000002 120.74V47.8H1373.9200000000003V120.88Q1373.9200000000003 135.02 1365.5200000000004 143.21Q1357.1200000000003 151.4 1342.0000000000002 151.4Z M1426.5600000000002 151.4Q1416.7600000000002 151.4 1409.4100000000003 147.69Q1402.0600000000002 143.98 1398.0700000000002 137.19Q1394.0800000000002 130.4 1394.0800000000002 121.16V76.63999999999999Q1394.0800000000002 67.25999999999999 1398.0700000000002 60.53999999999999Q1402.0600000000002 53.81999999999999 1409.4100000000003 50.10999999999999Q1416.7600000000002 46.39999999999999 1426.5600000000002 46.39999999999999Q1436.5000000000002 46.39999999999999 1443.7100000000003 50.10999999999999Q1450.9200000000003 53.81999999999999 1454.9800000000002 60.53999999999999Q1459.0400000000002 67.25999999999999 1459.0400000000002 76.63999999999999H1441.4000000000003Q1441.4000000000003 69.35999999999999 1437.5500000000002 65.57999999999998Q1433.7000000000003 61.8 1426.5600000000002 61.8Q1419.4200000000003 61.8 1415.5000000000002 65.57999999999998Q1411.5800000000002 69.35999999999999 1411.5800000000002 76.5V121.16Q1411.5800000000002 128.3 1415.5000000000002 132.15Q1419.4200000000003 136.0 1426.5600000000002 136.0Q1433.7000000000003 136.0 1437.5500000000002 132.15Q1441.4000000000003 128.3 1441.4000000000003 121.16H1459.0400000000002Q1459.0400000000002 130.26 1454.9800000000002 137.12Q1450.9200000000003 143.98 1443.7100000000003 147.69Q1436.5000000000002 151.4 1426.5600000000002 151.4Z M1478.7800000000002 150.0V47.8H1496.2800000000002V88.82H1523.7200000000003V47.8H1541.2200000000003V150.0H1523.7200000000003V105.06H1496.2800000000002V150.0Z M1556.9000000000003 150.0 1582.6600000000003 47.8H1605.2000000000003L1631.1000000000001 150.0H1613.1800000000003L1607.5800000000002 125.22H1580.4200000000003L1574.8200000000002 150.0ZM1583.6400000000003 110.94H1604.3600000000001L1598.2000000000003 83.5Q1596.6600000000003 76.63999999999999 1595.5400000000004 71.10999999999999Q1594.4200000000003 65.58 1594.0000000000002 63.05999999999999Q1593.5800000000002 65.58 1592.5300000000002 71.10999999999999Q1591.4800000000002 76.63999999999999 1589.8000000000002 83.36Z M1644.4000000000003 165.4 1693.4000000000003 33.79999999999998H1711.6000000000001L1662.6000000000001 165.4Z"/></svg>
+    </a>
+    <ul>
+      <li><a href="#szkolenia">/szkolenia</a></li>
+      <li><a href="#sciezki">/ścieżki</a></li>
+      <li><a href="#cennik">/cennik</a></li>
+      <li><a href="#jak-pracuje">/jak-pracuję</a></li>
+      <li><a href="#o-mnie">/o-mnie</a></li>
+      <li><a href="#var-lib">/var/lib</a></li>
+      
+    </ul>
+    <a class="btn btn-primary" href="#kontakt">Umów szkolenie</a>
+  </div>
+</header>
+
+<main id="start">
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <p class="prompt">~/szkolenia-ai <span>$</span> ./start --dla-firm</p>
+      <h1><span class="w">Pracuj</span> <span class="w">szybciej</span> <em class="w">z&nbsp;AI.</em></h1>
+      <p class="lead">Praktyczne szkolenia z Copilota w Microsoft 365, Claude, ChatGPT, automatyzacji i vibecodingu. Bez teorii dla teorii: Twoje zadania, Twoje pliki, gotowe prompty.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#kontakt">Umów rozmowę →</a>
+        <a class="btn btn-ghost" href="#szkolenia">Zobacz szkolenia</a>
+      </div>
+    </div>
+    <div class="vortex">
+      <svg class="big" viewBox="0 0 852 1000" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M342.1 999.7 C341.4 999.0 342.0 997.6 344.9 993.6 C353.4 982.0 363.8 965.7 370.1 954.2 C373.1 948.7 380.5 933.6 381.4 931.1 C381.6 930.4 382.8 927.7 383.9 925.1 C388.0 915.8 395.9 895.8 398.6 887.9 C401.7 878.6 403.4 874.8 404.5 874.0 C405.7 873.2 408.6 872.9 424.0 871.7 C430.4 871.2 437.7 870.5 440.2 870.3 C444.4 869.8 444.9 869.9 445.7 870.6 C446.8 871.6 446.8 872.5 444.9 879.3 C444.0 882.6 442.9 887.0 442.3 889.0 C441.7 891.1 440.7 894.6 440.1 896.8 C438.9 900.9 438.5 902.2 434.3 915.1 C433.0 919.0 431.8 922.8 431.7 923.4 C431.3 925.0 431.7 926.0 432.8 926.0 C435.1 926.0 476.6 897.0 491.1 885.2 C497.3 880.2 503.2 874.9 514.7 864.3 C530.7 849.4 539.7 843.0 550.1 838.7 C551.4 838.3 554.1 837.1 556.1 836.2 C558.2 835.3 562.6 833.5 566.0 832.1 C573.8 829.0 586.8 822.3 590.9 819.5 C593.5 817.7 602.5 813.2 603.3 813.4 C605.3 813.8 603.7 816.8 595.3 828.9 C592.6 832.7 588.3 838.9 585.8 842.6 C572.9 861.4 564.2 871.7 545.3 890.6 C526.5 909.4 517.9 917.1 506.2 925.6 C486.6 939.8 475.4 947.5 463.4 954.7 C450.7 962.3 436.3 970.0 428.3 973.5 C426.4 974.3 422.5 976.0 419.6 977.3 C401.5 985.1 377.1 992.6 355.3 996.9 C353.1 997.3 349.6 998.2 347.6 998.9 C343.9 1000.0 342.6 1000.2 342.1 999.7 Z M346.0 838.6 C323.6 837.8 296.0 834.4 280.5 830.4 C277.3 829.6 276.7 829.1 276.7 827.5 C276.7 826.1 279.0 823.9 290.7 813.6 C294.4 810.3 299.7 805.6 302.4 803.1 C308.0 797.9 311.1 796.1 313.6 796.5 C324.7 798.3 340.7 799.0 367.6 799.0 C399.0 799.0 404.0 798.6 404.2 796.0 C404.3 795.6 404.3 793.1 404.2 790.6 C404.1 783.9 404.9 775.3 405.7 773.7 C406.1 772.9 407.2 771.9 408.2 771.4 C410.9 770.0 436.2 765.7 438.4 766.2 C439.9 766.6 440.5 768.3 442.0 775.7 C443.3 782.2 444.8 786.7 446.4 788.4 C447.4 789.5 449.5 789.4 455.5 788.1 C469.3 785.1 473.1 784.3 473.7 784.1 C474.1 783.9 476.1 783.4 478.2 783.0 C487.5 781.0 505.5 775.9 515.6 772.4 C539.5 764.3 553.7 758.0 573.8 746.8 C605.7 728.9 625.9 713.4 658.2 682.0 C668.0 672.5 670.0 670.9 691.8 654.4 C723.2 630.8 729.1 626.4 733.7 623.2 C736.2 621.5 740.6 618.4 743.5 616.2 C753.3 608.9 753.2 609.6 739.7 636.8 C735.5 645.2 728.9 656.9 725.1 662.4 C709.2 686.0 695.4 702.7 678.5 718.8 C667.3 729.5 649.1 744.5 634.3 755.2 C626.5 760.9 607.8 773.3 600.9 777.5 C589.4 784.5 558.1 799.5 542.3 805.6 C528.4 811.0 503.6 818.9 491.8 821.7 C477.5 825.0 452.8 829.8 442.6 831.1 C440.6 831.4 437.4 831.9 435.5 832.3 C432.3 832.9 423.1 834.1 410.2 835.7 C385.2 838.9 370.7 839.5 346.0 838.6 Z M344.0 740.8 C332.8 740.5 319.6 739.7 313.9 739.1 C302.3 737.9 292.4 736.6 290.4 736.2 C289.3 736.0 285.9 735.3 282.7 734.8 C252.9 730.1 224.9 720.9 196.9 707.0 C178.8 697.9 166.3 690.7 158.5 684.8 C154.0 681.5 143.0 672.5 140.5 670.1 C138.5 668.2 138.0 666.5 139.3 666.0 C139.7 665.9 144.6 665.8 150.3 665.8 C162.2 665.8 170.8 665.3 180.0 664.0 C189.4 662.7 196.8 662.1 199.0 662.3 C200.3 662.5 202.3 663.3 204.9 664.9 C211.7 669.0 213.7 670.1 220.7 673.3 C233.5 679.1 242.2 682.4 256.2 686.9 C275.1 692.8 299.8 697.7 321.5 699.7 C329.7 700.5 366.6 700.5 373.7 699.7 C394.1 697.5 423.4 690.9 439.2 685.0 C440.4 684.5 442.9 683.6 444.7 682.9 C464.2 675.8 490.2 661.3 509.7 646.7 C525.4 635.0 538.0 622.3 551.2 604.7 C560.5 592.4 570.7 574.2 576.7 559.3 C584.4 540.0 587.3 529.6 590.4 510.4 C593.5 491.2 593.8 488.0 593.8 475.5 C593.8 459.7 592.4 450.6 585.7 422.9 C581.7 406.0 577.0 395.3 566.2 378.1 C556.8 363.3 548.0 351.9 538.6 342.5 C530.7 334.6 524.7 329.7 514.9 323.1 C503.0 315.1 498.2 312.6 489.1 309.5 C483.7 307.7 482.3 306.7 483.4 305.6 C484.3 304.8 509.0 304.3 524.1 304.8 C536.5 305.3 552.3 306.5 560.4 307.7 C562.8 308.1 566.9 308.7 569.5 309.1 C583.3 311.0 603.5 316.5 617.9 322.3 C630.1 327.2 646.9 336.3 664.3 347.7 C684.4 360.9 703.2 379.0 718.9 400.2 C723.0 405.8 731.3 418.3 733.9 422.6 C741.2 435.3 744.6 441.8 750.2 453.8 C751.2 455.8 752.3 456.5 753.5 455.9 C754.7 455.3 754.8 454.7 756.0 446.3 C758.4 429.5 758.9 410.9 757.4 401.1 C753.9 377.9 747.1 360.1 734.7 341.6 C727.6 330.9 712.6 314.9 702.5 307.1 C692.6 299.5 679.6 291.2 669.5 286.1 C659.4 281.1 644.8 274.9 636.0 271.8 C628.0 269.0 614.4 265.1 609.7 264.3 C608.3 264.0 606.5 263.6 605.5 263.4 C604.6 263.1 600.3 262.3 595.9 261.5 C591.6 260.8 586.1 259.9 583.8 259.4 C580.3 258.8 576.5 258.7 561.5 258.7 C550.1 258.7 541.5 258.9 538.1 259.3 C525.7 260.6 506.0 263.7 499.7 265.3 C498.2 265.7 495.6 266.3 493.8 266.7 C482.1 269.1 460.4 276.1 446.9 281.8 C436.2 286.4 434.4 287.2 428.5 290.2 C420.5 294.2 404.9 303.0 395.1 309.0 C389.1 312.7 376.3 322.2 369.8 327.8 C367.2 330.1 364.7 332.1 364.2 332.4 C362.8 333.1 361.9 332.6 361.9 330.9 C361.9 329.5 364.7 321.4 366.3 318.2 C366.7 317.3 367.3 315.8 367.6 314.8 C368.5 312.1 375.7 297.3 378.6 292.4 C388.7 275.2 401.1 261.5 414.6 252.6 C418.5 250.0 428.5 244.8 433.4 242.7 C434.8 242.1 438.0 240.8 440.3 239.8 C450.4 235.3 468.9 229.0 479.9 226.1 C495.1 222.3 511.7 219.4 525.6 218.4 C529.1 218.1 534.3 217.7 537.2 217.4 C544.2 216.7 568.9 216.7 576.6 217.4 C599.5 219.5 615.5 222.0 630.8 225.9 C635.6 227.1 647.9 231.0 656.7 234.1 C675.7 240.8 702.4 255.6 719.5 268.9 C729.5 276.7 747.1 293.5 756.7 304.4 C781.4 332.3 794.9 361.0 798.3 392.7 C800.1 409.2 800.3 428.0 798.8 440.7 C797.0 455.5 789.6 478.7 778.6 503.8 C771.8 519.4 769.0 524.4 757.0 542.3 C741.0 566.3 716.8 592.8 692.5 613.0 C687.1 617.5 683.2 620.3 673.1 626.8 C663.7 633.0 661.6 634.3 645.6 644.0 C622.5 658.0 603.7 667.9 575.8 680.5 C570.2 683.0 559.6 687.9 552.1 691.5 C537.0 698.7 536.7 698.9 527.6 702.9 C520.6 706.0 513.0 709.1 507.1 711.2 C500.4 713.7 481.2 720.0 475.5 721.7 C472.4 722.6 468.0 723.9 465.7 724.6 C442.2 731.7 403.2 738.6 377.9 740.2 C370.0 740.7 350.9 741.0 344.0 740.8 Z M324.0 631.2 C319.2 631.0 303.3 629.6 303.0 629.4 C302.8 629.3 299.5 628.8 295.6 628.3 C291.7 627.8 286.0 626.9 283.0 626.3 C279.9 625.8 276.6 625.2 275.6 625.0 C269.8 624.1 256.0 620.8 242.2 617.0 C231.0 613.9 212.3 607.1 202.1 602.3 C200.4 601.5 197.0 599.9 194.5 598.7 C174.2 589.2 142.7 569.5 124.4 555.0 C83.1 522.1 49.4 479.2 28.6 433.1 C23.3 421.4 16.8 404.3 14.0 394.6 C9.3 378.4 6.9 368.4 2.2 344.6 C-0.8 329.6 -0.7 329.5 7.6 335.0 C11.9 337.8 28.8 346.5 39.5 351.4 C44.7 353.8 46.5 355.0 47.5 357.0 C48.1 358.2 49.6 364.3 53.2 380.6 C54.9 387.9 57.2 396.2 58.9 401.3 C60.0 404.4 63.6 413.3 64.2 414.4 C64.4 414.8 65.4 416.8 66.3 418.9 C71.6 430.6 83.8 450.7 94.7 465.5 C108.9 484.9 124.4 501.8 140.4 515.6 C161.6 533.7 190.8 552.3 215.5 563.1 C224.0 566.9 225.1 567.3 235.5 571.0 C258.9 579.2 280.5 585.0 301.0 588.6 C340.6 595.6 386.8 592.4 419.3 580.4 C433.6 575.1 451.0 567.1 462.5 560.4 C478.7 551.1 497.4 538.2 506.2 530.4 C518.8 519.0 532.9 503.6 540.9 492.4 C543.6 488.5 548.6 480.3 550.3 476.8 C552.5 472.5 554.8 470.7 555.6 472.6 C555.8 473.3 554.9 487.2 553.9 499.1 C552.9 510.7 550.2 525.1 547.4 534.3 C545.7 539.6 540.8 552.2 538.9 555.9 C537.0 559.6 534.2 562.5 529.2 566.2 C527.2 567.6 523.4 570.4 520.7 572.4 C505.9 583.4 484.4 596.3 464.9 606.0 C441.4 617.6 404.9 627.3 372.5 630.4 C365.6 631.0 332.8 631.6 324.0 631.2 Z M595.4 624.1 C597.2 623.3 600.8 621.8 603.4 620.8 C619.3 614.5 636.2 604.2 660.2 586.2 C681.0 570.7 692.0 559.4 711.5 533.7 C721.7 520.2 722.2 519.1 721.7 512.5 C720.8 500.3 716.6 484.6 709.6 466.8 C704.7 454.4 699.1 443.8 691.4 432.1 C677.4 410.8 655.0 390.1 632.1 377.4 C618.4 369.7 609.7 366.6 609.3 369.0 C609.2 369.4 610.7 372.0 612.6 374.8 C617.8 382.4 620.9 389.6 625.0 403.7 C629.9 420.5 633.6 441.5 634.6 458.8 C635.5 474.2 635.0 499.2 633.5 511.1 C633.1 514.0 632.6 518.1 632.4 520.4 C630.9 533.4 624.1 556.2 615.9 575.3 C612.0 584.4 604.0 600.4 600.3 606.7 C597.0 612.2 591.7 620.1 590.9 620.5 C590.0 621.1 588.2 624.8 588.4 625.5 C588.8 626.5 591.1 626.0 595.4 624.1 Z M325.0 531.8 C313.8 531.1 296.4 529.0 289.0 527.4 C282.5 526.0 270.4 523.0 266.7 521.9 C265.2 521.4 261.9 520.4 259.4 519.6 C253.9 518.0 245.4 514.9 240.9 513.0 C239.1 512.3 235.2 510.7 232.2 509.4 C215.4 502.4 194.7 490.6 174.0 476.3 C158.3 465.4 145.9 454.5 133.1 440.5 C116.2 422.0 103.6 401.5 93.5 376.3 C84.4 353.7 80.4 336.2 77.3 305.7 C76.3 296.2 75.9 270.8 76.6 262.3 C78.3 241.1 84.8 213.4 92.0 196.7 C94.3 191.2 107.8 164.4 111.2 158.4 C118.5 145.5 127.5 133.2 137.1 122.8 C143.4 116.0 153.5 106.0 159.5 100.7 C173.6 88.2 193.9 73.0 207.4 64.9 C213.5 61.3 234.4 50.8 235.5 50.8 C235.9 50.8 236.4 51.3 236.7 51.9 C237.1 52.7 236.9 53.8 236.0 57.1 C233.2 66.6 230.8 77.2 228.8 88.9 C226.7 101.8 225.5 104.3 220.6 107.1 C217.2 109.0 213.8 110.9 211.2 112.3 C200.1 118.4 176.1 141.3 161.0 160.2 C143.4 182.3 130.6 207.6 123.7 233.7 C121.8 240.7 119.5 252.8 119.0 258.2 C116.4 285.3 116.4 302.4 119.0 322.9 C120.1 331.2 124.5 346.2 129.3 358.2 C134.5 371.0 146.0 391.3 153.5 400.8 C167.8 419.0 179.9 431.1 194.6 442.0 C200.4 446.2 210.1 452.6 217.5 457.0 C227.1 462.7 248.8 473.3 251.0 473.3 C253.5 473.3 253.0 471.9 248.8 467.2 C239.6 457.1 225.5 431.4 216.6 408.6 C215.6 406.1 214.4 403.0 213.9 401.7 C211.4 395.4 207.2 380.4 205.7 373.0 C201.3 350.4 200.8 344.9 200.8 318.0 C200.8 297.5 201.2 287.9 202.5 278.5 C206.9 248.2 209.5 237.7 218.4 213.8 C222.3 203.3 223.6 200.4 230.4 186.5 C238.5 170.0 242.0 164.2 256.2 144.2 C270.1 124.4 274.7 118.7 290.6 102.1 C310.8 80.8 319.7 73.5 347.1 55.2 C361.9 45.3 369.3 41.2 386.6 33.0 C401.8 25.7 414.7 21.1 438.5 14.3 C460.5 8.0 484.5 3.3 503.6 1.6 C509.6 1.0 529.8 0.3 546.6 0.0 C548.0 0.0 549.5 0.9 549.5 1.8 C549.5 2.3 546.5 6.5 543.7 10.0 C540.3 14.1 531.8 26.1 527.5 32.5 C523.7 38.4 520.9 41.2 518.4 41.8 C517.5 42.1 513.0 42.4 508.5 42.5 C495.4 42.9 482.0 45.5 451.0 53.7 C430.1 59.2 416.8 64.0 400.6 72.0 C388.5 78.0 382.3 81.6 371.0 89.2 C350.9 102.6 332.2 118.3 316.0 135.3 C305.0 146.7 292.9 162.2 285.8 173.6 C277.6 187.0 266.8 207.0 263.2 215.5 C262.6 216.9 261.5 219.6 260.7 221.5 C257.3 229.6 251.6 246.0 249.6 253.6 C247.3 262.1 244.9 274.9 243.7 285.7 C242.8 293.5 242.7 296.4 242.7 314.6 C242.6 333.3 242.7 335.5 243.7 342.0 C247.0 366.0 250.6 379.9 258.6 400.0 C267.0 421.1 270.8 428.9 277.2 438.3 C286.6 452.0 302.0 469.1 314.4 479.5 C327.2 490.2 337.0 496.8 353.7 505.8 C375.8 517.8 384.9 521.7 398.0 524.9 C404.5 526.5 406.0 527.0 406.0 527.6 C406.0 528.9 399.8 530.0 386.4 531.0 C363.6 532.6 341.9 532.9 325.0 531.8 Z M297.1 396.9 C296.7 396.4 296.1 394.3 295.7 392.4 C295.3 390.4 294.6 387.5 294.1 385.9 C293.6 384.3 292.1 378.5 290.8 373.0 C284.6 348.0 282.9 336.7 282.8 322.2 C282.8 314.0 282.9 312.4 284.0 306.8 C287.9 287.0 297.5 265.6 311.9 244.4 C315.6 239.0 326.0 224.8 329.0 221.0 C345.9 200.1 368.9 179.3 392.4 163.9 C402.3 157.4 417.8 147.8 424.2 144.1 C428.9 141.5 442.2 134.9 448.4 132.1 C462.7 125.7 479.8 119.8 493.0 116.9 C495.7 116.3 498.0 115.8 498.2 115.6 C498.7 115.3 510.3 113.3 518.9 112.1 C523.1 111.4 528.8 110.6 531.6 110.1 C551.2 106.8 566.3 106.6 605.1 109.0 C622.0 110.0 636.8 112.2 656.6 116.5 C674.2 120.4 699.8 130.0 716.8 139.2 C744.6 154.2 787.7 187.9 807.6 210.3 C824.3 229.0 839.6 250.8 850.0 270.6 C854.0 278.4 853.5 279.0 844.8 276.8 C834.4 274.2 829.1 273.2 818.9 271.8 C813.2 271.1 807.9 270.4 807.1 270.2 C806.1 270.1 804.8 269.3 803.4 267.9 C801.3 265.9 800.0 264.5 793.1 255.9 C773.8 231.9 753.4 213.0 728.4 196.2 C716.5 188.2 706.5 182.3 692.6 175.2 C672.4 164.9 644.5 155.7 620.6 151.5 C597.9 147.5 560.7 147.4 534.0 151.3 C509.8 154.8 489.3 160.5 467.6 169.6 C459.3 173.2 439.7 182.8 430.3 188.1 C407.2 200.8 388.2 215.6 373.1 232.6 C359.7 247.5 352.0 258.3 341.6 276.3 C339.8 279.3 337.3 283.6 336.1 285.8 C332.9 291.3 328.7 299.2 327.4 302.4 C326.8 303.8 325.3 307.4 324.0 310.4 C319.5 320.9 311.8 342.5 308.2 354.9 C305.4 364.6 301.8 382.1 300.8 390.8 C300.2 396.2 299.7 398.0 298.5 398.0 C298.1 398.0 297.4 397.5 297.1 396.9 Z"/></svg>
+      <div class="term" aria-label="Przykład pracy z AI">
+        <div class="bar"><i></i><i></i><i></i><span class="app" id="t-app">teams · copilot</span></div>
+        <div class="body" id="t-body" aria-live="off">
+          <div class="in">&gt; Podsumuj notatki ze spotkania w 5 punktach i wypisz zadania z właścicielami.</div>
+          <div class="ok">✓ Podsumowanie: 5 punktów</div>
+          <div class="ok">✓ Zadania: 7, przypisane do 4 osób</div>
+          <div>&gt; <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap tools" aria-label="Narzędzia na szkoleniach">
+  <span>uczę pracy w:</span><b>Microsoft 365 Copilot</b><b>ChatGPT</b><b>Claude</b><b>Claude Code</b><b>Cursor</b><b>Teams</b><b>SharePoint</b><b>Power Automate</b>
+</div>
+
+<section class="s" id="szkolenia">
+  <div class="wrap">
+    <div class="head">
+      <span class="path">/szkolenia</span>
+      <h2>Siedem szkoleń, jeden cel: mniej klikania.</h2>
+      <p class="intro">Każde szkolenie możesz zamówić osobno albo złożyć z modułów w program dla całej firmy.</p>
+    </div>
+    <div class="courses">
+      <article class="course">
+        <span class="id">01 /copilot-m365</span>
+        <h3>Copilot w Microsoft 365</h3>
+        <p>Copilot w Outlooku, Teams, Wordzie, Excelu i PowerPoincie na realnych zadaniach z Twojej pracy.</p>
+        <ul><li>podsumowania spotkań i wątków</li><li>szkice dokumentów i prezentacji</li><li>analiza danych w Excelu</li></ul>
+        <div class="meta"><span class="chip">1 dzień · 7 h</span><span class="chip">stacjonarnie / online</span><span class="chip">do 12 osób</span><span class="chip price">od 5 400 zł</span></div>
+      </article>
+      <article class="course">
+        <span class="id">02 /prompt-engineering</span>
+        <h3>Prompt engineering w praktyce</h3>
+        <p>Jak pisać polecenia, które działają za pierwszym razem. Jeden schemat do każdego narzędzia AI.</p>
+        <ul><li>rola, kontekst, zadanie, format</li><li>biblioteka promptów dla zespołu</li><li>poprawianie i weryfikacja odpowiedzi</li></ul>
+        <div class="meta"><span class="chip">4 h</span><span class="chip">stacjonarnie / online</span><span class="chip">do 12 osób</span><span class="chip price">od 2 900 zł</span></div>
+      </article>
+      <article class="course">
+        <span class="id">03 /automatyzacja</span>
+        <h3>Automatyzacja codziennej pracy</h3>
+        <p>Powtarzalne zadania oddane AI i Power Automate: raporty, maile, obieg dokumentów.</p>
+        <ul><li>mapa zadań do automatyzacji</li><li>pierwszy przepływ krok po kroku</li><li>AI w przepływach pracy</li></ul>
+        <div class="meta"><span class="chip">1 dzień · 7 h</span><span class="chip">warsztat</span><span class="chip">do 10 osób</span><span class="chip price">od 6 400 zł</span></div>
+      </article>
+      <article class="course">
+        <span class="id">04 /ai-act</span>
+        <h3>AI Act w praktyce: kompetencje AI w firmie</h3>
+        <p>Art. 4 AI Act zobowiązuje firmy korzystające z AI do wspierania kompetencji AI pracowników. To szkolenie jest takim krokiem: uczestnicy dostają imienne potwierdzenie udziału z programem, a firma listę obecności.</p>
+        <ul><li>co wolno wkleić do AI, a czego nie</li><li>weryfikacja wyników i odpowiedzialność</li><li>polityka AI i lista obecności z programem</li></ul>
+        <div class="meta"><span class="chip">3 h</span><span class="chip">online do 30 osób</span><span class="chip">potwierdzenie udziału</span><span class="chip price">od 2 400 zł</span></div>
+      </article>
+      <article class="course">
+        <span class="id">05 /claude</span>
+        <h3>Claude w praktyce</h3>
+        <p>Asystent do pracy na długich dokumentach, analizach i tekstach, które mają brzmieć jak Wy.</p>
+        <ul><li>Projekty z bazą wiedzy zespołu</li><li>artefakty: dokumenty, tabele, mini-aplikacje</li><li>analiza umów, raportów i PDF-ów</li></ul>
+        <div class="meta"><span class="chip">4 h</span><span class="chip">stacjonarnie / online</span><span class="chip">do 12 osób</span><span class="chip price">od 2 900 zł</span></div>
+      </article>
+      <article class="course">
+        <span class="id">06 /chatgpt</span>
+        <h3>ChatGPT w praktyce</h3>
+        <p>Od pojedynczych pytań do własnych asystentów, którzy znają Wasze procedury.</p>
+        <ul><li>własne GPT-y dla działu</li><li>analiza danych z plików</li><li>research i przygotowanie materiałów</li></ul>
+        <div class="meta"><span class="chip">4 h</span><span class="chip">stacjonarnie / online</span><span class="chip">do 12 osób</span><span class="chip price">od 2 900 zł</span></div>
+      </article>
+      <article class="course">
+        <span class="id">07 /vibecoding</span>
+        <h3>Vibecoding: narzędzia bez programowania</h3>
+        <p>Opisujesz, czego potrzebujesz, a AI pisze kod. Budujemy działające narzędzie dla Twojego zespołu w jeden dzień.</p>
+        <ul><li>od pomysłu do działającej aplikacji</li><li>Claude Code, Cursor i podobne narzędzia</li><li>jak sprawdzać i bezpiecznie wdrażać kod od AI</li></ul>
+        <div class="meta"><span class="chip">1 dzień · 7 h</span><span class="chip">warsztat</span><span class="chip">do 10 osób</span><span class="chip price">od 6 900 zł</span></div>
+      </article>
+      <article class="course" style="justify-content:center">
+        <span class="id">08 /na-zamowienie</span>
+        <h3>Nie widzisz swojego tematu?</h3>
+        <p>Ułożę szkolenie z modułów powyżej albo od zera, pod Wasze narzędzia i procesy.</p>
+        <div class="meta"><a class="btn btn-ghost" href="#kontakt">Opisz, czego potrzebujesz →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="sciezki">
+  <div class="wrap">
+    <div class="head">
+      <span class="path">/ścieżki</span>
+      <h2>Nie wiesz, od czego zacząć? Wybierz dział.</h2>
+      <p class="intro">Gotowe zestawy modułów dla konkretnych zespołów. Numery odpowiadają szkoleniom powyżej.</p>
+    </div>
+    <div class="paths">
+      <div class="pth"><h3>Kadra zarządzająca</h3><p>Decyzje, raporty, polityka AI w firmie.</p><span class="mods">04 · 01 · 05</span></div>
+      <div class="pth"><h3>HR i administracja</h3><p>Ogłoszenia, procedury, odpowiedzi na powtarzalne pytania.</p><span class="mods">02 · 01 · 06</span></div>
+      <div class="pth"><h3>Sprzedaż i obsługa klienta</h3><p>Oferty, maile, przygotowanie do rozmów.</p><span class="mods">02 · 06 · 03</span></div>
+      <div class="pth"><h3>Finanse i analizy</h3><p>Excel z Copilotem, analiza dokumentów i danych.</p><span class="mods">01 · 05 · 03</span></div>
+      <div class="pth"><h3>IT i innowacje</h3><p>Szybkie prototypy, automatyzacje, bezpieczny kod od AI.</p><span class="mods">07 · 03 · 04</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="cennik">
+  <div class="wrap">
+    <div class="head">
+      <span class="path">/cennik</span>
+      <h2>Ceny bez niespodzianek.</h2>
+      <p class="intro">Współpracuję na podstawie umowy zlecenia. Podane kwoty to wynagrodzenie brutto z umowy za całą grupę, bez VAT. Program, materiały i ćwiczenia na Waszych przykładach są w cenie.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <span class="tag">warsztat · 3–4 h</span>
+        <h3>Na dobry start</h3>
+        <p class="amount">od 2 400 zł<small>brutto za grupę · online lub u Was</small></p>
+        <ul><li>jeden temat, np. prompty albo AI Act</li><li>do 12 osób (online do 30)</li><li>ściągawka PDF dla uczestników</li></ul>
+        <a class="btn btn-ghost" href="#kontakt">Zapytaj o termin</a>
+      </div>
+      <div class="tier hl">
+        <span class="tag">najczęściej wybierane · 1 dzień</span>
+        <h3>Dzień praktyki</h3>
+        <p class="amount">od 5 400 zł<small>brutto za grupę · 7 h, do 12 osób</small></p>
+        <ul><li>Copilot w M365 albo automatyzacja</li><li>ćwiczenia na Waszych plikach i procesach</li><li>dostęp do /var/lib i 14 dni pytań po szkoleniu</li></ul>
+        <a class="btn btn-primary" href="#kontakt">Umów szkolenie</a>
+      </div>
+      <div class="tier">
+        <span class="tag">program dla firmy</span>
+        <h3>Wdrożenie AI w firmie</h3>
+        <p class="amount">od 6 900 zł<small>brutto · zależnie od wielkości firmy</small></p>
+        <ul><li>diagnoza i plan szkoleń</li><li>warsztaty dla działów</li><li>polityka AI i wsparcie po wdrożeniu</li></ul>
+        <a class="btn btn-ghost" href="#wdrozenie">Zobacz progi cenowe ↓</a>
+      </div>
+    </div>
+    <div class="calc" id="kalkulator">
+      <div class="calc-in">
+        <span class="path">/cennik/kalkulator</span>
+        <h3>Policz orientacyjny koszt</h3>
+        <fieldset>
+          <legend>szkolenia</legend>
+          <label class="opt"><input type="checkbox" value="5400" data-max="12" checked> <span>01 Copilot w M365 <i>7 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2900" data-max="12"> <span>02 Prompt engineering <i>4 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="6400" data-max="10"> <span>03 Automatyzacja <i>7 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2400" data-max="30"> <span>04 AI Act w praktyce <i>3 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2900" data-max="12"> <span>05 Claude w praktyce <i>4 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2900" data-max="12"> <span>06 ChatGPT w praktyce <i>4 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="6900" data-max="10"> <span>07 Vibecoding <i>7 h</i></span></label>
+        </fieldset>
+        <div class="calc-people">
+          <label for="c-people">liczba uczestników: <b id="c-people-v">12</b></label>
+          <input type="range" id="c-people" min="1" max="120" value="12">
+        </div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <span class="tag">szacunek</span>
+        <p class="amount" id="c-total">5 400 zł</p>
+        <p class="calc-sub" id="c-detail">1 grupa · 7 h szkoleń</p>
+        <p class="calc-hint" id="c-hint"></p>
+        <a class="btn btn-primary" href="#kontakt" id="c-cta">Poproś o dokładną wycenę</a>
+        <p class="calc-note">Kwota brutto z umowy zlecenia, bez dojazdu. Duże grupy dzielę na kilka terminów.</p>
+      </div>
+    </div>
+    <div class="ptable">
+      <table>
+        <tr><th>szkolenie</th><th>czas</th><th>grupa</th><th class="n">wynagrodzenie brutto</th></tr>
+        <tr><td>Copilot w Microsoft 365</td><td>7 h</td><td>do 12 osób</td><td class="n">5 400 zł</td></tr>
+        <tr><td>Prompt engineering w praktyce</td><td>4 h</td><td>do 12 osób</td><td class="n">2 900 zł</td></tr>
+        <tr><td>Automatyzacja codziennej pracy</td><td>7 h</td><td>do 10 osób</td><td class="n">6 400 zł</td></tr>
+        <tr><td>AI Act w praktyce (z potwierdzeniem udziału)</td><td>3 h</td><td>online do 30 osób</td><td class="n">2 400 zł</td></tr>
+        <tr><td>Claude w praktyce</td><td>4 h</td><td>do 12 osób</td><td class="n">2 900 zł</td></tr>
+        <tr><td>ChatGPT w praktyce</td><td>4 h</td><td>do 12 osób</td><td class="n">2 900 zł</td></tr>
+        <tr><td>Claude + ChatGPT: dzień porównawczy</td><td>7 h</td><td>do 12 osób</td><td class="n">5 400 zł</td></tr>
+        <tr><td>Vibecoding: narzędzia bez programowania</td><td>7 h</td><td>do 10 osób</td><td class="n">6 900 zł</td></tr>
+        <tr><td>Konsultacja dla zespołu lub kadry</td><td>1 h</td><td>do 5 osób</td><td class="n">350 zł</td></tr>
+      </table>
+    </div>
+
+    <div class="sizes" id="wdrozenie">
+      <div class="sizes-head">
+        <span class="path">/cennik/wdrozenie</span>
+        <h3>Wdrożenie AI według wielkości firmy</h3>
+        <p>Im więcej działów i osób, tym więcej diagnozy, warsztatów i wsparcia. Każdy próg obejmuje szkolenie z AI Act z imiennymi potwierdzeniami udziału.</p>
+      </div>
+      <div class="size-grid">
+        <div class="size"><span class="tag">mikro · do 9 osób</span><p class="amount">od 6 900 zł</p>
+          <ul><li>rozmowa diagnostyczna (1 h)</li><li>1 dzień warsztatów dla całego zespołu</li><li>wzór polityki AI</li><li>14 dni pytań po szkoleniu</li></ul></div>
+        <div class="size hl"><span class="tag">mała · 10–49 osób</span><p class="amount">od 14 900 zł</p>
+          <ul><li>diagnoza z ankietą dla zespołu</li><li>3 warsztaty dla różnych działów</li><li>polityka AI dopasowana do firmy</li><li>30 dni wsparcia</li></ul></div>
+        <div class="size"><span class="tag">średnia · 50–249 osób</span><p class="amount">od 29 900 zł</p>
+          <ul><li>diagnoza i mapa zastosowań AI</li><li>6 warsztatów według ról</li><li>szkolenie ambasadorów AI w działach</li><li>60 dni wsparcia</li></ul></div>
+        <div class="size"><span class="tag">duża · 250+ osób</span><p class="amount">od 49 900 zł</p>
+          <ul><li>program wieloetapowy z harmonogramem</li><li>train-the-trainer dla wewnętrznych trenerów</li><li>raport z działań wspierających kompetencje AI</li><li>wsparcie do uzgodnienia</li></ul></div>
+      </div>
+    </div>
+    <p class="pnote">Rozliczenie: umowa zlecenie, płatność przelewem po szkoleniu na podstawie rachunku. Każda osoba ponad limit grupy: [190 zł]. Szkolenie stacjonarne poza [miastem]: doliczam koszt dojazdu. Wolisz fakturę VAT? Napisz, znajdziemy rozwiązanie.</p>
+  </div>
+</section>
+
+<section class="s" id="jak-pracuje">
+  <div class="wrap">
+    <div class="head">
+      <span class="path">/jak-pracuję</span>
+      <h2>Od rozmowy do zmiany w codziennej pracy.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">01 diagnoza</span><h3>Rozmowa</h3><p>Poznaję zespół, narzędzia i zadania, które zabierają najwięcej czasu.</p></div>
+      <div class="step"><span class="n">02 program</span><h3>Plan szkolenia</h3><p>Układam program pod Wasze przykłady, licencje i poziom zespołu.</p></div>
+      <div class="step"><span class="n">03 warsztat</span><h3>Praktyka</h3><p>Uczestnicy pracują na własnych zadaniach. Wychodzą z gotowymi promptami.</p></div>
+      <div class="step"><span class="n">04 wsparcie</span><h3>Po szkoleniu</h3><p>Materiały w /var/lib i [czas] na pytania, gdy zaczniecie działać.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="o-mnie">
+  <div class="wrap about">
+    <div class="photo" role="img" aria-label="Miejsce na zdjęcie prowadzącego">
+      <div><svg viewBox="0 0 852 1000" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M342.1 999.7 C341.4 999.0 342.0 997.6 344.9 993.6 C353.4 982.0 363.8 965.7 370.1 954.2 C373.1 948.7 380.5 933.6 381.4 931.1 C381.6 930.4 382.8 927.7 383.9 925.1 C388.0 915.8 395.9 895.8 398.6 887.9 C401.7 878.6 403.4 874.8 404.5 874.0 C405.7 873.2 408.6 872.9 424.0 871.7 C430.4 871.2 437.7 870.5 440.2 870.3 C444.4 869.8 444.9 869.9 445.7 870.6 C446.8 871.6 446.8 872.5 444.9 879.3 C444.0 882.6 442.9 887.0 442.3 889.0 C441.7 891.1 440.7 894.6 440.1 896.8 C438.9 900.9 438.5 902.2 434.3 915.1 C433.0 919.0 431.8 922.8 431.7 923.4 C431.3 925.0 431.7 926.0 432.8 926.0 C435.1 926.0 476.6 897.0 491.1 885.2 C497.3 880.2 503.2 874.9 514.7 864.3 C530.7 849.4 539.7 843.0 550.1 838.7 C551.4 838.3 554.1 837.1 556.1 836.2 C558.2 835.3 562.6 833.5 566.0 832.1 C573.8 829.0 586.8 822.3 590.9 819.5 C593.5 817.7 602.5 813.2 603.3 813.4 C605.3 813.8 603.7 816.8 595.3 828.9 C592.6 832.7 588.3 838.9 585.8 842.6 C572.9 861.4 564.2 871.7 545.3 890.6 C526.5 909.4 517.9 917.1 506.2 925.6 C486.6 939.8 475.4 947.5 463.4 954.7 C450.7 962.3 436.3 970.0 428.3 973.5 C426.4 974.3 422.5 976.0 419.6 977.3 C401.5 985.1 377.1 992.6 355.3 996.9 C353.1 997.3 349.6 998.2 347.6 998.9 C343.9 1000.0 342.6 1000.2 342.1 999.7 Z M346.0 838.6 C323.6 837.8 296.0 834.4 280.5 830.4 C277.3 829.6 276.7 829.1 276.7 827.5 C276.7 826.1 279.0 823.9 290.7 813.6 C294.4 810.3 299.7 805.6 302.4 803.1 C308.0 797.9 311.1 796.1 313.6 796.5 C324.7 798.3 340.7 799.0 367.6 799.0 C399.0 799.0 404.0 798.6 404.2 796.0 C404.3 795.6 404.3 793.1 404.2 790.6 C404.1 783.9 404.9 775.3 405.7 773.7 C406.1 772.9 407.2 771.9 408.2 771.4 C410.9 770.0 436.2 765.7 438.4 766.2 C439.9 766.6 440.5 768.3 442.0 775.7 C443.3 782.2 444.8 786.7 446.4 788.4 C447.4 789.5 449.5 789.4 455.5 788.1 C469.3 785.1 473.1 784.3 473.7 784.1 C474.1 783.9 476.1 783.4 478.2 783.0 C487.5 781.0 505.5 775.9 515.6 772.4 C539.5 764.3 553.7 758.0 573.8 746.8 C605.7 728.9 625.9 713.4 658.2 682.0 C668.0 672.5 670.0 670.9 691.8 654.4 C723.2 630.8 729.1 626.4 733.7 623.2 C736.2 621.5 740.6 618.4 743.5 616.2 C753.3 608.9 753.2 609.6 739.7 636.8 C735.5 645.2 728.9 656.9 725.1 662.4 C709.2 686.0 695.4 702.7 678.5 718.8 C667.3 729.5 649.1 744.5 634.3 755.2 C626.5 760.9 607.8 773.3 600.9 777.5 C589.4 784.5 558.1 799.5 542.3 805.6 C528.4 811.0 503.6 818.9 491.8 821.7 C477.5 825.0 452.8 829.8 442.6 831.1 C440.6 831.4 437.4 831.9 435.5 832.3 C432.3 832.9 423.1 834.1 410.2 835.7 C385.2 838.9 370.7 839.5 346.0 838.6 Z M344.0 740.8 C332.8 740.5 319.6 739.7 313.9 739.1 C302.3 737.9 292.4 736.6 290.4 736.2 C289.3 736.0 285.9 735.3 282.7 734.8 C252.9 730.1 224.9 720.9 196.9 707.0 C178.8 697.9 166.3 690.7 158.5 684.8 C154.0 681.5 143.0 672.5 140.5 670.1 C138.5 668.2 138.0 666.5 139.3 666.0 C139.7 665.9 144.6 665.8 150.3 665.8 C162.2 665.8 170.8 665.3 180.0 664.0 C189.4 662.7 196.8 662.1 199.0 662.3 C200.3 662.5 202.3 663.3 204.9 664.9 C211.7 669.0 213.7 670.1 220.7 673.3 C233.5 679.1 242.2 682.4 256.2 686.9 C275.1 692.8 299.8 697.7 321.5 699.7 C329.7 700.5 366.6 700.5 373.7 699.7 C394.1 697.5 423.4 690.9 439.2 685.0 C440.4 684.5 442.9 683.6 444.7 682.9 C464.2 675.8 490.2 661.3 509.7 646.7 C525.4 635.0 538.0 622.3 551.2 604.7 C560.5 592.4 570.7 574.2 576.7 559.3 C584.4 540.0 587.3 529.6 590.4 510.4 C593.5 491.2 593.8 488.0 593.8 475.5 C593.8 459.7 592.4 450.6 585.7 422.9 C581.7 406.0 577.0 395.3 566.2 378.1 C556.8 363.3 548.0 351.9 538.6 342.5 C530.7 334.6 524.7 329.7 514.9 323.1 C503.0 315.1 498.2 312.6 489.1 309.5 C483.7 307.7 482.3 306.7 483.4 305.6 C484.3 304.8 509.0 304.3 524.1 304.8 C536.5 305.3 552.3 306.5 560.4 307.7 C562.8 308.1 566.9 308.7 569.5 309.1 C583.3 311.0 603.5 316.5 617.9 322.3 C630.1 327.2 646.9 336.3 664.3 347.7 C684.4 360.9 703.2 379.0 718.9 400.2 C723.0 405.8 731.3 418.3 733.9 422.6 C741.2 435.3 744.6 441.8 750.2 453.8 C751.2 455.8 752.3 456.5 753.5 455.9 C754.7 455.3 754.8 454.7 756.0 446.3 C758.4 429.5 758.9 410.9 757.4 401.1 C753.9 377.9 747.1 360.1 734.7 341.6 C727.6 330.9 712.6 314.9 702.5 307.1 C692.6 299.5 679.6 291.2 669.5 286.1 C659.4 281.1 644.8 274.9 636.0 271.8 C628.0 269.0 614.4 265.1 609.7 264.3 C608.3 264.0 606.5 263.6 605.5 263.4 C604.6 263.1 600.3 262.3 595.9 261.5 C591.6 260.8 586.1 259.9 583.8 259.4 C580.3 258.8 576.5 258.7 561.5 258.7 C550.1 258.7 541.5 258.9 538.1 259.3 C525.7 260.6 506.0 263.7 499.7 265.3 C498.2 265.7 495.6 266.3 493.8 266.7 C482.1 269.1 460.4 276.1 446.9 281.8 C436.2 286.4 434.4 287.2 428.5 290.2 C420.5 294.2 404.9 303.0 395.1 309.0 C389.1 312.7 376.3 322.2 369.8 327.8 C367.2 330.1 364.7 332.1 364.2 332.4 C362.8 333.1 361.9 332.6 361.9 330.9 C361.9 329.5 364.7 321.4 366.3 318.2 C366.7 317.3 367.3 315.8 367.6 314.8 C368.5 312.1 375.7 297.3 378.6 292.4 C388.7 275.2 401.1 261.5 414.6 252.6 C418.5 250.0 428.5 244.8 433.4 242.7 C434.8 242.1 438.0 240.8 440.3 239.8 C450.4 235.3 468.9 229.0 479.9 226.1 C495.1 222.3 511.7 219.4 525.6 218.4 C529.1 218.1 534.3 217.7 537.2 217.4 C544.2 216.7 568.9 216.7 576.6 217.4 C599.5 219.5 615.5 222.0 630.8 225.9 C635.6 227.1 647.9 231.0 656.7 234.1 C675.7 240.8 702.4 255.6 719.5 268.9 C729.5 276.7 747.1 293.5 756.7 304.4 C781.4 332.3 794.9 361.0 798.3 392.7 C800.1 409.2 800.3 428.0 798.8 440.7 C797.0 455.5 789.6 478.7 778.6 503.8 C771.8 519.4 769.0 524.4 757.0 542.3 C741.0 566.3 716.8 592.8 692.5 613.0 C687.1 617.5 683.2 620.3 673.1 626.8 C663.7 633.0 661.6 634.3 645.6 644.0 C622.5 658.0 603.7 667.9 575.8 680.5 C570.2 683.0 559.6 687.9 552.1 691.5 C537.0 698.7 536.7 698.9 527.6 702.9 C520.6 706.0 513.0 709.1 507.1 711.2 C500.4 713.7 481.2 720.0 475.5 721.7 C472.4 722.6 468.0 723.9 465.7 724.6 C442.2 731.7 403.2 738.6 377.9 740.2 C370.0 740.7 350.9 741.0 344.0 740.8 Z M324.0 631.2 C319.2 631.0 303.3 629.6 303.0 629.4 C302.8 629.3 299.5 628.8 295.6 628.3 C291.7 627.8 286.0 626.9 283.0 626.3 C279.9 625.8 276.6 625.2 275.6 625.0 C269.8 624.1 256.0 620.8 242.2 617.0 C231.0 613.9 212.3 607.1 202.1 602.3 C200.4 601.5 197.0 599.9 194.5 598.7 C174.2 589.2 142.7 569.5 124.4 555.0 C83.1 522.1 49.4 479.2 28.6 433.1 C23.3 421.4 16.8 404.3 14.0 394.6 C9.3 378.4 6.9 368.4 2.2 344.6 C-0.8 329.6 -0.7 329.5 7.6 335.0 C11.9 337.8 28.8 346.5 39.5 351.4 C44.7 353.8 46.5 355.0 47.5 357.0 C48.1 358.2 49.6 364.3 53.2 380.6 C54.9 387.9 57.2 396.2 58.9 401.3 C60.0 404.4 63.6 413.3 64.2 414.4 C64.4 414.8 65.4 416.8 66.3 418.9 C71.6 430.6 83.8 450.7 94.7 465.5 C108.9 484.9 124.4 501.8 140.4 515.6 C161.6 533.7 190.8 552.3 215.5 563.1 C224.0 566.9 225.1 567.3 235.5 571.0 C258.9 579.2 280.5 585.0 301.0 588.6 C340.6 595.6 386.8 592.4 419.3 580.4 C433.6 575.1 451.0 567.1 462.5 560.4 C478.7 551.1 497.4 538.2 506.2 530.4 C518.8 519.0 532.9 503.6 540.9 492.4 C543.6 488.5 548.6 480.3 550.3 476.8 C552.5 472.5 554.8 470.7 555.6 472.6 C555.8 473.3 554.9 487.2 553.9 499.1 C552.9 510.7 550.2 525.1 547.4 534.3 C545.7 539.6 540.8 552.2 538.9 555.9 C537.0 559.6 534.2 562.5 529.2 566.2 C527.2 567.6 523.4 570.4 520.7 572.4 C505.9 583.4 484.4 596.3 464.9 606.0 C441.4 617.6 404.9 627.3 372.5 630.4 C365.6 631.0 332.8 631.6 324.0 631.2 Z M595.4 624.1 C597.2 623.3 600.8 621.8 603.4 620.8 C619.3 614.5 636.2 604.2 660.2 586.2 C681.0 570.7 692.0 559.4 711.5 533.7 C721.7 520.2 722.2 519.1 721.7 512.5 C720.8 500.3 716.6 484.6 709.6 466.8 C704.7 454.4 699.1 443.8 691.4 432.1 C677.4 410.8 655.0 390.1 632.1 377.4 C618.4 369.7 609.7 366.6 609.3 369.0 C609.2 369.4 610.7 372.0 612.6 374.8 C617.8 382.4 620.9 389.6 625.0 403.7 C629.9 420.5 633.6 441.5 634.6 458.8 C635.5 474.2 635.0 499.2 633.5 511.1 C633.1 514.0 632.6 518.1 632.4 520.4 C630.9 533.4 624.1 556.2 615.9 575.3 C612.0 584.4 604.0 600.4 600.3 606.7 C597.0 612.2 591.7 620.1 590.9 620.5 C590.0 621.1 588.2 624.8 588.4 625.5 C588.8 626.5 591.1 626.0 595.4 624.1 Z M325.0 531.8 C313.8 531.1 296.4 529.0 289.0 527.4 C282.5 526.0 270.4 523.0 266.7 521.9 C265.2 521.4 261.9 520.4 259.4 519.6 C253.9 518.0 245.4 514.9 240.9 513.0 C239.1 512.3 235.2 510.7 232.2 509.4 C215.4 502.4 194.7 490.6 174.0 476.3 C158.3 465.4 145.9 454.5 133.1 440.5 C116.2 422.0 103.6 401.5 93.5 376.3 C84.4 353.7 80.4 336.2 77.3 305.7 C76.3 296.2 75.9 270.8 76.6 262.3 C78.3 241.1 84.8 213.4 92.0 196.7 C94.3 191.2 107.8 164.4 111.2 158.4 C118.5 145.5 127.5 133.2 137.1 122.8 C143.4 116.0 153.5 106.0 159.5 100.7 C173.6 88.2 193.9 73.0 207.4 64.9 C213.5 61.3 234.4 50.8 235.5 50.8 C235.9 50.8 236.4 51.3 236.7 51.9 C237.1 52.7 236.9 53.8 236.0 57.1 C233.2 66.6 230.8 77.2 228.8 88.9 C226.7 101.8 225.5 104.3 220.6 107.1 C217.2 109.0 213.8 110.9 211.2 112.3 C200.1 118.4 176.1 141.3 161.0 160.2 C143.4 182.3 130.6 207.6 123.7 233.7 C121.8 240.7 119.5 252.8 119.0 258.2 C116.4 285.3 116.4 302.4 119.0 322.9 C120.1 331.2 124.5 346.2 129.3 358.2 C134.5 371.0 146.0 391.3 153.5 400.8 C167.8 419.0 179.9 431.1 194.6 442.0 C200.4 446.2 210.1 452.6 217.5 457.0 C227.1 462.7 248.8 473.3 251.0 473.3 C253.5 473.3 253.0 471.9 248.8 467.2 C239.6 457.1 225.5 431.4 216.6 408.6 C215.6 406.1 214.4 403.0 213.9 401.7 C211.4 395.4 207.2 380.4 205.7 373.0 C201.3 350.4 200.8 344.9 200.8 318.0 C200.8 297.5 201.2 287.9 202.5 278.5 C206.9 248.2 209.5 237.7 218.4 213.8 C222.3 203.3 223.6 200.4 230.4 186.5 C238.5 170.0 242.0 164.2 256.2 144.2 C270.1 124.4 274.7 118.7 290.6 102.1 C310.8 80.8 319.7 73.5 347.1 55.2 C361.9 45.3 369.3 41.2 386.6 33.0 C401.8 25.7 414.7 21.1 438.5 14.3 C460.5 8.0 484.5 3.3 503.6 1.6 C509.6 1.0 529.8 0.3 546.6 0.0 C548.0 0.0 549.5 0.9 549.5 1.8 C549.5 2.3 546.5 6.5 543.7 10.0 C540.3 14.1 531.8 26.1 527.5 32.5 C523.7 38.4 520.9 41.2 518.4 41.8 C517.5 42.1 513.0 42.4 508.5 42.5 C495.4 42.9 482.0 45.5 451.0 53.7 C430.1 59.2 416.8 64.0 400.6 72.0 C388.5 78.0 382.3 81.6 371.0 89.2 C350.9 102.6 332.2 118.3 316.0 135.3 C305.0 146.7 292.9 162.2 285.8 173.6 C277.6 187.0 266.8 207.0 263.2 215.5 C262.6 216.9 261.5 219.6 260.7 221.5 C257.3 229.6 251.6 246.0 249.6 253.6 C247.3 262.1 244.9 274.9 243.7 285.7 C242.8 293.5 242.7 296.4 242.7 314.6 C242.6 333.3 242.7 335.5 243.7 342.0 C247.0 366.0 250.6 379.9 258.6 400.0 C267.0 421.1 270.8 428.9 277.2 438.3 C286.6 452.0 302.0 469.1 314.4 479.5 C327.2 490.2 337.0 496.8 353.7 505.8 C375.8 517.8 384.9 521.7 398.0 524.9 C404.5 526.5 406.0 527.0 406.0 527.6 C406.0 528.9 399.8 530.0 386.4 531.0 C363.6 532.6 341.9 532.9 325.0 531.8 Z M297.1 396.9 C296.7 396.4 296.1 394.3 295.7 392.4 C295.3 390.4 294.6 387.5 294.1 385.9 C293.6 384.3 292.1 378.5 290.8 373.0 C284.6 348.0 282.9 336.7 282.8 322.2 C282.8 314.0 282.9 312.4 284.0 306.8 C287.9 287.0 297.5 265.6 311.9 244.4 C315.6 239.0 326.0 224.8 329.0 221.0 C345.9 200.1 368.9 179.3 392.4 163.9 C402.3 157.4 417.8 147.8 424.2 144.1 C428.9 141.5 442.2 134.9 448.4 132.1 C462.7 125.7 479.8 119.8 493.0 116.9 C495.7 116.3 498.0 115.8 498.2 115.6 C498.7 115.3 510.3 113.3 518.9 112.1 C523.1 111.4 528.8 110.6 531.6 110.1 C551.2 106.8 566.3 106.6 605.1 109.0 C622.0 110.0 636.8 112.2 656.6 116.5 C674.2 120.4 699.8 130.0 716.8 139.2 C744.6 154.2 787.7 187.9 807.6 210.3 C824.3 229.0 839.6 250.8 850.0 270.6 C854.0 278.4 853.5 279.0 844.8 276.8 C834.4 274.2 829.1 273.2 818.9 271.8 C813.2 271.1 807.9 270.4 807.1 270.2 C806.1 270.1 804.8 269.3 803.4 267.9 C801.3 265.9 800.0 264.5 793.1 255.9 C773.8 231.9 753.4 213.0 728.4 196.2 C716.5 188.2 706.5 182.3 692.6 175.2 C672.4 164.9 644.5 155.7 620.6 151.5 C597.9 147.5 560.7 147.4 534.0 151.3 C509.8 154.8 489.3 160.5 467.6 169.6 C459.3 173.2 439.7 182.8 430.3 188.1 C407.2 200.8 388.2 215.6 373.1 232.6 C359.7 247.5 352.0 258.3 341.6 276.3 C339.8 279.3 337.3 283.6 336.1 285.8 C332.9 291.3 328.7 299.2 327.4 302.4 C326.8 303.8 325.3 307.4 324.0 310.4 C319.5 320.9 311.8 342.5 308.2 354.9 C305.4 364.6 301.8 382.1 300.8 390.8 C300.2 396.2 299.7 398.0 298.5 398.0 C298.1 398.0 297.4 397.5 297.1 396.9 Z"/></svg><br>[Twoje zdjęcie]</div>
+    </div>
+    <div class="txt">
+      <span class="path">/o-mnie</span>
+      <h2>Bartłomiej Zawierucha</h2>
+      <p><strong>Modern Workplace Specialist.</strong> Na co dzień wdrażam i rozwijam Microsoft 365: Teams, SharePoint, OneDrive i Viva. Wiem, jak wygląda praca w firmie od strony narzędzi i od strony ludzi, którzy z nich korzystają.</p>
+      <p>Po godzinach programuję i buduję własne narzędzia AI. Dzięki temu na szkoleniu tłumaczę nie tylko, gdzie kliknąć, ale też dlaczego model odpowiada tak, a nie inaczej.</p>
+      <div class="stats">
+        <div class="stat"><b>[X]</b><span>lat z Microsoft 365</span></div>
+        <div class="stat"><b>[X]+</b><span>przeszkolonych osób</span></div>
+        <div class="stat"><b>[X]</b><span>firm i zespołów</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="var-lib">
+  <div class="wrap">
+    <div class="head">
+      <span class="path">/var/lib/zawierucha</span>
+      <h2>Biblioteka dla uczestników.</h2>
+      <p class="intro">W Linuksie katalog /var/lib przechowuje dane, z których programy korzystają na co dzień. Tu trzymam materiały, z których Ty będziesz korzystać po szkoleniu.</p>
+    </div>
+    <div class="ls">
+      <div class="cmd"><span>$</span> ls -l /var/lib/zawierucha/</div>
+      <table>
+        <tr><td>drwxr-xr-x</td><td class="f dir">sciagawki/</td><td>jedna strona na narzędzie</td></tr>
+        <tr><td>drwxr-xr-x</td><td class="f dir">prompty/</td><td>gotowe prompty do skopiowania</td></tr>
+                <tr><td>-rw-r--r--</td><td class="f">ai-act-zasady-dla-zespolu.pdf</td><td class="soon">wkrótce</td></tr>
+        <tr><td>-rw-r--r--</td><td class="f">sciagawka-copilot-m365.pdf</td><td>do pobrania poniżej</td></tr>
+        <tr><td>drwx------</td><td class="f dir">nagrania/</td><td>dostęp dla uczestników</td></tr>
+      </table>
+    </div>
+    <div class="lead-box">
+      <div>
+        <span class="tag">za darmo</span>
+        <h3>Ściągawka: 20 promptów do Copilota w Microsoft 365</h3>
+        <p>Outlook, Teams, Word, Excel i PowerPoint. Dwie strony A4 do wydrukowania i powieszenia przy biurku.</p>
+      </div>
+      <form id="lm-form" novalidate>
+        <label for="lm-mail">twój e-mail</label>
+        <div class="lm-row"><input id="lm-mail" name="email" type="email" autocomplete="email" required placeholder="imie@firma.pl"><button class="btn btn-primary" type="submit">Pobierz PDF</button></div>
+        <label class="check"><input type="checkbox" id="lm-ok" required> <span>Zgadzam się na otrzymywanie od Bartłomieja Zawieruchi informacji o szkoleniach. Mogę zrezygnować w każdej chwili. <a href="#prywatnosc">Polityka prywatności</a></span></label>
+        <p class="form-note" id="lm-note" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="opinie">
+  <div class="wrap">
+    <div class="head">
+      <span class="path">/opinie</span>
+      <h2>Co mówią uczestnicy.</h2>
+    </div>
+    <div class="quotes">
+      <figure class="q"><blockquote>[Opinia uczestnika: konkretny efekt, np. ile czasu oszczędza tygodniowo.]</blockquote><figcaption>[Imię Nazwisko] · [stanowisko], [firma]</figcaption></figure>
+      <figure class="q"><blockquote>[Opinia uczestnika o tym, co zmieniło się w pracy zespołu po szkoleniu.]</blockquote><figcaption>[Imię Nazwisko] · [stanowisko], [firma]</figcaption></figure>
+      <figure class="q"><blockquote>[Opinia osoby, która zamówiła szkolenie: organizacja, dopasowanie programu.]</blockquote><figcaption>[Imię Nazwisko] · [stanowisko], [firma]</figcaption></figure>
+    </div>
+    <div class="pilot">
+      <div><span class="tag">program pilotażowy</span><h3>Pierwsze [3] firmy: −30% w zamian za opinię</h3><p>Przeprowadzę szkolenie w niższej cenie, jeśli po nim podzielicie się opinią i zgodzicie na umieszczenie logo na stronie.</p></div>
+      <a class="btn btn-primary" href="#kontakt">Zgłoś firmę →</a>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="path">/faq</span>
+      <h2>Najczęstsze pytania.</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Czy szkolenie jest dla osób nietechnicznych?</summary><p>Tak. Szkolenia są dla osób, które pracują w Microsoft 365 i chcą robić to szybciej. Nie trzeba umieć programować.</p></details>
+      <details><summary>Czy na vibecoding trzeba umieć programować?</summary><p>Nie. Wystarczy, że wiesz, jakie narzędzie chcesz mieć. Uczę, jak opisywać zadanie dla AI, jak sprawdzać, czy kod działa, i kiedy poprosić o pomoc dział IT.</p></details>
+      <details><summary>Czy dostosowujesz program do firmy?</summary><p>Tak. Przed szkoleniem rozmawiamy o zespole, narzędziach i licencjach, a ćwiczenia układam na Waszych przykładach.</p></details>
+      <details><summary>Czy uczestnicy potrzebują licencji Copilota?</summary><p>Do modułu o Copilocie w Microsoft 365 tak. Pozostałe moduły [zrealizujesz na darmowych lub firmowych narzędziach AI]; ustalamy to na etapie diagnozy.</p></details>
+      <details><summary>Ile trwa szkolenie i ile kosztuje?</summary><p>Od 3-godzinnego warsztatu (od 2 400 zł brutto za grupę) do programu wdrożeniowego dla całej firmy (od 14 900 zł brutto). Szczegóły w cenniku powyżej; dokładną wycenę podaję po krótkiej rozmowie.</p></details>
+      <details><summary>Na jakiej podstawie się rozliczasz?</summary><p>Na podstawie umowy zlecenia zawartej z firmą. Kwoty w cenniku to wynagrodzenie brutto z umowy, bez VAT. Przy podpisaniu umowy składam oświadczenie o innych tytułach do ubezpieczeń, potrzebne Waszej kadrze do rozliczenia składek.</p></details>
+      <details><summary>Czy można dostać dofinansowanie?</summary><p>[Jeśli wpiszesz usługi do Bazy Usług Rozwojowych PARP: tak, firmy z sektora MŚP mogą uzyskać dofinansowanie z funduszy regionalnych. Do ustalenia.]</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="kontakt">
+  <div class="wrap contact">
+    <div class="side">
+      <span class="path">/kontakt</span>
+      <h2>Porozmawiajmy o Twoim zespole.</h2>
+      <p>Napisz, ile osób chcesz przeszkolić i z czego. Odpowiem w ciągu [1 dnia roboczego]. Wolisz porozmawiać? Zarezerwuj 20 minut.</p>
+      <a class="btn btn-ghost" id="cal-link" href="https://cal.com/[twoj-login]/20min">Umów 20-minutową rozmowę</a>
+      <div class="direct">
+        <span>e-mail</span><a href="mailto:kontakt@zawierucha.pl">kontakt@zawierucha.pl</a>
+        <span>telefon</span><p>[+48 000 000 000]</p>
+        <span>linkedin</span><p>[linkedin.com/in/…]</p>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <div class="field"><label for="f-name">imię i nazwisko</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-mail">e-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-org">firma</label><input id="f-org" name="org" autocomplete="organization"></div>
+      <div class="field"><label for="f-topic">temat</label>
+        <select id="f-topic" name="topic">
+          <option>Copilot w Microsoft 365</option><option>Prompt engineering</option><option>Automatyzacja</option><option>AI Act w praktyce</option><option>Claude w praktyce</option><option>ChatGPT w praktyce</option><option>Vibecoding</option><option>Wdrożenie AI w firmie</option>
+        </select></div>
+      <div class="field full"><label for="f-msg">wiadomość</label><textarea id="f-msg" name="msg" placeholder="Ile osób, jaki poziom, termin…"></textarea></div>
+      <div class="field"><label for="f-size">wielkość firmy</label>
+        <select id="f-size" name="size"><option>do 9 osób</option><option selected>10–49 osób</option><option>50–249 osób</option><option>250+ osób</option></select></div>
+      <div class="field"><label for="f-people">ile osób na szkolenie</label><input id="f-people" name="people" inputmode="numeric" placeholder="np. 12"></div>
+      <div class="field full"><label class="check"><input type="checkbox" id="f-ok" required> <span>Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie. <a href="#prywatnosc">Polityka prywatności</a></span></label></div>
+      <div class="field full"><button class="btn btn-primary" type="submit">Wyślij zapytanie →</button></div>
+      <p class="form-note" id="note" role="status"></p>
+    </form>
+  </div>
+</section>
+<section class="s" id="prywatnosc">
+  <div class="wrap">
+    <div class="head"><span class="path">/prywatność</span><h2>Polityka prywatności.</h2></div>
+    <div class="legal">
+      <p><b>Administrator danych.</b> Bartłomiej Zawierucha, [adres korespondencyjny], e-mail: <span class="js-email">kontakt@zawierucha.pl</span>.</p>
+      <p><b>Jakie dane i po co.</b> Imię, nazwisko, e-mail, nazwa firmy i treść wiadomości z formularza kontaktowego przetwarzam, żeby odpowiedzieć na zapytanie i przygotować ofertę (art. 6 ust. 1 lit. b i f RODO). Adres e-mail z formularza ściągawki przetwarzam, żeby wysłać materiał i informacje o szkoleniach, na podstawie Twojej zgody (art. 6 ust. 1 lit. a RODO).</p>
+      <p><b>Jak długo.</b> Dane z zapytań: do zakończenia rozmów, a jeśli zawrzemy umowę, przez okres wymagany przepisami. Dane z listy mailowej: do wycofania zgody.</p>
+      <p><b>Komu przekazuję dane.</b> Dostawcom usług, z których korzysta strona: [hosting], [usługa formularzy, np. Web3Forms], [narzędzie do wysyłki maili]. Nie sprzedaję danych.</p>
+      <p><b>Twoje prawa.</b> Masz prawo do dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia, sprzeciwu i wycofania zgody w dowolnym momencie. Możesz złożyć skargę do Prezesa UODO.</p>
+      <p><b>Pliki cookies.</b> [Strona nie używa cookies analitycznych ani marketingowych. / Strona używa: …]</p>
+      <p class="pnote">Wzór do uzupełnienia. Przed publikacją warto, by sprawdziła go osoba znająca RODO.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <svg class="wm" viewBox="0 0 1760 220" role="img" aria-label="/var/lib/ZAWIERUCHA/"><path class="p1" d="M50.5 165.4 100.2 33.79999999999998H113.5L63.8 165.4Z M157.46 150.0 131.70000000000002 72.99999999999999H144.58L161.66000000000003 124.8Q163.20000000000002 129.42 164.46000000000004 133.69Q165.72000000000003 137.96 166.28000000000003 140.34Q166.98000000000002 137.96 168.24 133.69Q169.50000000000003 129.42 170.90000000000003 124.8L187.56000000000003 72.99999999999999H200.3L174.54000000000002 150.0Z M243.28000000000003 151.4Q231.10000000000002 151.4 224.10000000000002 145.17000000000002Q217.10000000000002 138.94 217.10000000000002 128.3Q217.10000000000002 117.52 224.10000000000002 111.35999999999999Q231.10000000000002 105.19999999999999 243.00000000000003 105.19999999999999H266.8V97.5Q266.8 90.35999999999999 262.53000000000003 86.50999999999999Q258.26000000000005 82.66 250.42000000000002 82.66Q243.56000000000003 82.66 238.94000000000003 85.53Q234.32000000000002 88.39999999999999 233.62000000000003 93.3H221.02000000000004Q222.28000000000003 83.36 230.40000000000003 77.47999999999999Q238.52000000000004 71.6 250.70000000000005 71.6Q264.00000000000006 71.6 271.70000000000005 78.46Q279.40000000000003 85.32 279.40000000000003 97.08V150.0H267.08000000000004V135.3H266.94000000000005Q266.24 142.16 260.64000000000004 146.5Q254.06000000000003 151.4 243.28000000000003 151.4ZM246.36000000000004 141.46Q255.32000000000005 141.46 261.06000000000006 136.98000000000002Q266.8 132.5 266.8 125.5V114.58H243.28000000000003Q236.98000000000002 114.58 233.34000000000003 118.08Q229.70000000000005 121.58 229.70000000000005 127.6Q229.70000000000005 134.04 234.11000000000004 137.75Q238.52000000000004 141.46 246.36000000000004 141.46Z M307.5400000000001 150.0V72.99999999999999H319.86000000000007V86.72Q321.26000000000005 81.39999999999999 324.20000000000005 77.89999999999999Q329.52000000000004 71.6 340.1600000000001 71.6Q352.34000000000003 71.6 359.55000000000007 79.22999999999999Q366.76000000000005 86.85999999999999 366.76000000000005 99.88V104.5H354.1600000000001V101.0Q354.1600000000001 91.89999999999999 349.75000000000006 87.07Q345.34000000000003 82.24 337.2200000000001 82.24Q329.24000000000007 82.24 324.69000000000005 87.13999999999999Q320.14000000000004 92.03999999999999 320.14000000000004 101.0V150.0Z M386.50000000000006 165.4 436.20000000000005 33.79999999999998H449.50000000000006L399.80000000000007 165.4Z M512.5000000000001 150.0Q505.7800000000001 150.0 500.74000000000007 147.34Q495.70000000000005 144.68 492.9000000000001 139.78Q490.1000000000001 134.88 490.1000000000001 128.3V59.27999999999999H464.20000000000005V47.8H502.70000000000005V128.3Q502.70000000000005 133.06 505.36 135.79000000000002Q508.02000000000004 138.52 512.5000000000001 138.52H537.0000000000001V150.0Z M555.9000000000001 150.0V138.52H583.2000000000002V84.47999999999999H559.4000000000001V72.99999999999999H595.8000000000001V138.52H621.7000000000002V150.0ZM588.1000000000001 59.139999999999986Q583.4800000000001 59.139999999999986 580.8200000000002 56.75999999999999Q578.1600000000001 54.379999999999995 578.1600000000001 50.31999999999999Q578.1600000000001 46.11999999999999 580.8200000000002 43.66999999999999Q583.4800000000001 41.219999999999985 588.1000000000001 41.219999999999985Q592.7200000000001 41.219999999999985 595.3800000000001 43.66999999999999Q598.0400000000002 46.11999999999999 598.0400000000002 50.31999999999999Q598.0400000000002 54.379999999999995 595.3800000000001 56.75999999999999Q592.7200000000001 59.139999999999986 588.1000000000001 59.139999999999986Z M674.4800000000001 151.4Q664.9600000000002 151.4 659.2200000000001 146.22Q654.4600000000002 142.02 653.6200000000001 135.3H653.4800000000001V150.0H640.8800000000001V47.8H653.4800000000001V70.19999999999999L653.2000000000002 87.69999999999999H653.6200000000001Q654.4600000000002 81.11999999999999 659.3600000000001 76.77999999999999Q665.1000000000001 71.6 674.4800000000001 71.6Q686.1000000000001 71.6 693.1000000000001 79.3Q700.1000000000001 87.0 700.1000000000001 100.3V122.84Q700.1000000000001 136.0 693.1000000000001 143.7Q686.1000000000001 151.4 674.4800000000001 151.4ZM670.2800000000001 140.48Q678.2600000000001 140.48 682.8800000000001 135.72Q687.5000000000001 130.96 687.5000000000001 122.0V101.0Q687.5000000000001 92.03999999999999 682.8800000000001 87.28Q678.2600000000001 82.52 670.2800000000001 82.52Q662.5800000000002 82.52 658.0300000000002 87.41999999999999Q653.4800000000001 92.32 653.4800000000001 101.0V122.0Q653.4800000000001 130.68 658.0300000000002 135.57999999999998Q662.5800000000002 140.48 670.2800000000001 140.48Z M722.5000000000001 165.4 772.2000000000002 33.79999999999998H785.5000000000001L735.8000000000001 165.4Z"/><path class="p2" d="M807.0600000000001 150.0V133.34L848.0800000000002 64.03999999999999H808.0400000000001V47.8H867.4000000000001V64.46L826.2400000000001 133.76H868.9400000000002V150.0Z M884.9000000000001 150.0 910.6600000000001 47.8H933.2000000000002L959.1000000000001 150.0H941.1800000000001L935.5800000000002 125.22H908.4200000000001L902.8200000000002 150.0ZM911.6400000000001 110.94H932.3600000000001L926.2000000000002 83.5Q924.6600000000001 76.63999999999999 923.5400000000001 71.10999999999999Q922.4200000000001 65.58 922.0000000000001 63.05999999999999Q921.5800000000002 65.58 920.5300000000002 71.10999999999999Q919.4800000000001 76.63999999999999 917.8000000000001 83.36Z M976.7400000000001 150.0 966.2400000000001 47.8H981.3600000000001L987.5200000000001 119.19999999999999Q987.8000000000001 121.58 988.0100000000001 125.00999999999999Q988.2200000000001 128.44 988.4300000000001 131.94Q988.6400000000001 135.44 988.6400000000001 138.1Q988.9200000000001 135.44 989.2 131.94Q989.4800000000001 128.44 989.8300000000002 125.00999999999999Q990.1800000000001 121.58 990.4600000000002 119.19999999999999L998.8600000000001 47.8H1013.5600000000002L1021.4000000000001 119.19999999999999Q1021.8200000000002 121.58 1022.1700000000001 125.00999999999999Q1022.5200000000001 128.44 1022.94 131.94Q1023.3600000000001 135.44 1023.6400000000001 138.1Q1023.7800000000001 135.44 1023.9200000000001 131.94Q1024.0600000000002 128.44 1024.27 125.00999999999999Q1024.48 121.58 1024.7600000000002 119.19999999999999L1030.7800000000002 47.8H1045.7600000000002L1034.7 150.0H1015.3800000000001L1007.8200000000002 78.32Q1007.5400000000001 75.66 1007.19 72.09Q1006.8400000000001 68.52 1006.5600000000002 64.94999999999999Q1006.2800000000001 61.379999999999995 1006.1400000000001 58.859999999999985Q1006.0000000000001 61.379999999999995 1005.6500000000001 64.94999999999999Q1005.3000000000001 68.52 1005.0200000000001 72.09Q1004.7400000000001 75.66 1004.4600000000002 78.32L996.2000000000002 150.0Z M1060.6000000000001 150.0V134.6H1081.1800000000003V63.19999999999999H1060.6000000000001V47.8H1119.4000000000003V63.19999999999999H1098.8200000000002V134.6H1119.4000000000003V150.0Z M1144.3200000000002 150.0V47.8H1205.6400000000003V63.05999999999999H1161.5400000000002V89.66H1200.7400000000002V104.78H1161.5400000000002V134.74H1205.6400000000003V150.0Z M1226.6400000000003 150.0V47.8H1258.9800000000002Q1269.2000000000003 47.8 1276.6900000000003 51.57999999999999Q1284.1800000000003 55.359999999999985 1288.38 62.14999999999999Q1292.5800000000002 68.94 1292.5800000000002 78.17999999999999Q1292.5800000000002 88.25999999999999 1287.4700000000003 95.96Q1282.3600000000001 103.66 1273.6800000000003 106.88L1293.9800000000002 150.0H1274.3800000000003L1256.6000000000001 109.4H1244.1400000000003V150.0ZM1244.1400000000003 94.0H1258.9800000000002Q1266.4000000000003 94.0 1270.6000000000004 89.94Q1274.8000000000002 85.88 1274.8000000000002 78.74Q1274.8000000000002 71.46 1270.6000000000004 67.32999999999998Q1266.4000000000003 63.19999999999999 1258.9800000000002 63.19999999999999H1244.1400000000003Z M1342.0000000000002 151.4Q1327.0200000000002 151.4 1318.5500000000002 143.21Q1310.0800000000002 135.02 1310.0800000000002 120.88V47.8H1327.7200000000003V120.74Q1327.7200000000003 128.02 1331.3600000000001 132.07999999999998Q1335.0000000000002 136.14 1342.0000000000002 136.14Q1348.8600000000001 136.14 1352.5700000000002 132.07999999999998Q1356.2800000000002 128.02 1356.2800000000002 120.74V47.8H1373.9200000000003V120.88Q1373.9200000000003 135.02 1365.5200000000004 143.21Q1357.1200000000003 151.4 1342.0000000000002 151.4Z M1426.5600000000002 151.4Q1416.7600000000002 151.4 1409.4100000000003 147.69Q1402.0600000000002 143.98 1398.0700000000002 137.19Q1394.0800000000002 130.4 1394.0800000000002 121.16V76.63999999999999Q1394.0800000000002 67.25999999999999 1398.0700000000002 60.53999999999999Q1402.0600000000002 53.81999999999999 1409.4100000000003 50.10999999999999Q1416.7600000000002 46.39999999999999 1426.5600000000002 46.39999999999999Q1436.5000000000002 46.39999999999999 1443.7100000000003 50.10999999999999Q1450.9200000000003 53.81999999999999 1454.9800000000002 60.53999999999999Q1459.0400000000002 67.25999999999999 1459.0400000000002 76.63999999999999H1441.4000000000003Q1441.4000000000003 69.35999999999999 1437.5500000000002 65.57999999999998Q1433.7000000000003 61.8 1426.5600000000002 61.8Q1419.4200000000003 61.8 1415.5000000000002 65.57999999999998Q1411.5800000000002 69.35999999999999 1411.5800000000002 76.5V121.16Q1411.5800000000002 128.3 1415.5000000000002 132.15Q1419.4200000000003 136.0 1426.5600000000002 136.0Q1433.7000000000003 136.0 1437.5500000000002 132.15Q1441.4000000000003 128.3 1441.4000000000003 121.16H1459.0400000000002Q1459.0400000000002 130.26 1454.9800000000002 137.12Q1450.9200000000003 143.98 1443.7100000000003 147.69Q1436.5000000000002 151.4 1426.5600000000002 151.4Z M1478.7800000000002 150.0V47.8H1496.2800000000002V88.82H1523.7200000000003V47.8H1541.2200000000003V150.0H1523.7200000000003V105.06H1496.2800000000002V150.0Z M1556.9000000000003 150.0 1582.6600000000003 47.8H1605.2000000000003L1631.1000000000001 150.0H1613.1800000000003L1607.5800000000002 125.22H1580.4200000000003L1574.8200000000002 150.0ZM1583.6400000000003 110.94H1604.3600000000001L1598.2000000000003 83.5Q1596.6600000000003 76.63999999999999 1595.5400000000004 71.10999999999999Q1594.4200000000003 65.58 1594.0000000000002 63.05999999999999Q1593.5800000000002 65.58 1592.5300000000002 71.10999999999999Q1591.4800000000002 76.63999999999999 1589.8000000000002 83.36Z M1644.4000000000003 165.4 1693.4000000000003 33.79999999999998H1711.6000000000001L1662.6000000000001 165.4Z"/></svg>
+    <p>© 2026 Bartłomiej Zawierucha · szkolenia AI dla firm · <a href="#prywatnosc">polityka prywatności</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* KONFIGURACJA: uzupełnij przed publikacją */
+  var EMAIL = 'kontakt@zawierucha.pl';
+  var WEB3FORMS_KEY = '';            /* klucz z web3forms.com; puste = otwiera program pocztowy */
+  var PDF_URL = 'sciagawka-copilot-m365.pdf';
+
+  function send(data, onOk, onFail){
+    if(!WEB3FORMS_KEY){ onFail(); return; }
+    data.access_key = WEB3FORMS_KEY;
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+      .then(function(r){ return r.json(); }).then(function(j){ j && j.success ? onOk() : onFail(); }).catch(onFail);
+  }
+  function mailto(subject, body){
+    try { window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body); } catch(e) {}
+  }
+
+  var form = document.getElementById('form'), note = document.getElementById('note');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim(), mail = form.email.value.trim();
+    if(!name || mail.indexOf('@') < 1){ note.textContent = 'Uzupełnij imię i poprawny adres e-mail.'; return; }
+    if(!document.getElementById('f-ok').checked){ note.textContent = 'Zaznacz zgodę na przetwarzanie danych.'; return; }
+    var d = {subject:'Szkolenie AI: ' + form.topic.value, name:name, email:mail, firma:form.org.value, temat:form.topic.value, wielkosc:form.size.value, osoby:form.people.value, wiadomosc:form.msg.value};
+    note.textContent = 'Wysyłam…';
+    send(d, function(){ note.textContent = 'Dziękuję! Odpowiem w ciągu 1 dnia roboczego.'; form.reset(); },
+      function(){
+        mailto(d.subject, 'Imię i nazwisko: '+name+'\nE-mail: '+mail+'\nFirma: '+d.firma+'\nWielkość: '+d.wielkosc+'\nLiczba osób: '+d.osoby+'\nTemat: '+d.temat+'\n\n'+d.wiadomosc);
+        note.textContent = 'Otwieram program pocztowy. Jeśli się nie otworzył, napisz na ' + EMAIL + '.';
+      });
+  });
+
+  var lm = document.getElementById('lm-form'), lmNote = document.getElementById('lm-note');
+  lm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var mail = lm.email.value.trim();
+    if(mail.indexOf('@') < 1){ lmNote.textContent = 'Podaj poprawny adres e-mail.'; return; }
+    if(!document.getElementById('lm-ok').checked){ lmNote.textContent = 'Zaznacz zgodę, żebym mógł wysłać materiał.'; return; }
+    var link = function(){ lmNote.innerHTML = 'Gotowe. <a href="' + PDF_URL + '">Pobierz ściągawkę (PDF)</a>'; };
+    send({subject:'Ściągawka Copilot M365: nowy zapis', email:mail}, link, link);
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll: progress bar, vortex spin tied to scroll, active nav */
+  var prog = document.getElementById('prog'), vortex = document.querySelector('.vortex .big');
+  var angle = 0, lastY = window.scrollY, vel = 0;
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+    vel += Math.abs(scrollY - lastY) * 0.04; lastY = scrollY;
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  if(vortex && !reduce){
+    (function spin(){
+      vel *= 0.92;
+      angle -= 0.06 + vel;          /* stała wolna rotacja + przyspieszenie przy przewijaniu */
+      vortex.style.transform = 'rotate(' + angle.toFixed(2) + 'deg)';
+      requestAnimationFrame(spin);
+    })();
+  }
+  var links = {}; document.querySelectorAll('.nav ul a').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting && links[e.target.id]){ Object.values(links).forEach(function(l){ l.classList.remove('on'); }); links[e.target.id].classList.add('on'); } });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(links).forEach(function(id){ var el = document.getElementById(id); if(el) io.observe(el); });
+  }
+
+  /* spotlight following the pointer on cards */
+  document.querySelectorAll('.course,.pth,.tier').forEach(function(c){
+    c.addEventListener('pointermove', function(e){ var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+  });
+
+  /* hero terminal: cycles through real use cases */
+  var demos = [
+    {app:'teams · copilot', p:'Podsumuj notatki ze spotkania w 5 punktach i wypisz zadania z właścicielami.', r:['✓ Podsumowanie: 5 punktów','✓ Zadania: 7, przypisane do 4 osób']},
+    {app:'excel · copilot', p:'Pokaż 5 klientów z największym spadkiem sprzedaży rok do roku.', r:['✓ Tabela: 5 klientów, spadek od 18% do 41%','✓ Wykres dodany do arkusza']},
+    {app:'claude · projekt', p:'Porównaj te dwie umowy i wypisz różnice w terminach płatności.', r:['✓ Znaleziono 3 różnice','✓ Tabela z numerami punktów']},
+    {app:'claude code · vibecoding', p:'Zrób prosty formularz zgłoszeń urlopowych, który zapisuje dane do Excela.', r:['✓ Aplikacja gotowa: 3 pliki','✓ Podgląd działa, test przeszedł']}
+  ];
+  var body = document.getElementById('t-body'), app = document.getElementById('t-app');
+  if(body && !reduce){
+    var i = 0;
+    function esc(t){ var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+    function play(){
+      var d = demos[i % demos.length]; i++;
+      app.textContent = d.app;
+      body.innerHTML = '<div class="in">&gt; <span class="typed"></span><span class="cursor"></span></div>';
+      var typed = body.querySelector('.typed'), k = 0;
+      (function type(){
+        if(k <= d.p.length){ typed.textContent = d.p.slice(0, k++); setTimeout(type, 28); return; }
+        body.querySelector('.cursor').remove();
+        d.r.forEach(function(line, j){ setTimeout(function(){ var el = document.createElement('div'); el.className = 'ok'; el.textContent = line; body.appendChild(el); }, 450 + j * 420); });
+        setTimeout(function(){ var el = document.createElement('div'); el.innerHTML = '&gt; <span class="cursor"></span>'; body.appendChild(el); }, 450 + d.r.length * 420);
+        setTimeout(play, 5200);
+      })();
+    }
+    setTimeout(play, 3000);   /* first frame shows the static example */
+  }
+
+  /* calculator */
+  var boxes = document.querySelectorAll('#kalkulator input[type=checkbox]'), range = document.getElementById('c-people');
+  var pv = document.getElementById('c-people-v'), tot = document.getElementById('c-total'), det = document.getElementById('c-detail'), hint = document.getElementById('c-hint');
+  var fmt = function(n){ return n.toLocaleString('pl-PL').replace(/\u00a0/g,' ') + ' zł'; };
+  var hours = {5400:7,2900:4,6400:7,2400:3,6900:7};
+  function calc(){
+    var n = +range.value, sum = 0, h = 0, groups = 0, picked = 0;
+    pv.textContent = n;
+    boxes.forEach(function(b){ if(!b.checked) return; picked++; var g = Math.ceil(n / +b.dataset.max); groups += g; sum += g * +b.value; h += hours[b.value]; });
+    tot.textContent = picked ? fmt(sum) : '0 zł';
+    det.textContent = picked ? (groups + (groups === 1 ? ' grupa' : (groups < 5 ? ' grupy' : ' grup')) + ' · ' + h + ' h szkoleń na uczestnika') : 'wybierz co najmniej jedno szkolenie';
+    hint.textContent = '';
+    if(n >= 50) hint.textContent = 'Przy ' + n + ' osobach bardziej opłaca się wdrożenie dla średniej firmy: od 29 900 zł.';
+    else if(n >= 10 && sum > 14900) hint.textContent = 'Wdrożenie dla małej firmy (od 14 900 zł) może wyjść korzystniej.';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', calc); }); range.addEventListener('input', calc); calc();
+  document.getElementById('c-cta').addEventListener('click', function(){
+    var names = []; boxes.forEach(function(b){ if(b.checked) names.push(b.parentNode.querySelector('span').firstChild.textContent.trim()); });
+    var msg = document.getElementById('f-msg'), ppl = document.getElementById('f-people');
+    if(ppl) ppl.value = range.value;
+    if(msg && !msg.value) msg.value = 'Interesują nas: ' + names.join(', ') + '. Liczba osób: ' + range.value + '. Szacunek z kalkulatora: ' + tot.textContent + '.';
+  });
+})();
+</script>
+</body>
+</html>
