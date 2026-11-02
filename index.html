@@ -47,7 +47,7 @@
   </div>
   <nav class="mnav" id="mnav" hidden aria-label="Menu">
     <div><span>oferta</span><a href="#jak-pracuje">/metoda</a><a href="#szkolenia">/szkolenia</a><a href="#sciezki">/ścieżki</a><a href="#cennik">/cennik</a></div>
-    <div><span>narzędzia</span><a href="#test">/test gotowości</a><a href="#generator">/generator</a><a href="#var-lib">/ściągawka PDF</a></div>
+    <div><span>narzędzia</span><a href="#test">/test gotowości</a><a href="#var-lib">/ściągawka PDF</a></div>
     <div><span>o mnie</span><a href="#o-mnie">/o-mnie</a><a href="#zaufanie">/bezpieczeństwo</a><a href="#artykuly">/artykuły</a><a href="#faq">/faq</a></div>
     <a class="btn btn-primary mcta" href="#kontakt">Umów rozmowę</a>
   </nav>
@@ -285,45 +285,6 @@
           </form>
         </div>
       </aside>
-    </div>
-  </div>
-</section>
-
-<section class="s" id="generator" data-nav="test">
-  <div class="wrap">
-    <div class="head">
-      <span class="path">/generator</span>
-      <h2>Zbuduj prompt w 30 sekund.</h2>
-      <p class="intro">Ten sam wzór, którego uczę na szkoleniach: rola, kontekst, zadanie, format i kryteria. Wybierz, uzupełnij, skopiuj do Claude, ChatGPT albo Copilota.</p>
-    </div>
-    <div class="gen">
-      <form class="gen-in" id="gen" onsubmit="return false">
-        <div class="field"><label for="g-role">rola AI</label>
-          <select id="g-role"><option>doświadczonym analitykiem danych</option><option selected>redaktorem tekstów biznesowych</option><option>specjalistą HR</option><option>handlowcem B2B</option><option>kierownikiem projektu</option><option>asystentem zarządu</option><option>programistą, który tłumaczy prostym językiem</option></select></div>
-        <div class="field"><label for="g-task">zadanie</label>
-          <select id="g-task"><option value="Napisz maila">napisz maila</option><option value="Podsumuj materiał" selected>podsumuj materiał</option><option value="Przygotuj plan prezentacji">przygotuj plan prezentacji</option><option value="Przeanalizuj dane i wyciągnij wnioski">przeanalizuj dane</option><option value="Popraw i skróć tekst">popraw i skróć tekst</option><option value="Zaprojektuj prostą aplikację (vibecoding)">zaprojektuj aplikację</option></select></div>
-        <div class="field full"><label for="g-ctx">kontekst: dla kogo, w jakiej sytuacji, na podstawie czego</label>
-          <textarea id="g-ctx" rows="3">Raport z ankiety pracowniczej (w załączniku) dla zarządu, który ma 10 minut na lekturę przed spotkaniem.</textarea></div>
-        <div class="field"><label for="g-fmt">format</label>
-          <select id="g-fmt"><option>5 punktów</option><option selected>maksymalnie 1 strona, najpierw rekomendacja</option><option>tabela</option><option>mail do 120 słów</option><option>8 slajdów: tytuł-wniosek i 3 punkty</option><option>lista kroków</option></select></div>
-        <div class="field"><label for="g-tone">ton</label>
-          <select id="g-tone"><option selected>rzeczowy</option><option>formalny</option><option>przyjazny</option><option>prosty, bez żargonu</option></select></div>
-        <fieldset class="field full gen-k"><legend>kryteria jakości</legend>
-          <label class="check"><input type="checkbox" value="Nie dodawaj informacji spoza materiału; braki oznacz [DO UZUPEŁNIENIA]." checked> <span>nie zmyślaj, oznacz braki</span></label>
-          <label class="check"><input type="checkbox" value="Zanim zaczniesz, zadaj mi do 3 pytań, jeśli czegoś brakuje."> <span>najpierw zadaj mi pytania</span></label>
-          <label class="check"><input type="checkbox" value="Na końcu wypisz założenia i liczby do sprawdzenia w źródle." checked> <span>pokaż, co sprawdzić</span></label>
-          <label class="check"><input type="checkbox" value="Daj 2 wersje: krótszą i pełną."> <span>2 wersje do wyboru</span></label>
-        </fieldset>
-      </form>
-      <div class="gen-out">
-        <div class="bar"><i></i><i></i><i></i><span class="app">prompt.txt</span></div>
-        <pre id="g-out" aria-live="polite"></pre>
-        <div class="gen-act">
-          <button class="btn btn-primary" type="button" id="g-copy">Kopiuj prompt</button>
-          <a class="btn btn-ghost" href="#var-lib">30 gotowych promptów (PDF)</a>
-        </div>
-        <p class="form-note" id="g-note" role="status"></p>
-      </div>
     </div>
   </div>
 </section>
@@ -639,7 +600,7 @@
       <a href="szkolenia/claude.html">Claude w praktyce</a><a href="szkolenia/chatgpt.html">ChatGPT w praktyce</a><a href="szkolenia/start-z-ai.html">Start z AI (2 h)</a><a href="szkolenia/ai-w-60-minut.html">AI w 60 minut</a><a href="szkolenia/pisanie-z-ai.html">Pisanie z AI</a><a href="szkolenia/vibecoding.html">Vibecoding</a><a href="szkolenia/prompt-engineering.html">Prompt engineering</a><a href="szkolenia/automatyzacja.html">Automatyzacja</a><a href="szkolenia/ai-act.html">AI Act w praktyce</a><a href="szkolenia/copilot-m365.html">Copilot w M365</a>
     </nav>
     <nav aria-label="Narzędzia"><span>/narzędzia</span>
-      <a href="#test">Test gotowości na AI</a><a href="#generator">Generator promptów</a><a href="#var-lib">30 promptów (PDF)</a><a href="#cennik" data-tab="tab-kalkulator">Kalkulator wyceny</a>
+      <a href="#test">Test gotowości na AI</a><a href="#var-lib">30 promptów (PDF)</a><a href="#cennik" data-tab="tab-kalkulator">Kalkulator wyceny</a>
     </nav>
     <nav aria-label="Informacje"><span>/info</span>
       <a href="#o-mnie">O mnie</a><a href="#zaufanie">Bezpieczeństwo danych</a><a href="#cennik">Cennik</a><a href="#faq">FAQ</a><a href="artykuly/">Artykuły</a><a href="#prywatnosc">Polityka prywatności</a><a href="biblioteka/">Biblioteka uczestnika</a>
@@ -691,7 +652,7 @@
     var btn = form.querySelector('button[type=submit]'); btn.disabled = true; note.textContent = 'Wysyłam…';
     send(d, function(){
       var first = d.name.split(' ')[0];
-      form.outerHTML = '<div class="done" role="status" tabindex="-1" id="done"><span class="tag">✓ wysłano</span><h3>Dziękuję, ' + first.replace(/[<>&"]/g,'') + '!</h3><p>Odpowiem w ciągu 1 dnia roboczego na adres ' + d.email.replace(/[<>&"]/g,'') + '.</p><p>W międzyczasie wypróbuj <a href="#generator">generator promptów</a> albo pobierz <a href="#var-lib">30 gotowych promptów</a>.</p></div>';
+      form.outerHTML = '<div class="done" role="status" tabindex="-1" id="done"><span class="tag">✓ wysłano</span><h3>Dziękuję, ' + first.replace(/[<>&"]/g,'') + '!</h3><p>Odpowiem w ciągu 1 dnia roboczego na adres ' + d.email.replace(/[<>&"]/g,'') + '.</p><p>W międzyczasie pobierz <a href="#var-lib">30 gotowych promptów</a>.</p></div>';
       var dn = document.getElementById('done'); if(dn) dn.focus();
     }, function(){
       btn.disabled = false;
@@ -713,26 +674,6 @@
     send({subject:'Biblioteka 30 promptów: nowy zapis', email:lmMail.value.trim(), botcheck:''}, link, link);
   });
 
-  /* generator promptów */
-  var G = function(id){ return document.getElementById(id); };
-  var out = G('g-out');
-  function build(){
-    var crit = [].slice.call(document.querySelectorAll('.gen-k input:checked')).map(function(c){ return c.value; });
-    var t = 'Jesteś ' + G('g-role').value + '.\n\n'
-      + 'Kontekst: ' + (G('g-ctx').value.trim() || '[opisz sytuację i odbiorcę]') + '\n\n'
-      + 'Zadanie: ' + G('g-task').value + '.\n\n'
-      + 'Format: ' + G('g-fmt').value + '. Ton: ' + G('g-tone').value + '.'
-      + (crit.length ? '\n\nKryteria:\n- ' + crit.join('\n- ') : '');
-    out.textContent = t;
-  }
-  document.getElementById('gen').addEventListener('input', build);
-  document.getElementById('gen').addEventListener('change', build);
-  build();
-  G('g-copy').addEventListener('click', function(){
-    var n = G('g-note'), txt = out.textContent;
-    function fallback(){ var r = document.createRange(); r.selectNodeContents(out); var s = getSelection(); s.removeAllRanges(); s.addRange(r); n.textContent = 'Zaznaczyłem prompt: skopiuj go (Ctrl+C lub przytrzymaj palcem).'; }
-    try { navigator.clipboard.writeText(txt).then(function(){ n.textContent = '✓ Skopiowano. Wklej do Claude, ChatGPT albo Copilota.'; }, fallback); } catch(e){ fallback(); }
-  });
 })();
 </script>
 <script>
