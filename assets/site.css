@@ -550,3 +550,30 @@ button:disabled{opacity:.6;cursor:wait}
 .snd:hover,.snd:focus-visible{opacity:1;color:var(--cyan)}
 .snd .on{display:none}.snd[aria-pressed="true"] .on{display:inline}.snd[aria-pressed="true"] .off{display:none}
 @media (max-width:760px){.film{margin:0 -24px 28px}.snd{right:20px;bottom:10px}}
+
+/* ===== nawigacja v11 ===== */
+.nav ul a{position:relative;padding:6px 0}
+.nav ul a.on{color:var(--cyan)}
+.nav ul a.on::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--cyan);border-radius:2px}
+.mnav{grid-template-columns:1fr 1fr 1fr;gap:16px 20px;padding:16px 24px 20px}
+.mnav div{display:flex;flex-direction:column}
+.mnav span{font-family:var(--mono);font-size:12px;color:var(--mist);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.mnav a{padding:9px 0;min-height:40px}
+.mnav .mcta{grid-column:1/-1;justify-content:center;color:var(--void);min-height:48px;padding:12px}
+@media (max-width:560px){.mnav{grid-template-columns:1fr 1fr}.mnav div:nth-child(3){grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:0 20px}.mnav div:nth-child(3) span{width:100%}}
+/* stopka */
+footer{border-top:1px solid var(--line);padding:56px 0 28px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.1fr;gap:32px}
+.fbrand{display:flex;flex-direction:column;gap:14px}
+.fbrand .wm{height:24px;width:auto;align-self:flex-start}
+.fbrand p{font-family:var(--sans);font-size:15px;color:var(--mist);max-width:30ch}
+.fgrid nav,.fcontact{display:flex;flex-direction:column;gap:8px}
+.fgrid span{font-family:var(--mono);font-size:13px;color:var(--cyan);margin-bottom:4px}
+.fgrid nav a,.fcontact a{font-family:var(--sans);font-size:15px;color:var(--mist);text-decoration:none;min-height:28px}
+.fgrid nav a:hover,.fcontact a:hover{color:var(--paper)}
+.fbottom{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+.fbottom p{font-family:var(--mono);font-size:13px;color:var(--mist)}
+.totop{font-family:var(--mono);font-size:13px;color:var(--mist);text-decoration:none}
+.totop:hover{color:var(--cyan)}
+@media (max-width:1000px){.fgrid{grid-template-columns:1fr 1fr 1fr}.fbrand{grid-column:1/-1}}
+@media (max-width:560px){.fgrid{grid-template-columns:1fr 1fr;gap:28px 20px}.fcontact{grid-column:1/-1}.fbottom{flex-direction:column;gap:10px;align-items:flex-start}}
