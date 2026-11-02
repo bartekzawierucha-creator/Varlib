@@ -689,7 +689,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <p><b>Administrator danych.</b> Bartłomiej Zawierucha, [adres korespondencyjny], e-mail: <span class="js-email">bartekzawierucha@gmail.com</span>.</p>
       <p><b>Jakie dane i po co.</b> Imię, nazwisko, e-mail, nazwa firmy i treść wiadomości z formularza kontaktowego przetwarzam, żeby odpowiedzieć na zapytanie i przygotować ofertę (art. 6 ust. 1 lit. b i f RODO). Adres e-mail z formularza ściągawki przetwarzam, żeby wysłać materiał i informacje o szkoleniach, na podstawie Twojej zgody (art. 6 ust. 1 lit. a RODO).</p>
       <p><b>Jak długo.</b> Dane z zapytań: do zakończenia rozmów, a jeśli zawrzemy umowę, przez okres wymagany przepisami. Dane z listy mailowej: do wycofania zgody.</p>
-      <p><b>Komu przekazuję dane.</b> Dostawcom usług, z których korzysta strona: [hosting], [usługa formularzy, np. Web3Forms], [narzędzie do wysyłki maili]. Nie sprzedaję danych.</p>
+      <p><b>Komu przekazuję dane.</b> Dostawcom usług, z których korzysta strona: GitHub (hosting strony GitHub Pages), Web3Forms (obsługa formularzy) i Google (poczta Gmail). Nie sprzedaję danych.</p>
       <p><b>Twoje prawa.</b> Masz prawo do dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia, sprzeciwu i wycofania zgody w dowolnym momencie. Możesz złożyć skargę do Prezesa UODO.</p>
       <p><b>Pliki cookies.</b> [Strona nie używa cookies analitycznych ani marketingowych. / Strona używa: …]</p>
       <p class="pnote">Wzór do uzupełnienia. Przed publikacją warto, by sprawdziła go osoba znająca RODO.</p>
@@ -710,12 +710,12 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
 (function(){
   /* KONFIGURACJA: uzupełnij przed publikacją */
   var EMAIL = 'bartekzawierucha@gmail.com';
-  var WEB3FORMS_KEY = '';            /* klucz z web3forms.com; puste = otwiera program pocztowy */
+  var WEB3FORMS_KEY = 'f45a3dce-6672-4992-bc56-ac978ea58abd';            /* klucz z web3forms.com; puste = otwiera program pocztowy */
   var PDF_URL = 'sciagawka-copilot-m365.pdf';
 
   function send(data, onOk, onFail){
     if(!WEB3FORMS_KEY){ onFail(); return; }
-    data.access_key = WEB3FORMS_KEY;
+    data.access_key = WEB3FORMS_KEY; data.from_name = 'VarLib · strona www';
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
       .then(function(r){ return r.json(); }).then(function(j){ j && j.success ? onOk() : onFail(); }).catch(onFail);
   }
