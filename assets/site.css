@@ -803,3 +803,4 @@ a.tl:hover{border-color:var(--cyan)}
 @media (max-width:900px){.roi2{grid-template-columns:minmax(0,1fr)}.dhow-s{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 @media (max-width:520px){.dtiles{grid-template-columns:minmax(0,1fr)}.dtile{flex-direction:row;justify-content:space-between;align-items:baseline;flex-wrap:wrap}.dhow-s{grid-template-columns:minmax(0,1fr)}.dcard{padding:18px}}
 @media (prefers-reduced-motion:reduce){.drv{opacity:1;transform:none;transition:none}.dbar i{transition:none}}
+.acard h2,.acard h3{max-width:none}
