@@ -598,3 +598,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px}
   .tools2 .tl::after{content:""}
   .tools2 li{font-size:13px;padding:6px 12px}
 }
+
+/* ---- v20: terminal nie zasłania twarzy ---- */
+@media (min-width:761px){
+  .portrait{justify-self:end;width:80%}
+  .term{left:-14%;bottom:-12%;width:min(320px,74%);font-size:12px;line-height:1.6}
+  .term .body{min-height:112px;padding:12px 14px}
+}
