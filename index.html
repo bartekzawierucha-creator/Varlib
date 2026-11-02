@@ -206,6 +206,48 @@ input[type=range]{padding:0;border:0;background:none;accent-color:var(--cyan);he
   .hero h1 .w{animation:none}.pth,.pth:hover{transition:none;transform:none}
   .course::before,.pth::before,.tier::before{display:none}
 }
+
+/* ---- kompaktowy układ ---- */
+.swipe{display:none;font-family:var(--mono);font-size:12px;color:var(--mist);margin:-12px 0 14px}
+section.s{padding:80px 0}
+.head{margin-bottom:40px}
+.s-tight{padding:32px 0}
+.priv summary,.pt-wrap summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px}
+.priv summary::-webkit-details-marker,.pt-wrap summary::-webkit-details-marker{display:none}
+.priv .path{margin:0}
+.priv .ph{font-size:18px;font-weight:600}
+.priv summary::after,.pt-wrap summary::after{content:"+";font-family:var(--mono);color:var(--cyan);font-size:22px;margin-left:auto}
+.priv[open] summary::after,.pt-wrap[open] summary::after{content:"−"}
+.priv .legal{margin-top:24px}
+.pt-wrap{margin-top:32px;border:1px solid var(--line);border-radius:12px;padding:18px 22px}
+.pt-wrap summary{font-family:var(--mono);font-size:15px}
+.pt-wrap .ptable{margin-top:18px}
+@media (max-width:760px){
+  body{font-size:17px}
+  section.s{padding:48px 0}
+  .s-tight{padding:20px 0}
+  .head{margin-bottom:24px}
+  .hero{padding:40px 0 48px}
+  .lead{margin:20px 0 28px}
+  .vortex{display:none}
+  .tools{padding:18px 0;font-size:13px;gap:6px 18px}
+  /* karty przewijane w bok zamiast pod sobą */
+  .courses,.paths,.tiers,.size-grid,.quotes,.steps{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;
+    margin:0 -24px;padding:0 24px 12px;scrollbar-width:none;background:none;border:0;border-radius:0}
+  .courses::-webkit-scrollbar,.paths::-webkit-scrollbar,.tiers::-webkit-scrollbar,.size-grid::-webkit-scrollbar,.quotes::-webkit-scrollbar,.steps::-webkit-scrollbar{display:none}
+  .course,.pth,.tier,.size,.q,.step{flex:0 0 84%;scroll-snap-align:start}
+  .course,.size{border:1px solid var(--line);border-radius:12px;padding:24px}
+  .course ul{display:none}
+  .courses,.paths,.tiers,.size-grid,.quotes,.steps{align-items:flex-start}
+  .meta .chip:nth-child(2){display:none}
+  .swipe{display:block}
+  .about{gap:28px}
+  .photo{max-width:200px}
+  .ls td:nth-child(3){display:none}
+  .ls table{min-width:0}
+  .lead-box,.pilot,.calc-in,.calc-out{padding:22px}
+  .sizes{margin-top:40px}
+}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:st}
 .step{border-top:2px solid var(--slate);padding-top:22px;display:flex;flex-direction:column;gap:10px}
 .step:first-child{border-color:var(--cyan)}
@@ -327,6 +369,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <h2>Siedem szkoleń, jeden cel: mniej klikania.</h2>
       <p class="intro">Każde szkolenie możesz zamówić osobno albo złożyć z modułów w program dla całej firmy.</p>
     </div>
+    <p class="swipe" aria-hidden="true">przesuń w bok →</p>
     <div class="courses">
       <article class="course">
         <span class="id">01 /copilot-m365</span>
@@ -394,6 +437,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <h2>Nie wiesz, od czego zacząć? Wybierz dział.</h2>
       <p class="intro">Gotowe zestawy modułów dla konkretnych zespołów. Numery odpowiadają szkoleniom powyżej.</p>
     </div>
+    <p class="swipe" aria-hidden="true">przesuń w bok →</p>
     <div class="paths">
       <div class="pth"><h3>Kadra zarządzająca</h3><p>Decyzje, raporty, polityka AI w firmie.</p><span class="mods">04 · 01 · 05</span></div>
       <div class="pth"><h3>HR i administracja</h3><p>Ogłoszenia, procedury, odpowiedzi na powtarzalne pytania.</p><span class="mods">02 · 01 · 06</span></div>
@@ -411,6 +455,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <h2>Ceny bez niespodzianek.</h2>
       <p class="intro">Współpracuję na podstawie umowy zlecenia. Podane kwoty to wynagrodzenie brutto z umowy za całą grupę, bez VAT. Program, materiały i ćwiczenia na Waszych przykładach są w cenie.</p>
     </div>
+    <p class="swipe" aria-hidden="true">przesuń w bok →</p>
     <div class="tiers">
       <div class="tier">
         <span class="tag">warsztat · 3–4 h</span>
@@ -462,6 +507,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
         <p class="calc-note">Kwota brutto z umowy zlecenia, bez dojazdu. Duże grupy dzielę na kilka terminów.</p>
       </div>
     </div>
+    <details class="pt-wrap"><summary>Pełny cennik szkoleń (tabela)</summary>
     <div class="ptable">
       <table>
         <tr><th>szkolenie</th><th>czas</th><th>grupa</th><th class="n">wynagrodzenie brutto</th></tr>
@@ -476,6 +522,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
         <tr><td>Konsultacja dla zespołu lub kadry</td><td>1 h</td><td>do 5 osób</td><td class="n">350 zł</td></tr>
       </table>
     </div>
+    </details>
 
     <div class="sizes" id="wdrozenie">
       <div class="sizes-head">
@@ -483,7 +530,8 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
         <h3>Wdrożenie AI według wielkości firmy</h3>
         <p>Im więcej działów i osób, tym więcej diagnozy, warsztatów i wsparcia. Każdy próg obejmuje szkolenie z AI Act z imiennymi potwierdzeniami udziału.</p>
       </div>
-      <div class="size-grid">
+      <p class="swipe" aria-hidden="true">przesuń w bok →</p>
+    <div class="size-grid">
         <div class="size"><span class="tag">mikro · do 9 osób</span><p class="amount">od 6 900 zł</p>
           <ul><li>rozmowa diagnostyczna (1 h)</li><li>1 dzień warsztatów dla całego zespołu</li><li>wzór polityki AI</li><li>14 dni pytań po szkoleniu</li></ul></div>
         <div class="size hl"><span class="tag">mała · 10–49 osób</span><p class="amount">od 14 900 zł</p>
@@ -504,6 +552,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <span class="path">/jak-pracuję</span>
       <h2>Od rozmowy do zmiany w codziennej pracy.</h2>
     </div>
+    <p class="swipe" aria-hidden="true">przesuń w bok →</p>
     <div class="steps">
       <div class="step"><span class="n">01 diagnoza</span><h3>Rozmowa</h3><p>Poznaję zespół, narzędzia i zadania, które zabierają najwięcej czasu.</p></div>
       <div class="step"><span class="n">02 program</span><h3>Plan szkolenia</h3><p>Układam program pod Wasze przykłady, licencje i poziom zespołu.</p></div>
@@ -571,6 +620,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <span class="path">/opinie</span>
       <h2>Co mówią uczestnicy.</h2>
     </div>
+    <p class="swipe" aria-hidden="true">przesuń w bok →</p>
     <div class="quotes">
       <figure class="q"><blockquote>[Opinia uczestnika: konkretny efekt, np. ile czasu oszczędza tygodniowo.]</blockquote><figcaption>[Imię Nazwisko] · [stanowisko], [firma]</figcaption></figure>
       <figure class="q"><blockquote>[Opinia uczestnika o tym, co zmieniło się w pracy zespołu po szkoleniu.]</blockquote><figcaption>[Imię Nazwisko] · [stanowisko], [firma]</figcaption></figure>
@@ -632,9 +682,9 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
     </form>
   </div>
 </section>
-<section class="s" id="prywatnosc">
+<section class="s s-tight" id="prywatnosc">
   <div class="wrap">
-    <div class="head"><span class="path">/prywatność</span><h2>Polityka prywatności.</h2></div>
+    <details class="priv"><summary><span class="path">/prywatność</span><span class="ph">Polityka prywatności</span></summary>
     <div class="legal">
       <p><b>Administrator danych.</b> Bartłomiej Zawierucha, [adres korespondencyjny], e-mail: <span class="js-email">kontakt@zawierucha.pl</span>.</p>
       <p><b>Jakie dane i po co.</b> Imię, nazwisko, e-mail, nazwa firmy i treść wiadomości z formularza kontaktowego przetwarzam, żeby odpowiedzieć na zapytanie i przygotować ofertę (art. 6 ust. 1 lit. b i f RODO). Adres e-mail z formularza ściągawki przetwarzam, żeby wysłać materiał i informacje o szkoleniach, na podstawie Twojej zgody (art. 6 ust. 1 lit. a RODO).</p>
@@ -645,7 +695,8 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <p class="pnote">Wzór do uzupełnienia. Przed publikacją warto, by sprawdziła go osoba znająca RODO.</p>
     </div>
   </div>
-</section>
+    </details>
+  </section>
 </main>
 
 <footer>
