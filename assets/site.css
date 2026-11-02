@@ -810,3 +810,4 @@ a.tl:hover{border-color:var(--cyan)}
 .sig{font-size:13px}
 .sig b{font-family:var(--sans);font-size:17px}
 @media (min-width:761px){.vortex .sig{display:none}}
+.size .amount-q{font-size:22px;line-height:1.3;color:var(--paper)}

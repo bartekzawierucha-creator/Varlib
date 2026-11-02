@@ -380,9 +380,9 @@
           <ul><li>rozmowa diagnostyczna (1 h)</li><li>1 dzień warsztatów dla całego zespołu</li><li>wzór polityki AI</li><li>14 dni pytań po szkoleniu</li></ul></div>
         <div class="size hl"><span class="tag">mała · 10–49 osób</span><p class="amount">od 14 900 zł</p>
           <ul><li>diagnoza z ankietą dla zespołu</li><li>3 warsztaty dla różnych działów</li><li>polityka AI dopasowana do firmy</li><li>30 dni wsparcia</li></ul></div>
-        <div class="size"><span class="tag">średnia · 50–249 osób</span><p class="amount">od 29 900 zł</p>
+        <div class="size"><span class="tag">średnia · 50–249 osób</span><p class="amount amount-q">wycena po rozmowie</p>
           <ul><li>diagnoza i mapa zastosowań AI</li><li>6 warsztatów według ról</li><li>szkolenie ambasadorów AI w działach</li><li>60 dni wsparcia</li></ul></div>
-        <div class="size"><span class="tag">duża · 250+ osób</span><p class="amount">od 49 900 zł</p>
+        <div class="size"><span class="tag">duża · 250+ osób</span><p class="amount amount-q">wycena po rozmowie</p>
           <ul><li>program wieloetapowy z harmonogramem</li><li>train-the-trainer dla wewnętrznych trenerów</li><li>raport z działań wspierających kompetencje AI</li><li>wsparcie do uzgodnienia</li></ul></div>
       </div>
     </div>
@@ -729,7 +729,7 @@
     tot.textContent = picked ? fmt(sum) : '0 zł';
     det.textContent = picked ? (groups + (groups === 1 ? ' grupa' : (groups < 5 ? ' grupy' : ' grup')) + ' · ' + String(Math.round(h*10)/10).replace('.',',') + ' h szkoleń na uczestnika') : 'wybierz co najmniej jedno szkolenie';
     hint.textContent = '';
-    if(n >= 50) hint.textContent = 'Przy ' + n + ' osobach bardziej opłaca się wdrożenie dla średniej firmy: od 29 900 zł.';
+    if(n >= 50) hint.textContent = 'Przy ' + n + ' osobach warto rozważyć wdrożenie dla całej firmy. Wycenię je po krótkiej rozmowie.';
     else if(n >= 10 && sum > 14900) hint.textContent = 'Wdrożenie dla małej firmy (od 14 900 zł) może wyjść korzystniej.';
   }
   boxes.forEach(function(b){ b.addEventListener('change', calc); }); range.addEventListener('input', calc); calc();
