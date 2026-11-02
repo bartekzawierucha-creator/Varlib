@@ -542,3 +542,11 @@ button:disabled{opacity:.6;cursor:wait}
 }
 .q legend{font-family:var(--sans);color:var(--paper)}
 .qo{font-family:var(--sans);color:var(--paper)}
+/* film bez ramki, autoodtwarzanie */
+.film{position:relative;margin:0 0 40px}
+.film video{border:0!important;border-radius:0;background:transparent;
+  -webkit-mask-image:radial-gradient(ellipse 92% 88% at 50% 50%,#000 72%,transparent 100%);mask-image:radial-gradient(ellipse 92% 88% at 50% 50%,#000 72%,transparent 100%)}
+.snd{position:absolute;right:14px;bottom:14px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(143,163,184,.35);background:rgba(11,17,30,.55);color:var(--mist);display:grid;place-items:center;cursor:pointer;opacity:.7;transition:opacity .2s,color .2s}
+.snd:hover,.snd:focus-visible{opacity:1;color:var(--cyan)}
+.snd .on{display:none}.snd[aria-pressed="true"] .on{display:inline}.snd[aria-pressed="true"] .off{display:none}
+@media (max-width:760px){.film{margin:0 -24px 28px}.snd{right:20px;bottom:10px}}
