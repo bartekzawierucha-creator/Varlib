@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bartekzawierucha-creator.github.io/Varlib/sitemap.xml
