@@ -11,7 +11,6 @@ Strona: https://bartekzawierucha-creator.github.io/Varlib/
 
 ## Do uzupełnienia w `index.html`
 - `EMAIL` i `WEB3FORMS_KEY` na górze skryptu formularzy
-- link do Cal.com (`[twoj-login]`)
 - miejsca w nawiasach `[ ]` i polityka prywatności
 
 ## Własna domena
