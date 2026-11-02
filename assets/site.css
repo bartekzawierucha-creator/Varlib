@@ -577,3 +577,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px}
 .totop:hover{color:var(--cyan)}
 @media (max-width:1000px){.fgrid{grid-template-columns:1fr 1fr 1fr}.fbrand{grid-column:1/-1}}
 @media (max-width:560px){.fgrid{grid-template-columns:1fr 1fr;gap:28px 20px}.fcontact{grid-column:1/-1}.fbottom{flex-direction:column;gap:10px;align-items:flex-start}}
+@media (min-width:761px){
+  .course.feat.half{grid-column:span 3}
+  .course.feat.half ul{columns:1}
+  .course.feat.half h3{font-size:32px}
+}
