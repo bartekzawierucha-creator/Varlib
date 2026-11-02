@@ -596,13 +596,13 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
         
         <fieldset>
           <legend>szkolenia</legend>
-          <label class="opt"><input type="checkbox" value="5400" data-max="12" checked> <span>01 Copilot w M365 <i>7 h</i></span></label>
-          <label class="opt"><input type="checkbox" value="2900" data-max="12"> <span>02 Prompt engineering <i>4 h</i></span></label>
-          <label class="opt"><input type="checkbox" value="6400" data-max="10"> <span>03 Automatyzacja <i>7 h</i></span></label>
-          <label class="opt"><input type="checkbox" value="2400" data-max="30"> <span>04 AI Act w praktyce <i>3 h</i></span></label>
-          <label class="opt"><input type="checkbox" value="2900" data-max="12"> <span>05 Claude w praktyce <i>4 h</i></span></label>
-          <label class="opt"><input type="checkbox" value="2900" data-max="12"> <span>06 ChatGPT w praktyce <i>4 h</i></span></label>
-          <label class="opt"><input type="checkbox" value="6900" data-max="10"> <span>07 Vibecoding <i>7 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="5400" data-max="12" data-h="7" checked> <span>01 Copilot w M365 <i>7 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2900" data-max="12" data-h="4"> <span>02 Prompt engineering <i>4 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="6400" data-max="10" data-h="7"> <span>03 Automatyzacja <i>7 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2400" data-max="30" data-h="3"> <span>04 AI Act w praktyce <i>3 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2900" data-max="12" data-h="4"> <span>05 Claude w praktyce <i>4 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="2900" data-max="12" data-h="4"> <span>06 ChatGPT w praktyce <i>4 h</i></span></label>
+          <label class="opt"><input type="checkbox" value="6900" data-max="10" data-h="7"> <span>07 Vibecoding <i>7 h</i></span></label>
         </fieldset>
         <div class="calc-people">
           <label for="c-people">liczba uczestników: <b id="c-people-v">12</b></label>
@@ -635,7 +635,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       </table>
     </div>
     </div>
-    <p class="pnote">Rozliczenie: umowa zlecenie, płatność przelewem po szkoleniu na podstawie rachunku. Każda osoba ponad limit grupy: 190 zł. Szkolenia stacjonarne poza moim miastem: doliczam koszt dojazdu. Wolisz fakturę VAT? Napisz, znajdziemy rozwiązanie.</p>
+    <p class="pnote">Rozliczenie: umowa zlecenie, płatność przelewem po szkoleniu na podstawie rachunku. Większe zespoły dzielę na kilka grup; każda grupa to osobny termin w cenie z cennika. Szkolenia stacjonarne poza moim miastem: doliczam koszt dojazdu. Wolisz fakturę VAT? Napisz, znajdziemy rozwiązanie.</p>
   </div>
   </div>
 </section>
@@ -739,7 +739,7 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
       <details><summary>Czy na vibecoding trzeba umieć programować?</summary><p>Nie. Wystarczy, że wiesz, jakie narzędzie chcesz mieć. Uczę, jak opisywać zadanie dla AI, jak sprawdzać, czy kod działa, i kiedy poprosić o pomoc dział IT.</p></details>
       <details><summary>Czy dostosowujesz program do firmy?</summary><p>Tak. Przed szkoleniem rozmawiamy o zespole, narzędziach i licencjach, a ćwiczenia układam na Waszych przykładach.</p></details>
       <details><summary>Czy uczestnicy potrzebują licencji Copilota?</summary><p>Do modułu o Copilocie w Microsoft 365 tak. Pozostałe moduły zrealizujesz na darmowych wersjach narzędzi albo na licencjach firmowych; ustalamy to na etapie diagnozy.</p></details>
-      <details><summary>Ile trwa szkolenie i ile kosztuje?</summary><p>Od 3-godzinnego warsztatu (od 2 400 zł brutto za grupę) do programu wdrożeniowego dla całej firmy (od 14 900 zł brutto). Szczegóły w cenniku powyżej; dokładną wycenę podaję po krótkiej rozmowie.</p></details>
+      <details><summary>Ile trwa szkolenie i ile kosztuje?</summary><p>Od 3-godzinnego warsztatu (od 2 400 zł brutto za grupę) do wdrożenia AI w całej firmie (od 6 900 zł brutto, zależnie od wielkości firmy). Szczegóły w cenniku powyżej; dokładną wycenę podaję po krótkiej rozmowie.</p></details>
       <details><summary>Na jakiej podstawie się rozliczasz?</summary><p>Na podstawie umowy zlecenia zawartej z firmą. Kwoty w cenniku to wynagrodzenie brutto z umowy, bez VAT. Przy podpisaniu umowy składam oświadczenie o innych tytułach do ubezpieczeń, potrzebne Waszej kadrze do rozliczenia składek.</p></details>
     </div>
   </div>
@@ -907,11 +907,10 @@ footer p{font-family:var(--mono);font-size:13px;color:var(--mist)}
   var boxes = document.querySelectorAll('#kalkulator input[type=checkbox]'), range = document.getElementById('c-people');
   var pv = document.getElementById('c-people-v'), tot = document.getElementById('c-total'), det = document.getElementById('c-detail'), hint = document.getElementById('c-hint');
   var fmt = function(n){ return n.toLocaleString('pl-PL').replace(/\u00a0/g,' ') + ' zł'; };
-  var hours = {5400:7,2900:4,6400:7,2400:3,6900:7};
-  function calc(){
+    function calc(){
     var n = +range.value, sum = 0, h = 0, groups = 0, picked = 0;
     pv.textContent = n;
-    boxes.forEach(function(b){ if(!b.checked) return; picked++; var g = Math.ceil(n / +b.dataset.max); groups += g; sum += g * +b.value; h += hours[b.value]; });
+    boxes.forEach(function(b){ if(!b.checked) return; picked++; var g = Math.ceil(n / +b.dataset.max); groups += g; sum += g * +b.value; h += +b.dataset.h; });
     tot.textContent = picked ? fmt(sum) : '0 zł';
     det.textContent = picked ? (groups + (groups === 1 ? ' grupa' : (groups < 5 ? ' grupy' : ' grup')) + ' · ' + h + ' h szkoleń na uczestnika') : 'wybierz co najmniej jedno szkolenie';
     hint.textContent = '';
