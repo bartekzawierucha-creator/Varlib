@@ -41,7 +41,69 @@
     count: function (o) { o = o || {}; send(String(o.path || window.location.pathname), o.title || document.title, !!o.event); }
   };
 
+  document.documentElement.classList.add('js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 4. Zakładki szkoleń (AI / Microsoft 365 / Na start), WAI-ARIA.
+  function courseTabs() {
+    var list = document.querySelector('.ctabs');
+    if (!list) return;
+    var tabs = [].slice.call(list.querySelectorAll('[role=tab]'));
+    function sel(t, focus) {
+      tabs.forEach(function (x) {
+        var on = x === t, p = document.getElementById(x.getAttribute('aria-controls'));
+        x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; if (p) p.hidden = !on;
+      });
+      if (focus) t.focus();
+    }
+    function byPanel(id) { for (var i = 0; i < tabs.length; i++) if (tabs[i].getAttribute('aria-controls') === id) return tabs[i]; return null; }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { sel(t); });
+      t.addEventListener('keydown', function (e) {
+        var n = null, k = e.key;
+        if (k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+        if (k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (k === 'Home') n = tabs[0]; if (k === 'End') n = tabs[tabs.length - 1];
+        if (n) { e.preventDefault(); sel(n, true); }
+      });
+    });
+    sel(tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0]);
+    // linki do #m365 (menu, podstrony) otwierają właściwą zakładkę
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href$="#m365"],a[href$="#cp-start"],a[href$="#cp-ai"]');
+      if (!a) return; var t = byPanel(a.getAttribute('href').split('#')[1]); if (t) sel(t);
+    }, true);
+    var h = window.location.hash.slice(1), t0 = h && byPanel(h);
+    if (t0) { sel(t0); setTimeout(function () { var s = document.getElementById('szkolenia'); if (s) s.scrollIntoView(); }, 0); }
+  }
+
+  // 5. Łagodne pojawianie się sekcji i odliczanie liczb w hero.
+  function reveal() {
+    var els = document.querySelectorAll('section.s .head, .course, .step, .sl, .acard, .pak > div, .tier, .q');
+    if (reduce || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    [].forEach.call(els, function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) return; // już widoczne: bez animacji
+      el.classList.add('rv'); io.observe(el);
+    });
+    setTimeout(function () { [].forEach.call(document.querySelectorAll('.rv:not(.in)'), function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); }); }, 2500);
+  }
+  function countUp() {
+    if (reduce) return;
+    [].forEach.call(document.querySelectorAll('.proof b'), function (b) {
+      var m = b.textContent.match(/^(\d+)(.*)$/); if (!m) return;
+      var end = +m[1], rest = m[2], t0 = null, dur = 1200;
+      function step(ts) { if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
+        b.textContent = v + rest; if (k < 1) requestAnimationFrame(step); }
+      b.textContent = '0' + rest; requestAnimationFrame(step);
+    });
+  }
+
   function boot() {
+    courseTabs(); reveal(); countUp();
     send(window.location.pathname, document.title, false);
     document.addEventListener('click', function (e) {
       var el = e.target && e.target.closest ? e.target.closest('[data-goatcounter-click]') : null;
