@@ -2,6 +2,9 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-BVrmGia5CbVwNRmYnfH7aouTzS0ZHYysdGvD2sbw+Wc='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://varlib.goatcounter.com; font-src 'self'; connect-src 'self' https://api.web3forms.com https://varlib.goatcounter.com; media-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="../assets/js/site.js?v=1"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kalkulator oszczędności z AI dla firm | Bartłomiej Zawierucha</title>
 <meta name="description" content="Policz, ile godzin i złotówek miesięcznie oszczędzi Twój zespół dzięki AI i po ilu dniach zwróci się szkolenie. Darmowy kalkulator, bez zapisywania danych.">
@@ -12,7 +15,6 @@
 <meta name="theme-color" content="#0B111E">
 <link rel="stylesheet" href="../assets/site.css?v=34">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Kalkulator oszczędności z AI", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "pl", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PLN"}, "author": {"@type": "Person", "name": "Bartłomiej Zawierucha"}}</script>
-<script data-goatcounter="https://varlib.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script type="application/ld+json" data-ld="crumbs">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://bartekzawierucha-creator.github.io/Varlib/"}, {"@type": "ListItem", "position": 2, "name": "Kalkulator oszczędności", "item": "https://bartekzawierucha-creator.github.io/Varlib/demo/kalkulator-oszczednosci.html"}]}</script>
 </head>
 <body class="sub">
@@ -36,7 +38,7 @@
 </div></section>
 <section class="s s-tight"><div class="wrap">
 <div class="roi2">
-  <form class="dcard dctl" onsubmit="return false" aria-label="Założenia">
+  <form class="dcard dctl" data-nosubmit aria-label="Założenia">
     <fieldset class="dsc"><legend>Scenariusz</legend>
       <button type="button" data-m="15">ostrożny</button><button type="button" data-m="30">realny</button><button type="button" data-m="60">ambitny</button>
     </fieldset>

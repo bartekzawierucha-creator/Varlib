@@ -2,6 +2,9 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Syrvt5HpGSQTc2/noQrLFNbW3b0sz6FSAOJFX7EdjJE=' 'sha256-GM+TZxf0PMGHJJvrle6T1vtw+r6GTcaD9OnCCsp+Ca0=' 'sha256-6SQYKc/J78XqtQv/kGAk4aSuFTBbDhftM3nfkecaouY=' 'sha256-oqQfTHc0sMKOEJfLesrjBM7ePPyt/8EDKxqZc9/ZTqU=' 'sha256-zxMduKQrfu3FDDyCwz7/QQtuaSHCK0Sr1hSkgAQq/As='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://varlib.goatcounter.com; font-src 'self'; connect-src 'self' https://api.web3forms.com https://varlib.goatcounter.com; media-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="assets/js/site.js?v=1"></script>
 <meta name="google-site-verification" content="VRD2Oq5D-3wTA-7uQ3cDe3z6_jPHomQtl2etVv_l1Uo">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Szkolenia AI dla firm: Claude i ChatGPT | Bartłomiej Zawierucha</title>
@@ -21,7 +24,6 @@
 <link rel="preload" href="assets/fonts/plex-400-pl.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/jbm-400-pl.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css?v=34">
-<script data-goatcounter="https://varlib.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <a class="skip" href="#start">Przejdź do treści</a>
@@ -299,7 +301,7 @@
       <p class="intro">8 pytań, 2 minuty. Wynik i rekomendację szkolenia zobaczysz od razu, bez podawania e-maila.</p>
     </div>
     <div class="quiz">
-      <form id="quiz" class="quiz-q" onsubmit="return false">
+      <form id="quiz" class="quiz-q" data-nosubmit>
         <div class="qbar" aria-hidden="true"><span id="qprog"></span></div>
         <div class="qnav"><p class="qcount" id="qcount" aria-live="polite">pytanie 1 / 8</p><button type="button" class="qback" id="qback" hidden>← wstecz</button></div>
 <fieldset class="q on" data-q="1"><legend><span>01</span> Ile osób w zespole korzysta z AI przynajmniej raz w tygodniu?</legend><div class="qopts"><label class="qo"><input type="radio" name="q1" value="0"> <span>prawie nikt</span></label><label class="qo"><input type="radio" name="q1" value="1"> <span>część zespołu</span></label><label class="qo"><input type="radio" name="q1" value="2"> <span>większość</span></label></div></fieldset>
